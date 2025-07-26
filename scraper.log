@@ -1,0 +1,114 @@
+2025-04-16 19:06:15,079 - INFO - ====== WebDriver manager ======
+2025-04-16 19:06:15,299 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-16 19:06:15,682 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-16 19:06:15,803 - INFO - Driver [/home/dan/.wdm/drivers/chromedriver/linux64/135.0.7049.95/chromedriver-linux64/chromedriver] found in cache
+2025-04-16 19:06:19,018 - INFO - Loaded bills page
+2025-04-16 19:06:39,541 - ERROR - Scraping failed: Message: 
+Stacktrace:
+#0 0x55c7fb698cea <unknown>
+#1 0x55c7fb1495f0 <unknown>
+#2 0x55c7fb19aa33 <unknown>
+#3 0x55c7fb19ac21 <unknown>
+#4 0x55c7fb1e9274 <unknown>
+#5 0x55c7fb1c068d <unknown>
+#6 0x55c7fb1e6660 <unknown>
+#7 0x55c7fb1c0433 <unknown>
+#8 0x55c7fb18cea3 <unknown>
+#9 0x55c7fb18db01 <unknown>
+#10 0x55c7fb65db3b <unknown>
+#11 0x55c7fb661a21 <unknown>
+#12 0x55c7fb644c32 <unknown>
+#13 0x55c7fb662594 <unknown>
+#14 0x55c7fb628eef <unknown>
+#15 0x55c7fb686d98 <unknown>
+#16 0x55c7fb686f76 <unknown>
+#17 0x55c7fb697b36 <unknown>
+#18 0x7ff5630f0609 start_thread
+Traceback (most recent call last):
+  File "scraperdeepseek1.py", line 95, in scrape_bills
+    WebDriverWait(driver, 20).until(
+  File "/home/dan/.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 105, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x55c7fb698cea <unknown>
+#1 0x55c7fb1495f0 <unknown>
+#2 0x55c7fb19aa33 <unknown>
+#3 0x55c7fb19ac21 <unknown>
+#4 0x55c7fb1e9274 <unknown>
+#5 0x55c7fb1c068d <unknown>
+#6 0x55c7fb1e6660 <unknown>
+#7 0x55c7fb1c0433 <unknown>
+#8 0x55c7fb18cea3 <unknown>
+#9 0x55c7fb18db01 <unknown>
+#10 0x55c7fb65db3b <unknown>
+#11 0x55c7fb661a21 <unknown>
+#12 0x55c7fb644c32 <unknown>
+#13 0x55c7fb662594 <unknown>
+#14 0x55c7fb628eef <unknown>
+#15 0x55c7fb686d98 <unknown>
+#16 0x55c7fb686f76 <unknown>
+#17 0x55c7fb697b36 <unknown>
+#18 0x7ff5630f0609 start_thread
+
+2025-04-16 19:06:39,642 - INFO - Scraping completed in 24.56 seconds
+2025-04-17 13:42:25,477 - INFO - ====== WebDriver manager ======
+2025-04-17 13:42:25,699 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-17 13:42:25,840 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-17 13:42:25,949 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-17 13:42:26,279 - INFO - WebDriver version 135.0.7049.95 selected
+2025-04-17 13:42:26,292 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.95/linux64/chromedriver-linux64.zip
+2025-04-17 13:42:26,292 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.95/linux64/chromedriver-linux64.zip
+2025-04-17 13:42:26,433 - INFO - Driver downloading response is 200
+2025-04-17 13:42:28,496 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-17 13:42:29,106 - INFO - Driver has been saved in cache [/home/dan/.wdm/drivers/chromedriver/linux64/135.0.7049.95]
+2025-04-17 13:42:33,541 - INFO - Loaded bills page
+2025-04-17 13:42:53,672 - ERROR - Scraping failed: Message: 
+Stacktrace:
+#0 0x55daf855dcea <unknown>
+#1 0x55daf800e5f0 <unknown>
+#2 0x55daf805fa33 <unknown>
+#3 0x55daf805fc21 <unknown>
+#4 0x55daf80ae274 <unknown>
+#5 0x55daf808568d <unknown>
+#6 0x55daf80ab660 <unknown>
+#7 0x55daf8085433 <unknown>
+#8 0x55daf8051ea3 <unknown>
+#9 0x55daf8052b01 <unknown>
+#10 0x55daf8522b3b <unknown>
+#11 0x55daf8526a21 <unknown>
+#12 0x55daf8509c32 <unknown>
+#13 0x55daf8527594 <unknown>
+#14 0x55daf84edeef <unknown>
+#15 0x55daf854bd98 <unknown>
+#16 0x55daf854bf76 <unknown>
+#17 0x55daf855cb36 <unknown>
+#18 0x7f1ab13ae609 start_thread
+Traceback (most recent call last):
+  File "scraperdeepseek1.py", line 95, in scrape_bills
+    WebDriverWait(driver, 20).until(
+  File "/home/dan/.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 105, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x55daf855dcea <unknown>
+#1 0x55daf800e5f0 <unknown>
+#2 0x55daf805fa33 <unknown>
+#3 0x55daf805fc21 <unknown>
+#4 0x55daf80ae274 <unknown>
+#5 0x55daf808568d <unknown>
+#6 0x55daf80ab660 <unknown>
+#7 0x55daf8085433 <unknown>
+#8 0x55daf8051ea3 <unknown>
+#9 0x55daf8052b01 <unknown>
+#10 0x55daf8522b3b <unknown>
+#11 0x55daf8526a21 <unknown>
+#12 0x55daf8509c32 <unknown>
+#13 0x55daf8527594 <unknown>
+#14 0x55daf84edeef <unknown>
+#15 0x55daf854bd98 <unknown>
+#16 0x55daf854bf76 <unknown>
+#17 0x55daf855cb36 <unknown>
+#18 0x7f1ab13ae609 start_thread
+
+2025-04-17 13:42:53,781 - INFO - Scraping completed in 28.30 seconds
