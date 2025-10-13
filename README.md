@@ -62,7 +62,6 @@ text
 
 ### Quick Start
 
-```bash
 git clone https://github.com/deese-loeven/senatai.git
 cd senatai
 python3 -m venv venv
@@ -127,20 +126,27 @@ Policaps are the platform's democratic currency:
 Earning: Answer surveys with diminishing returns to prevent gaming- the first ten answers each day earn 1 policap each, answers 11-100 diminish towards .01 policap per answer, answers 101+ earn .01 policap/answer. 
 
 Spending: Create auditable votes on legislation, on a distributed ledger like bitcoin or monero. senatairs can spend policaps on bills within a +/- 2 limit. 
+
 spend 1  on + policap to agree,
+
 spend 2  on + policaps to agree with emphasis
+
 spend 1 on + and 1 on - to signal the bill is unclear or you can't decide.
+
 spend 1 on - to disagree, (indicate you'd actually vote opposite the vote prediction)
+
 spend 2 on - to disagree with emphasis
 
-Equality: Caps ensure equal influence regardless of wealth- policaps are not to be bought or sold for any purpose. they can be spent or sent one time per policap. senatairs may send policaps to experts who give qualified opinions on complex topics like medical regulations. senatairs can choose to recieve policaps as an expert voter by sacrificing anonymity and publishing persuasive arguments and studies that support their position and try to garner support from the community on the strenth of their evidence and communication and outcomes. 
+Equality: Caps ensure equal influence regardless of wealth- policaps are not to be bought or sold for any purpose. they can be spent and/or sent one time per policap. senatairs may send policaps to experts who give qualified opinions on complex topics like medical regulations. senatairs can choose to recieve policaps as an expert voter by sacrificing anonymity and publishing persuasive arguments and studies that support their position and try to garner support from the community on the strength of their evidence and communication and outcomes. 
 "expert voters" who have published their credentials and arguments for their position will be allowed to spend all the policaps that the community has sent them as a symbol of trust on their stated positions within their domain of expertise. these donated policaps will not be spent anonymously. 
+
 2.2 Modular Question Generation
-Bias Management: Multiple question frames cross-reference to reveal true preferences
+
+Bias Management: Multiple question frames cross-reference to reveal true preferences. modular law gatherers, keyword extractors, question makers, and vote predictors allow us to employ a multiplicity of methods and sources. 
 
 Legislation-Triggered: New bills automatically generate relevant surveys
 
-Topic Exploration: Broad concerns map to specific legislation
+Topic Exploration: Broad concerns map to specific legislation, and senatair profiles identify interests, working knowledge, and experiences that allow us to survey topics that a person has some familiarity with, and branch out from there to other topics that might affect them, so that we have a more complete info base with which to predict votes. 
 
 2.3 Terminology Standardization
 Senatairs: Participants (not "users")
