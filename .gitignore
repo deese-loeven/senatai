@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+senatai_env/
+
+# Database files
+*.db
+*.sqlite
+*.db-journal
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+scraper.log
+
+# Temporary files
+*.sql
+fpaste
+_billtext
+
+# Backups
+backups/
+*_v1
+*_v2
+*_v3
+*_v4
+*_v5
+*_v6
+*_v7
+*_v8
+*_v9
+*_v10
