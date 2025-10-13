@@ -1,0 +1,8 @@
+[0;1;32m●[0m postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (exited)[0m since Thu 2025-10-09 13:13:41 CDT; 3h 12min ago
+    Process: 40097 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
+   Main PID: 40097 (code=exited, status=0/SUCCESS)
+
+Oct 09 13:13:41 dan-Lenovo systemd[1]: Starting PostgreSQL RDBMS...
+Oct 09 13:13:41 dan-Lenovo systemd[1]: Finished PostgreSQL RDBMS.
