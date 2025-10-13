@@ -20,15 +20,18 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual environments
-venv/
-env/
-senatai_env/
-
-# Database files
+# Database
 *.db
 *.sqlite
-*.db-journal
+*.sqlite3
+*.sqbpro
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
 
 # IDE
 .vscode/
@@ -36,28 +39,21 @@ senatai_env/
 *.swp
 *.swo
 
+# Logs
+*.log
+logs/
+
 # OS
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
-scraper.log
-
 # Temporary files
-*.sql
-fpaste
-_billtext
+*.tmp
+*.temp
 
-# Backups
-backups/
-*_v1
-*_v2
-*_v3
-*_v4
-*_v5
-*_v6
-*_v7
-*_v8
-*_v9
-*_v10
+# Large files
+geckodriver*
+*.tar.gz
+
+# Version mismatches
+*/=*
