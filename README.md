@@ -15,16 +15,27 @@ Senatai transforms everyday frustrations into actionable political insights. Whe
 ## 🏗️ Industrial Marina Architecture
 
 Think of Senatai as an industrial marina for democratic data:
+
 🚛 Sign up & download app → Get your license and truck
+
 🔧 Choose your modules → Pick equipment for your truck
+
 📦 Answer surveys & verify predictions → Load cargo (your political opinions)
+
 💰 Earn Policaps → Get paid for hauling
+
 🏭 Senatai aggregates & anonymizes → Cargo goes to stevedore yard
+
 🚢 Sell to polling clients → Big ships (clients who buy from gallup and other pollsters) buy containers
+
 $$ data revenue goes 20% to operations, 80% to a trust fund that gives you dividends
+
 senatai trust fund invests in government bonds that support projects that senatairs support
+
 also media assets to  partially own the info ecosystem and demand better reporting
+
 also an army of lawyers on retainer to protect senatairs through class action lawsuits 
+
 (like hedge funds that own shipyards and pressure governments with bond markets and media and lawsuits) 
 
 ## 🎯 What We've Built So Far
