@@ -1,0 +1,15 @@
+<html>
+<body bgcolor="#CCCCCC">
+<center>
+<h1>Welcome, {{ username }}!</h1>
+<img src="https://via.placeholder.com/50x50?text=💾" alt="disk">
+<p>Your Tokens: {{ tokens }}</p>
+<form method="POST" action="/transfer">
+  Send to: <input type="text" name="to_username"><br>
+  Amount: <input type="number" name="amount" step="0.1"><br>
+  <input type="submit" value="Transfer" style="background-color:#66FF66;border-radius:10px;">
+</form>
+<a href="/">Logout</a>
+</center>
+</body>
+</html>

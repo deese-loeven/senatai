@@ -1,0 +1,566 @@
+
+Forward
+I’ve long been fascinated with the structures of government, and their development over the ages. I’ve also long been frustrated with the structures of government, and their dysfunctions over the minutiae. Growing up, I’d devour history books under a flickering kitchen bulb- snippets of Churchill and Marcus Aurelius, myths of kings and councils in far off lands, a few pages of j.s. Mill, some Malthus, some Voltaire, Camus and Hamilton and Mao and Solzhenitsyn.  scraps of Diogenes and Solomon and Machiavelli filtered into my brain. I read victor frankl and franz Kafka and Nicola Tesla. I read Tolkien and Neal Stephenson. 4chan and the Atlantic. BBC and aljazeera and the Joe Rogan experience. Stories of George Washington and Thomas Jefferson and Martin Luther king and Susan B Anthony rang through my grade schooling in Minnesota —marveling at how humans built systems to wrangle power. But then I’d flip on the news, or trudge home from a 10-hour shift swinging a hammer, and see the same systems choke on petty squabbles: a tax tweak debated for months, a housing bill gutted by some suit’s ego. I’m no scholar or politician, just a laborer with calluses and a cheap laptop—but that disconnect gnawed at me. How did we go from grand councils to this?
+
+It’s not just the dysfunction. It’s the creeping feeling we’re losing grip. I’d watch tech giants and governments tout “smart” systems—AI predicting our votes, cameras tracking our steps—and wonder: who’s steering this? Not me. Not the guy next to me on the site, pouring concrete. We’re data points now, not citizens. Pollsters call it progress, feeding their opaque algorithms our opinions, then selling them to the highest bidder. Last year, I took one of those phone surveys—five minutes on healthcare, a gift card dangled as bait.. They never told me how my answers shaped their “insights,” or who pocketed the cash. I felt like a cow milked in the dark.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+That’s when a bunch of fragmented ideas I’d been spinning around in my head for years coalesced into Senatai. I’m no coder—barely knew HTML from a hole in the ground—but I’d been teaching myself late nights, fueled by coffee and spite. What if we flipped it? An app where you don’t just answer questions, but see the laws they’re tied to—real bills, not hypotheticals. Where AI guesses your vote, but you can check its math, override it, even profit from the data you give. A co-op, not a corporation. Senate plus AI plus I—a system with us in it, not just under it. I jotted  the name into a logo maker , half-asleep, and it stuck.
+
+This isn’t about utopia. I’ve shoveled enough dirt to know perfection’s a myth. I’m not trying to build an escape hatch from the human condition, I’m trying to build a fancy survey app with a trust fund in order to improve representative democracy. Democracy’s messy—it’s supposed to be. But it’s not supposed to be a black box, or a rich man’s game. Senatai’s my swing at that, a laborer’s hunch that we can do better. I don’t have all the answers—hell, I’m still figuring out the questions. But I’ve got a keyboard, a stack of library books, and a fire to build something that gives us back a piece of what’s slipping away. This is how it starts.
+
+
+I look around and see a society stuck in a bad feedback loop, rotting under old constraints and new demands. We’re in a brand new microplastic radioactive quantum digital internationally imploding future now. We can cling to old brick and mortar institutions with flesh and blood hearts and minds plodding along on paper and procedure. It’s good. It’s valuable. It got us here and it’ll have to get us a little further one way or another. Almost every government employee has a duty to care for the forest, not any of us individual trees. But sooner or later some government is going to integrate ai systems into every part of it, and the citizens will barely know it’s happening until they get served a parking ticket, a speeding violation, and a tax audit initiation notice served by automated systems. Oh wait, is that already happening? They’re flagging communications too? Hmm. We need a way to leverage these predictive systems to enhance our sovereignty, not just strip it away. 
+.
+
+
+I’m not some conspiracy nut screaming about skynet. I’ve seen enough dirt under my nails to know the world’s messier than that. But I’ve also seen enough to know we’re at a fork: let these predictive systems run us, or figure out how to run them. Not to dodge tickets—though that’d be nice—but to claw back some sovereignty. Right now, AI’s a black box owned by suits and spooks, guessing what we think and selling it off. Citizens? We’re just the fuel. That healthcare survey I took, the one with the gift card carrot—it didn’t ask if I wanted my answers fed to a machine, or who’d profit. It just milked me and moved on.
+That’s where Senatai comes in—not as a savior, but as a wrench in the gears. I started hacking at it on that cheap laptop, fueled by spite and too much coffee, because I’m tired of being a data cow. What if we built something where those predictive systems don’t just serve the state or the shareholders, but us? An app that ties your voice to real laws—say, a bill on microplastics clogging our rivers—lets AI (any predictive systems from simple equations to machine learning models) take a stab at your vote, then hands you the reins to check it, tweak it, own it. A co-op where the data’s ours, not theirs, and the profits come back to the people who made it. Senate plus AI plus I. It’s not about outrunning the future—it’s about steering it, even just a little.
+
+I don’t kid myself. This isn’t a fix for everything. Democracy’s a slog, and humans are stubborn as hell—I am too. But if we’re stuck in this loop, rotting under old rules and new tech, I’d rather swing a hammer at it than watch it crush us. Senatai’s my swing. One laborer’s bet we can do more than plod along.
+
+I think I have an idea that might actually have legs, and everyone I talk to seems to like the idea of it, even if they don’t fully grasp it. I’m writing this to help me grasp it. 
+
+
+If I don’t share this idea and attempt to make it work, I’ll be an apathetic coward who passively allows my children to be devoured by faceless monsters made of our collective hubris. If I do share this I’ll face fierce opposition from people who don’t like sharing power, and the powerless folks are so suspicious of ai that I might catch a bullet for putting ai and government in the same sentence. I’ve been at Chapel Perilous since I assembled these ideas this spring. If I speak contemporaneously I’ll come off as a squirrel because I’m too close to the idea and too proud of it and hopeful and anxious about the danger and just sheer amount of work to make it work. Our Canadian sovereignty is under threat from all angles and all our old allies are weak or preoccupied or in catch-22 type deals, so we can only rely on ourselves. 
+
+
+Our political discourse currently is mostly about who’s shouting loudest and what team are they on? Some rhetorically gifted bastard takes the stage and dithers around in effectually for a few years and once they figure out how to put the square in the square hole they get booted out for the next guy who bilked money and shoveled it into campaign ads. Very little discussion about issues actually matters.i intend to incentivize people to think about actual individual laws, using financial and token rewards.
+
+ Monkey brain like when number go up. 
+We taught rocks how to think and dick shaped shiny tubes how to fly because it makes numbers go up. We might be able to communicate a little better if we can make two numbers go up at the same time! I know it’s a lofty and contentious goal, improving representation in representative governance, but we might be able to make something happen if we yoke it to a profit motive for each and every participant. 
+
+All these elites keep coming up with solutions in search of a problem, only they absolutely refuse to acknowledge at least one elephantine gaping problem- the widening power imbalance between those who have lots and those who gotta work in the morning. Blockchains have long been correctly critiqued as having no intrinsic value and no unique use case. Political capital tokens all have no intrinsic value but the auditable and immutable nature of blockchains is a great asset for a voting record. We might not actually need a real blockchain, just a decentralized audit key generator and spend record. They’re made of opinions, no need to cost money. They’re spent to indicate your real vote on real bills, not to buy crackerjacks and beers. 
+
+
+
+Artificial intelligence is almost as scary and inevitable as natural stupidity. Algorithmic vote prediction has been writing our laws since pollsters figured out algebra. We don’t like these ideas as they seem new and untested and cold and unfeeling, and they make mistakes that are utterly untethered from common sense or intuition. But humans are black boxes too- nobody knows every chemical interchange and electrical impulse that occurs in Bernie sanders’s head when he once again asks for contributions to fight the oligarchs, but we give him five bucks because we can see his voting record and decide if he walks what he talks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I’m a laborer, I know that no one’s gonna start a constitutional convention because I started scribbling and hyperventilating about some half cocked buzzword hippy flip trip notes. But a few people might try a free app and read ten paragraphs. So I decided to build a website. 
+You sign in, agree to some legal stuff about your data and how you choose to disclose it and sell it, then you start answering survey questions. First some general stuff about you, then the questions that we really want answered that are built from the laws we live by. You can look at different vote predictor systems and choose some you like. Take them apart if you wanna learn how, see how they work. See the evidence they take from your survey answers to inform specific predictions. We will endeavour to help folks understand, anyone who cares to learn. More important than their guts is their voting record. You can see it, and spend policaps to affirm or override that prediction on that particular law. You can look at the sum total of all the predictions and all the policaps on each bill. We’ll find lots of interesting ways to look at this data, and you’ll profit from your opinions at the core of it all. 
+
+I want to create a record of real people’s votes on real legislation, because a long time ago we decided it takes too long and we’re gonna leave it to the dweebs in debate club. Rich folks and foreign interests have realized that dweebs take bribes, and not just money. The more scandalous parties you invite Them to the more leverage they get, cause now they’ve got carrots and sticks.apparently I’m somehow the first to think about the fact that math equations don’t have bank accounts, and nobody releases sex tapes of politicians getting fucked by statistical analytics. What if we could speed it up with the wonders of modern technology, and  the best error correction I and you can think of to deal with the wonders of modern technologies. 
+
+Picture this: You answer ten questions about actual bills sitting in Parliament right now. For each answer, you earn a "policap" token—not some crypto get-rich-quick scheme, but a record of your voice on that specific law. The  vote predictor modules take your answers and starts making predictions: "Based on your previous answers, you'd probably vote YES on this housing bill." But here's the kicker—you get to check its work. You see why it thinks you'd vote that way, and if it's wrong, you override it. Two policaps on "NO" means "you're dead wrong, and I really care about this."
+
+Meanwhile, your neighbor who works three jobs and has no time for political rabbit holes can answer just one question a day on her phone, or send in a paper calendar we mail her at year's end. Her voice counts just as much as the retired policy wonk with hours to kill. We cap daily earnings specifically to prevent the loudest voices from drowning out the rest. Instead of only voting once or twice a decade, you can make your voice count any time you feel like it. If this sort of technology had been around when great thinkers were thinking I’ve no doubt they would have thought about ways to improve the lives of their children. 
+
+And when political parties, think tanks, or academic researchers want to know what real citizens think about actual laws? They pay for that data—anonymized, aggregated, but real. But instead of some corporation pocketing that cash, 80% goes into a trust fund you co-own. At year's end, you get dividends based on your participation. One dollar in, a voice in the system, and a share of what your opinions are actually worth on the market.
+
+That's the difference. Your data isn't being milked by some faceless corporation—it's being managed by a co-op you own, on systems you can audit, with profits returning to your pocket. Not because I'm some starry-eyed utopian, but because I'm tired of watching democracy get hollowed out by people who claim to speak for us while never actually asking what we think.  
+CHAPTER ONE 
+Me - my childhood, and my adulthood 
+
+I was born in Saskatoon, and my family moved to Minnesota when I was very young. My dad was a preacher in the covenant church. My mother is a piano teacher.
+
+
+
+
+
+
+
+
+
+
+ My blood is Swedish, English, Dutch and German Mennonite. The Vikings took what they wanted without asking. I’m taking my power back. 
+
+
+
+The English drafted the Magna Carta, devolving power away from the king. I’m running further in that direction. 
+
+The Dutch developed a thriving market economy, and I intend to bring that to polling. And the Mennonites did things peacefully and voluntarily, which is central to our mission. 
+
+
+   My heritage is only as important as anyone else’s, but I’m not gonna reach into other people’s ancestry to tell you about my ideas. My dad’s a preacher- a mundane mouthpiece for divine authority, if you buy into that kind of thing. My mom’s a piano teacher, but music has no president or congress, either you’re good at it or not. Nobody goes around striking out old scales and inserting new melodies by fiat. 
+
+
+
+
+  I went to school in a small town that had more cows and corn than people. Small town life was for me like it was for many people- school assemblies and sports events, gossip and cliques and the simple way that everyone knew everyone in the town for generations. My family was playing the part of the foreign outsiders, telling locals how to live their lives; mixed reactions throughout the community. We’re white and Canadian, the ”most polite foreigners” we were called once at a fish fry, so we were welcomed to a much greater degree than I imagine a different sort of family might have been. I didn’t learn to think thoughts like this until after 2019 like most folks of my ilk.
+
+
+
+
+In history classes the virtues of the founding fathers were extolled year after year. Grade one we started with the apocrypha about lying and chopping down trees by some very important fella when he was a kid. As we grew up we read a few paragraphs of Jefferson and Hamilton. We were assigned books to read full of Andrew Jackson and Abraham Lincoln. I paid attention to these histories because I felt like I was learning something that actually mattered. Wars had been fought over these people and the things they wrote. my subconscious picked up on the importance of these ideas, even though my single digit age experience was just feeling weird, because I missed a bunch of social cues, because I was reading books instead of people’s faces. I was fascinated then, and I’m still fascinated now. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The cold winters and muggy summers were punctuated by long cross continent road trips to visit my grandmothers and cousins, back in our mother country, Canada. My mum’s parents were the children of immigrants from Sweden, who braved the barren cold and shot the bison dead, and set up little farms on mileages, not acreages.( says I, the guy who doesn’t know much about land measurement terms.) 
+The houses and buildings they built still stood and were useful when I was young. Their children and grandchildren and great grandchildren gathered every other year for family reunions at the old farmsteads in yorkton. My favourite memory of my grandfather was watching him work on an ancient tractor, the first machine to break this land. He was working in a great big shop in a barn, it had the only concrete floor for three miles around as far as I knew. There were cabinets and shelves and pegboard racks full of tools and books and manuals and notebooks meticulously cleaned and labelled and organized. 
+
+One of my only clear memories of him speaking directly to me was when he gave me a book on speed reading when I was seven or so. I had asked him how he got so smart, and he said it was all about reading more than he could understand. I still try to do that. There was a plaque above it all in the centre of the whitewashed wall. It was made of wood taken from the trees on that property, hand sawn and crafted into a perfect oval, and it had an enormous golden and neon blue dragonfly mounted to it, perfectly framed in the white electric light.
+ That dragonfly was one of the ancestors of the dragonflies in the same marsh I played in behind the quansit. The dancing shadows of the bugs flying around the bright halogen buzz are like a film grain in my memory of grandpa fixing that tractor that had shaped the prairies. 
+
+One morning at the reunion work week, I must’ve been eleven or twelve, my grandma caught me slacking off for the fourth time, and in her shrillest angriest tone I’d ever heard she said “Get Up, you Lazybones! Go help them!” I wish I had been recording that instead of playing Pokemon or whatever it was. She was always helping people. She was a nurse and a mother, a teacher, a musician and fantastic baker. She had vibrant gardens, and kept notes on the birds in her yard, among other things. My grandfather was always fixing things. He wasnt just a mechanic, he was a woodworker, a choir director, an agrarian museum trustee, a doctorate of theology, and the president of a bible college. The world needs more people like them- people who go do things for their communities. People who do hard things that desperately need doing, because they can, and they felt a duty that they could fulfill. 
+
+
+
+
+
+
+I’ve got two older brothers and a younger brother. We learned to get along and work together  begrudgingly, though we are all stubborn obstinate know it all kinda guys, because the alternative was worse. When we were left to our own devices we sometimes left holes in the drywall, but dad had taught us how to patch them. We never fought to actually hurt each other, just teenage ego flares. We learned how to argue and wield sarcasm as a fencer’s rapier. I learned that if I care about something and wanna make a point, I had better learn to pack my arguments with the weight of a sledgehammer. 
+
+
+And we learned from our parents  to find a way to make something better, even if everything seems broken and against you. Many times we had challenges on road trips, so we learned to plan for almost anything and fix hanging exhaust pipes with coathangers. We had weeks of frustration living in a construction site while waiting for bylaw or inspectors to quit holding us back. My dad improved everything about that property from the sewer main linkages to replacing every shingle. The city fought him on the principle that they were the authority and this old book says no. 
+
+    My dad’s preaching career was a centre of our lives. When I was very young we lived in the parsonage, a house owned by the church to house the preacher and their family. Sunday mornings and Wednesday nights we were at the church. My mom would play piano, and my dad would be at the pulpit, which meant we were to behave ourselves in the front row. Get any group of four little boys in the front row of a church and just try a call and response liturgy, I dare you. When I was 4 or five, on Easter morning, we were playing in a tree just outside a church my parents were leading that day. Just as my mom was playing the prelude, I slipped on sap and fell nearly two stories and bonked my head on the bottom branch, thus saving my life by making me land feet down, not head down. I did end up with thirteen stitches on the back of my head, and a gory horror Easter story to relive any time I climb a pine. My mother probably has an entirely different opinion on that event,  but she got me to a doctor that morning, while my dad somehow kept the church and my brothers on track with his guitar. Other mornings during worship, Right when the singing got soulful and the hands started clapping, we would often start clapping the jankiest off beat rhythm to see if we could make mom skip a beat on the piano, or make the old folks in the congregation who were really getting into it to go off kilter with just a simple pattern of claps. (almost like computer glitches and system failures from bad actors gaming systems) 
+
+My dad would speak about feeding the hungry, comforting the disturbed, and housing the homeless. The church elders talked about new sound systems. I noticed that a few times after the board meetings my dad seemed frustrated or disappointed. Our closest neighbour was on the board of elders, and his daughter was often our babysitter. Several times when my brothers and I were out riding bikes down gravel roads we were closer to their house than our own. If we skinned a knee we would knock on their door, bloody and crying, and get that farmer and his nurse of a wife to patch us up and pump a flat tire. 
+
+There was a dirt lot between the house and church buildings, and I remember being ten years old, standing at the edge of that dirt lot at five in the morning, huddled with my mother and brothers while my dad talked to the media and the firefighters. The church building had been struck by lightning and burnt to the ground. A distant neighbour had been driving to work when they saw the fire and came to alert us. They tried the back door, which was unlocked, and they found our pots and pans to clang us awake. The dark sky was cloudy and smoky. The flames on the far side of the church building made  an orange and black silhouette of the steeple cross against a backdrop of fifty foot flames. I remember my dad talking to our neighbour that morning, the one on the board. Assurances that we would get though it together were exchanged, and for a few weeks my dad scrambled to find a new meeting hall for his church congregation. He spoke of the book of acts a lot in that time. 
+
+The congregation decided they wanted a new preacher to go with their new sound system and new building thanks to insurance. Our neighbour, the church elder broke the news with one sentence and left. 
+
+
+My dad had to take a job at a door and window factory, and we all had to find a new place to live. We eventually found an old church building for sale for 70k, way cheaper than any house of similar size. 
+We bought it and over the next eight years we renovated it into one of the most valuable homes on the block. It was a huge job that my dad had only minimal experience to start, but we framed in walls, added a whole new floor, turned the basement into a whole separate suite with four bedrooms, added a garage, and fought with bylaw almost every step of the way because it was such a nonstandard project. My dad would have repeated phone calls, multiple snail mails, email chains, and endless meetings to submit plans at the town office. It wasn’t until he invited the bylaw officer and zoning specialists over to actually walk the property that we got cleared to keep building because now they understood why we needed variance from the standard bylaw.  
+I learned to not be afraid of a big project just because I didn’t understand every part of it yet, and the rules are not what they seem on their face. 
+
+As I went through high school, I passed tests without studying but i would hardly ever do the homework. I just thought it was kinda pointless. I showed my work and got the right answer for the first problem, i know how to do the thing! Why do i need to do it 50 more times just because the teacher says so? I didnt realize that routine and repetition and consistency matter more than a one time flash. I’d skip homework to play drums or video games, or I would go do farm work for quick cash. 
+I started picking rocks with mexicans when i was 11. I was terrible at it. The other workers hated me for how lazy i was, but there was lots of farmers with lots of fields. I eventually learned to value the other workers respect more than my own aversion to putting in effort. By the time i was fourteen I had milked cows, mucked barns, groomed horse tracks and training obstacles. I had picked asparagus and sheared sheep and castrated the first ram i ever wrestled. I got a job packaging firewood for an old guy named Leroy, the same year the LEEEROY JENKINS meme first started. 
+He bought logs, ran them through an automated log cutter and splitter, and parked me at the base of the acres of chopped firewood. I was to pick it up, put it in some fork forms, and wrap it with industrial saran wrap on a big electric arm that swung around the whole bundle. While it was moving, i was slapping labels in between the saran wrap, then cutting the saran wrap and tying a baling twine string handle on it, then loading it into the truck. I got paid 25 cents per bundle, and gas stations sold them for a little over 6 bucks. I saw Leroy pay cash for logs, And drive endless miles to tiny towns. I thought about the decades of work he and his had put into the business. Those trucks and fuel cost more than my wages, and the logs themselves cost enough of that six bucks that I didn’t ask for a raise more than once,(it went badly) I just made more bundles. I ran the numbers I saw and I searched, and I tried to build his business hypothetically, from the ground up. I realized that I was actually making a reasonable amount of money for the total revenue and budget. Especially once I included the time and effort it takes to have all this stuff and make it work and go find people who want your shit and will actually pay on time. And I realized he was a stand up guy who took a big chance on a fat slob of a snot nosed know it all who was literally too big for his small pants. He didn’t much care for music, but I dragged out an old stereo and and played weird stuff he’d never ever heard of. Tom waits and frank zappa and mgmt and tool pulsated while I worked. I invited my friends and brothers to come work with me, and became an ad hoc leader and hiring manager. I learned quickly that I should not attempt to steer the crew with my ego or sarcasm or know it all stubbornness. People wouldn’t show up again if I made it difficult at all. 
+ I didnt do a whole lot of math problems, but i could figure that one out. I stayed on that job for four years- picking through ash and oak and maple and apple, a quarter for my labours. By year four, I was callused and quick and lifting 3000 25 pound bundles hundreds of feet over dozens of lifts, per week. I was still husky, but I could move stuff nobody expected me to be able to budge. And in the hot summer heat I worked longer, when I wasn’t out with the bands. 
+In the winter cold I worked and shivered for a few hours a night after school. There was a vicious half breed wolf dog who lived on the property, that didn’t trust anyone or anything.Wolfus had dreadlocks and matted fur all over the place when I first met him. The barn was his territory and I had to work in one corner of it so the firewood wouldn’t get all iced up and stuck in the snow. It was dry but not heated. At first I relied on the stereo to keep him at bay- he hated any band with good drummers. So I blared Led Zeppelin and ZZ topp and Rush and Nas and more Tool, louder. But then I realized he really liked the deli meat from my sandwiches. So we established a rapport where I didn’t have to damage anyone’s hearing and he didn’t have to constantly nip at my legs. He never did let me pet him or take care of his fur, but eventually Leroy’s kid who originally adopted him came and took care of Wolfus’s fur. Even perceived wild enemies and intruders don’t always need a direct fight, sometimes trading works.
+ 
+
+
+
+By the end of it, I took home paychecks that equalled my father’s from the door factory. I didn't think i worked harder or smarter or took bigger risks. I didnt work as long as my dad, I just got a rate per job, not a rate per hour. 
+I wonder now if that concept could work for survey answers, or political considerations. These politicians we’ve got charge a hell of a lot, especially when you factor in the cost of the consequences of their decisions. We don't even get them to do a lot of political considering. How much time and effort do we see them putting in for the public good? They're always campaigning!The only time they turn off the campaign machine is when they lose hard enough to be totally irrelevant.  Many of the local leaders are really trying hard and they do what they can, but the more power an office has the less careful they are with it. 
+These politicians were too much like me- they passed the test of the election, but they dont even pretend to do the repetitive mundane tasks of what theyre paid for. 
+
+
+I would spend that firewood money at punk shows in dive bars that didn’t check id, or venues that were somehow open to the public despite being crustier than a hobo’s toenails. I would sneak out and hitch rides to the big town twenty minutes down the line, and walk my way through the city of 40,000, thinking I was really in the thick of it now. There were skids and goths and freaks and addicts and drunks and people so different from my parent’s church friends. I loved it. I climbed fences and stood up my boss to see a band wearing insect costumes while playing drums made of roadkill screaming about Lemon Cake. I saw this as exploration, not just rebellion. I wasnt just slipping my parent’s control because it would get a rise out of them, I thought I was seeing things they’d never seen, hearing things they’d never heard. I was probably right about that, but i might have just been dazzled by hot babes screaming homemade anarchic refrains. My plaid and corduroy didn't fit in, but it stopped mattering when i started moshing. 
+
+I started to read things that history class had skipped over. Kropotkin and Trotsky, those miners in virginia who wanted to unionize but got bombed by american pilots. The Java Joint was covered in graffiti and piss and coffee and god knows what else, but it had bookshelves with a take it and leave it policy, and i found zines with quotes from proudhon and marx. "Of what consequence to you, reader, is my obscure individuality? I live, like you, in a century in which reason submits only to fact and to evidence. My name, like yours, is truth-seeker. My mission is written in these words of the law: Speak without hatred and without fear; tell that which thou knowest!" 
+I don’t know a great many things, but I knowest my opinion about a few things at least. I couldn’t get enough, but there’s so many parts of life, more than just reading theory. 
+
+There was a protest being organized to get military recruiters out of high schools. I joined up immediately. 
+My marching band skills were on display as i marched with the anarchists and antifacists. 
+There’s a joke to be made about dorks and marching and irony here. Think it over, lemme know. We shouted and waved banners on our way to the state capital. I don’t think we affected much, but I never saw politics the same way again. 
+My last year of high school I had passed enough tests that I had only three required classes to graduate, so all my other courses were electives, or not required to graduate. I took pottery, photography, dry media drawing, painting, creative writing, and music classes. I didn’t always attend because the band I was drumming for sometimes went on long weekend mini tours. I worked on drawing and painting more than math problems or essays, and the only time I rearranged the band schedule was to take the ACT tests. I scored 32/36, highest score in my class by 8 points, and top five out of everyone who graduated that school for the last five years. I was hardly turning in any classwork except a few sketches here and there. I painted a huge elephant with some abstract overlay on the landscape in the style of de Stijl. 
+It wasn’t too far off from this generated image. 
+It was a meditation on the long memory of elephants and the stripping down of things to their barest essentials. I listened to soobax by knaan over and over again while making that painting. The jarring tones of the strange instruments and the insistent rhythms and ululations pressed me to think about the long struggle of Somalians against forces within and without. A republican Minnesota legislator bought it to put over his desk, because it was a decently painted elephant. I was trying to express something about the memory of struggle and how it affects the barest reality, but people mostly thought it looked nice. I wasn’t upset, just happy to sell a painting, and I thought it was a little like an inside joke, the painting was radical but the buyer was a very traditional republican. I had protested against him a few months earlier, then he paid me. 
+
+It was strange being offered more scholarship money than the rest of my graduating class put together, but I didn’t want to go anywhere that had offered me assistance. I didn’t want to stop drumming for the band either. I just didn’t care and the test score seemed like proof that I was smarter than them anyway and I didn’t need more schooling. Now I realize that a test score and reading ability do not equate to a smart person. I’ve made plenty of really dumb life choices so I can no longer fool myself into thinking I’m any smarter than anyone else, I just read a little faster. 
+
+Graduation happened and so did the pig roasts and parties, as they do in late spring. 
+I played drums all summer and started playing guitar a few strums at a time. I made a contract with the leader of that band, playing rock paper scissors for percentages of our ticket sales. He was one of the other top five in five years, probably got a perfect score. He could make me feel stupid and unread as a four year old. I didn’t get a very good contract. We played music festivals and bars and hippy commune celebrations. 
+I saw the strangest strangers in the Midwest that summer, and joined them at their campfires and tapestry covered tents.on the road trips between gigs we listened to kings of Leon and system of a down, Andrew bird and Xavier Rudd. La Roux and Deadmau5 brought the beats through the streets. I kept reading Henry David Thoreau and Machiavelli and deepak chopra, Dante aligherri and Socrates. The band leader would cast off books my direction and I’d try find something in the library that would wig him out. I hardly ever finished reading anything by anyone, because there was always something stranger that I hadn’t seen yet. 
+
+But the summer came to an end, and at the end of August when I came home from a festival tour. I was sunburnt and dehydrated and completely transformed from the boy in that smoky dirt parking lot. I has seen some shit, man. Topless hippies ripping fat hoots from eight foot bongs in a suspended geodesic sphere hammock complex. Hapless wooks trying to hitchhike from the end of one backwoods festival to the next. I had tried a little of this and a little of that, danced naked with a hundred randoms through a record setting lighting storm and road destroying deluge. Going back home to my prim and proper mother, and authoritative dad, was just not enough for me anymore. 
+
+I had planned on keeping the firewood job through the winter and just playing in the band and painting. 
+but my older brother had been going to Canadian Mennonite university and my parents very much liked that. My folks had not encouraged my applications to art schools in New York and Colorado and Minneapolis. I wanted to paint enough to make a portfolio that might be accepted. My bandmates were absolutely not impressed with their first semesters of state universities and they told me not to worry about art schools. I still wanted to go, and explained that every painter they could name had extensive formal training somewhere. My parents didn’t know anyone in any of the art school’s areas, and they didn’t understand that art and music was the only thing I cared about and I had no motivation whatsoever to do any other kind of school. 
+
+They had packed up my bedroom while I had been on tour. They had two suitcases packed for me, and greeted my return with an ultimatum- either go to Mennonite school with your brother, or we are not paying for anything of yours ever again. They wanted to charge me rent retroactively for the whole summer if I didn’t go north. I checked with my bandmates who didn’t have a big show for a few weeks. I convinced myself that I could somehow commute across the continent to play dive bars and keep my parents off my back. 
+
+
+
+
+
+
+
+
+
+
+
+Chapter 2: The Mess We’re In
+My brother and I got to the university and he went to his dorms and classes. I went through a rigamarole of signing up for classes and a cafeteria plan and a dorm room and submitting my grades and all that on the day that classes were beginning. I had failed to make a plan, and my Leeroy Jenkins tactic had unsurprising results. I ended up in a room that was normally for visiting professors, away from all the first year dorms. It was in the basement under the wheelchair ramp for the cafeteria, so the view out of the big narrow window was vertical steel bars, concrete, and grey skies of Winnipeg’s dirty winter. The walls were painted cinder blocks. There were mandatory classes on the history of the church and history of the bible. The art department was a single box of dry crayola markers. There was classical or instrumental music, and hymns. It was a dry campus, and nobody ever swore. Accepting the bare minimum of whatever’s available was my only option because I hadn’t thought about what I really wanted and made steps to document that and tell the world. The best parts of university I thought were the bar bands that a few students had put together- mostly art rock acts like flying fox and the hunter gatherers or prog rock like alanadale. 
+
+ I might’ve had one of the only tattoos on campus, except for one guy who turned his life around and wanted to learn to preach at the age of 36 or so. He and I got along well, and we were like a sideshow in the common rooms. We would carouse and swear and make irreverent jokes and talk about drugs and drunks and bars and music these mennonites had never heard of. Cypress hill and insane clown posse, Motörhead and Aerosmith deep cuts. I wonder what he’s up to now. I knew I wasn’t gonna last at that place after the first day, but I thought somehow it would prove something to my dad if I made it through the first year. I never did go play more shows with that band back in Minnesota. I read textbooks and skipped classes and smuggled whiskey and chocolate downstairs. I might’ve turned in a total of seven assignments. I attended a few classes if I was bored, or worked on my drumming chops in the practice halls. I was trying to play manic depression by jimi Hendrix experience, they were learning Rachmaninov. But we could find common ground in the method practicing and the thrill of hearing something live that you’ve never heard before. 
+Sometimes they talked about Heidegger or Kant, and almost all of them were technically fantastic at playing music. I found ways to connect and learn even if my actual academic performance was worse than bad. Just before Christmas break, I learned that my old bandmates had taken my old car out on tour. They totaled it driving the wrong way on a one way road. They were fine, just drunk and laughing the whole bus ride home. Never told me directly, my dad told me when I asked if he had started the engine since it froze. He thought I had given them permission and they had told me about the accident. This was thievery , a crime of omission and unvalidated communications. 
+
+There was nothing left for me in Minnesota, except my parents, so I figured I’d try do what they asked a little longer. 
+
+
+
+
+
+
+
+
+
+
+
+I finished reading those textbooks so I could pass the tests and move on to the next semester. Along the way I learned how time and time again, a great message was used and twisted to extract pain and fealty and money and obedience from people who were honestly lost and looking for answers. The most faithful and practical people found ways to help folks, but so many bad actors usurped the message and structure to make tribal conflicts writ large. They took hierarchies of religion and put political power into those offices and made war on infidels. Like arcade fire said- we’re just a million little gods causing rainstorms, turning every good thing to dust. 
+
+The history books are full of stories of people trying to build systems to better their communities and then because administration is a necessary task at a certain level of complexity and scale, a limited number of people administer. Decisions have to be made and somebody’s gotta make them, so someone has to be in charge. And thus the bottleneck of representation develops in every system of government I’ve read about. 
+
+Bad actors use rhetoric and religion and whatever else they can find to gin up tribalism and conflict, so they can usurp more power in the name of better leadership. Look at trump and musk’s bully tactics. Nobody has time to deliberate  endlessly about all the issues that are important to someone somewhere at sometime, which may affect others at another time. Very few things affect everyone equally all the time. Legislators In elected democracy have never been able to balance the tasks of finding out what people care about and what might work to fix it in a way that they will accept, with the tasks of gaining and maintaining their own power. They have to use propaganda and motivated reasoning to get people to follow, because everything’s riding on one or two elections per decade. All issues are flattened and everything is a red or blue talking point because the only vote really determines who’s in power, not any of the issues they’re in power over. It becomes a family tradition to vote ass or elephant, orange or green or red or blue. ( who am I kidding, nobody votes green) 
+How many times can a man turn his head, and pretend that he just doesn’t see? Yes, and how many ears must one man have, Before he can hear people cry?
+Back in college I read about this stuff but it wasn’t directly affecting my daily life in ways that really bothered me. 
+
+Now, I’m bolting together a $1.8 million boathouse that’ll get used once a year, and my hands are shaking, though not from the work, but from the dread. If this client bails, my baby daughter and I are screwed out of a job. Limited food, no way to pay for the roof over our heads. He’s already wobbling; his grain business is tanking thanks to Trump’s tariffs. Three months ago, he strutted around in a MAGA hat, barking orders. Now? He might ditch this job, and I’m the one who pays. I’ve got enough in Bitcoin, Euro stocks, and ETFs to cover the mortgage for three, maybe four months if the market doesn’t crater worse. After that, I’m back busking with my guitar. I paid my bills that way for seven years. Anxiety’s chewing me up, but who wouldn’t feel this way? Only a nutter could stay calm watching their life teeter on someone else’s gamble. If regular people had a system to record their will in real time, not just get polled once a decade, maybe we wouldn’t get blindsided by trade wars we never voted for. 
+This guy’s some grain commodities hotshot. I bet he’s never picked rocks or bucked bales, that’s for damn sure. He’s all middleman, connecting buyers and sellers, raking in cash while it’s half-illegal for growers to sell straight to eaters. My foreman says he earns big because he risks big. Fine, but why am I liable for his risks? He’ll cancel this boathouse, keep his Maserati purring, and I’ll be the one scrambling. They call poor folks irresponsible for blowing cash on frivolous shit—meanwhile, this clown’s beach house glows all summer, and I’m sweating over his vanity project. 
+Trump’s not getting smarter, and Canada’s stuck; passive or active, we’re eating his tariffs for four years. They slap obscene bonuses on C-suite douches, then cry broke when shelf stockers beg for six vacation days. “Personal responsibility,” they preach, while their gambles tank my sober savings by 20%. Sure I could buy better stocks, if trump didn’t grenade the whole global market. Or go to stockholder meetings and pitch better ideas, but I bet suits like laborers showing up and telling them how to do their jobs almost as much as us laborers like it when they show up. Savings accounts are an option if I wanna eat inflation every year. And don’t get me started on “public institutions are wasteful”—what’s a CEO but a bloated administrator? Trade imbalance? It’s simple: the U.S. has more people, more money. Canada can’t match their spending, tariffs or not. Logs for cash isn’t stealing—it’s math. Yet some makeup-caked blowhard calls it thievery, and I’m the one who can’t sleep.
+There’s bad actors that usurp power in legislative positions, that could’ve been used to nix those tariffs. Musk specifically threatened to primary any republican who stood against trump- direct evidence that legislators are too concerned with keeping their office rather than using it to help their constituents. Biden’s last two years were elder abuse, started by his own pathology but held up and maintained by lots of people who just like that blue team was in power and they refused to examine the actual capacity of their leader, they just voted as a block. Obviously those are executive leaders of a country that’s not my own, but the legislature has the power of impeachment, and if they weren’t cowards they would use it a lot more. If we the people had a record of our will about specific bills, we could point out which politicians are in line with what we actually want. If we had a trust fund in every state and province, we would have leverage to primary them, same threat that Elon has and a justifiable traceable system to decide when to use it. 
+Right now the state of things is kinda silly. Pollsters charge five figures and up to commission surveys to see what a section of the population thinks about a few issues at a time. The surveys take twenty minutes minimum, and they’re mostly about fuzzy concepts. I took a survey last year about healthcare access, but I still am on a waiting list to get a doctor. I took another survey about internet access and its effects on my life. It’s fine to study these things but as far as I can tell they’re not about a specific law. They ask Bob about fuzzy concepts, then extrapolate his opinions to tell politicians that Bob and Bill and Sally and Ruth like this message or that team. They use whatever algorithms they want to extrapolate data from a few people to “determine “ what people think and want about subjective concepts. They send us a gift card a few months later for our time spent answering the questions. And they call it data driven policy decisions. We can build a better database, maybe that will help improve decisions. 
+
+
+
+
+
+
+
+
+
+
+Chapter 3: Senatai Unveiled
+ The big idea: votes on laws, AI you can check, a co-op you own. Paint the vision. (~10 pages)
+So how do we make a better database? With this app I’ve started making called Senatai. 
+I’ve got working code for many parts of it. I think poetically so buckle up. 
+
+- **Legislation = Seeds**  
+  The roots of the whole process. Planted by Parliament or Congress, waiting to be noticed.
+
+- **Scrapers = planting machines**  
+  They dig them up and plant them in our database soil.
+
+- **Questions = Branches & Leaves**  
+  Some sturdy, some thin. Some answerable by anyone, some requiring study.  
+  The more people respond, the fuller the canopy.
+
+- **Answers = Photosynthesis**  
+  Each answer gives us energy—stored in the form of predicted opinions.
+
+- **Vote Predictor = Sapling Synthesizer**  
+  It guesses what the citizen-tree *might* look like, if it grew in full.
+
+- **Policaps = Water & Care**  
+  Where people pour their attention, their passion, their conviction.  
+  Not everything gets watered equally, and that’s okay. What flourishes is what we truly care about.
+
+- **The Forest = Synthetic Democracy**  
+  A constantly evolving, regenerating forest of public opinion,  
+  with real humans able to walk among the trees and prune, grow, or uproot them.
+
+After i realized that I had no reason to go back to the Mennonite university, and no reason to go back to my stifling parents, I didn’t know what to do. I didn’t even own a drumset anymore. I had no job and no interest in one. I had lost touch with my high school friends, and I had made acquaintances but not really friends I could lean on at the university. I called up Leroy but his wife got cancer so he sold the equipment and the business. I’d had no luck at all with any girls my whole life, so I lived the joke “what do you call a drummer without a girlfriend? Homeless” . All I had was those two suitcases and a really beat up guitar my brother used to use. I had nothing and nobody, but I knew how to learn.  Same with Canada’s situation now- we don’t have great options anymore- we need to learn something new. 
+So I went to the library and printed off chord charts for the song creep by Radiohead, because it was exactly how I felt. I strummed and stumbled and sang out of tune on a park bench for a good six hours that day in June in Winnipeg, and people put a few coins in my guitar case. I was sleeping at my brother’s dorm room, or at my oldest brother’s rental with his wife. I kept printing off songs and chords at the library, and playing them on park benches. Once I had three or four songs memorized, I stepped up- and started playing standing up by the beer store. I was making progress on singing in tune and playing in time and by the end of the summer I had almost three dozen songs memorized and I was earning around 70-150$ a day for playing four to six hours. I was happy that I could just do art without any schedule or boss or obligations whatsoever. I can sustain myself and literally improve the community by using my voice. Sometimes I’d stay out all night- I learned that drunk people are quick to throw bills if they think it’s a competition to be flashier than the last guy. Maybe folks might answer more questions if they could pile up their rewards and compare to their neighbours. The cops appreciated me out during bar closing hours. Several of them said it was much better to deal with singing drunks than fighting drunks. Several punks and lumpen proletariat appreciated me because the cops were occupied by watching the singing drunks, instead of hassling anyone poor and yelling all night. I’d read and print things in the day at the library, maybe practice new chords and watch YouTube to learn guitar. Evenings and late nights I’d turn the harsh cold streets of Winnipeg into a flash mob generator concert that paid my bills and improved everyone’s experience, because I used my voice and encouraged people to join in. 
+
+Dancing singing street mobs generally are a movie thing, but it was every night for me. My parents and grandma’s didn’t get it. My brothers didn’t get it, but my oldest bro would often rent me a basement room for a pittiance. A few nights after the crowds had called their taxis, I was left alone, shivering with nowhere to go. Those nights I found myself talking with random homeless folks and learning from them. There was Byron, five foot nothin Lakota Sioux artist who never told the whole story. He would get crayons and markers and printer paper from drop in centres and office people at shelters. He would draw furiously- angles and lines and he was constantly moving the paper. He was always hunched over and very guarded about the drawing in progress, you could only see an edge in a glimpse if you were watching closely. But then when he was finished, he’d discard the drawing and start a fresh one. They were gorgeous prairie flowers, in a style I’ve never seen before or since. Byron cared a lot about drawing them, but he didn’t care at all about keeping them or trying to publish them properly. His buddy, a much seedier guy as far as I could tell, would pick up the discarded flowers and sell them to passers by, 5-10$ bucks a drawing. Then he’d buy drugs for the both of them. Back then I realized they were business partners- a maker and a seller, neither could function without the other. But something was off and wrong about it. As I think about it now, it’s a little like modern internet users constantly creating data- we deeply care about making our social media profiles unique and beautiful and we want our product choices accurately marked and shipped, so we make lots of info about ourselves available. And seedy websites pick up that data and sell it and control the money, and dope us up with dopamine through ads and games  and images. 
+
+When I was busking I owned my performance, my guitar, and the guitar case that caught the coins, and I knew I wasn’t exploiting anyone more than billboards or radio ads do. Companies write their names all over the place and fill our lives with ads, why couldn’t I make noise in public to make money? 
+I earned every penny through and through. I only cost the world some food and paper and occasionally guitar strings. I didn’t have to kill animals or chop forests or churn dirt or lie or cheat or steal anything from anyone. Expressing myself improves my life and it can improve yours too. 
+When you sign up and download my app Senatai, you become part owner of the Senatai Co-op. We aim to create high fidelity representation of each user’s opinions about each law on the books or in debate. We sell these voting records, stripped of identifying information, bundled in groups of thousands. The survey questions and answers are valuable, and very similar to what’s on the market already. But we will have a market of different vote predictors and question makers, and ways to measure them. It’s a kind of data that will be useful to compare different approaches, and can only be made on very small scales right now I think. The predicted votes of each user on each law is a kind of data that isn’t made right now because it’s too big a task, and people have to answer thousands of survey questions for these predictions to be worth a damn anyway. If we all just answer a few questions a week, that would be more helpful than anything on the market to accurately predict these votes. And then the human audits of these vote predictions will be another class of valuable data, real citizen votes on real laws. Usually only parliamentarians or congressmen’s votes are the only ones recorded about these laws. The clients who might be interested in subscribing to data sets we make currently pay five or six figures for studies with only a few thousand participants, about only a handful of issues at a time. They’re kinda fuzzy concepts anyway: I recently took a thirty minute survey about the potential impact of internet on Canadians. It just seems like they’re gonna spin it six ways from Sunday and there’s nothing proven at the end of it. I don’t know how that survey data will change legislation, but I know senatai’s data could be used to highlight what people actually care about. 
+
+What are the proper functions of government? I don’t have a complete answer yet but as I think it through I’m highly confident that at least one thing that it should do is make the laws a available for public viewing. That’s the infrastructure our company has to rely on- we have to start with the actual laws. I think it would be hard to criminalize a mock vote on the actual laws- how could you accuse us of obscenity or violence or misinformation or marginalization if we make it available to everyone. Anyone attacking the idea reveals themselves to support dictatorship over democracy. Attacking the co-op or trust fund is an attack on potentially thousands of voters, and tell me what I’m doing wrong in a way that doesn’t shred the principles of our current government and economy. I dare you. 
+
+
+
+
+
+
+Chapter 4
+
+So I had learned to live my life on my own terms. I played guitar on the streets and made all kinds of new acquaintances. There was Art, a grizzled old ex con who acted as hobo security- he kept the worst violence down between rich drunks and poor drunks. I never saw him actually fight but I saw him end several with a few rough barked orders and sheer intimidation by his reputation and social context. I deeply respected the way he would step up to defend anyone the moment it was clear they couldn’t defend themselves. He stood up for drunk girls against crusty boys, and helped old bottle pickers deal with frat boys. He used just a threat of his leverage to help people whenever he could, and less people got hurt even though he presented as a big scary man who could do terrible things without thinking twice. 
+I wonder if one day we could build a set of senatai trust funds that would be able to display leverage just like billionaires and corporations. We’re not gonna overthrow anything , just make our voice properly heard. 
+He loved the way I sang Johnny Cash and pink Floyd, and he was a great first listener for songs I was writing. Many times he showed me how to roll cigarettes. I was never any good at it, but I had TV picked up the habit and there’s still parts of that casual ritual of small talk outside the bar, or meeting or whatever, that I enjoy.despite that,  I wish I had never started throwing my money away into poison companies pockets. 
+
+Another person I met was a vocal coach, who would give me one minute lessons as she waited for the bus.sometimes she would plunk out scales on my guitar to show me an exercise. She helped me out probably more than any coins or cash did. The almost daily updates to my technique and simple explanations helped me get better one little step at a time. Every question you answer in the senatai app will help you and us understand how you might vote about any particular law. 
+
+As winter was coming again I knew I had to find a place to live for real. I had long dreamed of a sculpture to build. I envisioned a gnarled methuselah tree made not of wood, but cables and tubes and pipes. I figured that welding would help me build such a thing, so I signed up for tech school. My welding instructor’s name was Rod. (lol) I liked learning a new skill that I had little experience with. My father had taught me some woodworking as we were building the church, but metalwork and especially welding was beyond anything my brothers or I had learned. I quickly learned the basic electrical ideas behind arc welding of different types, and I loved tweaking the voltages and amperage to get the perfect pool. Each kind of weld we learned was a little different- uphill or sideways or upside down required lots of finesse and patience. And in my case, grinding. I loved learning chemistry ideas about how different elements in different steels interacted and bonded. But my lungs couldn’t take the fumes and I hadn’t been using a good respirator. I ended up completing only two of three modules and never got an apprenticeship. If I couldn’t stand two months of stick fumes in a classroom there’s no point going in for a production job doing that. Even if it’s cool and new and I was learning a lot, I had to do something more sustainable. I weld once a decade or so now and I’m glad I know what I learned because one day if I have spare time and money I might be able to build my metal methuselah tree, with cables and wires for branches, and led stained glass leaves, and little lcd screen leaves too, flickering code running senatai scripts on display. 
+
+That spring after I’d bailed on school again, I was out trudging around the streets with my guitar, occasionally running into old Mennonite friends. There was a guy who learned to code, and he made an app that shipped with the iPhone 2 and he sold the code and company. He was having a great time with an enormous tenement house he had bought and renovated. There was a dozen other interesting people always around and I would drop in if I saw them on the porch as I walked by. They had started a joke political party and actually ran for election. They got a towering tally of dozens of votes, and just kept rockin in that big ol house party! I loved the idea of tech payrolling grassroots movements that flip a whole bunch of politics on it’s head. They were almost purely satirical as far as I could tell but their rhetoric was like eyeball glue- you just couldn’t look away. 
+
+
+Now I see how free tech apps have enriched us wildly, but They are owned by far away conglomerates, profits going to tech bros and hedge funds. Maybe a co-op could help us retain our rights and protect the value we generate. 
+
+
+
+
+
+
+
+
+
+
+
+Next treeplanting 
+
+My brother offered me a treeplanting job out in bc, and I figured I was gonna have to live in a tent one way or another, so I got my stuff together and dropped off some things with my parents, then started the long trip out to bc. I took planes  and busses and long walks while hitchhiking to get to the treeplanting camps up on that north highway of bc. 
+Part of why I went out there is because I heard that an old crush of mine was working out there. It was a terrible reason to go and I regret the way that I treated her at first. I asked her out, she said not now. A few days later, I asked her out again and she explained that she wasn’t interested in me and I had no business following her across the continent as if persistence alone would win her over. I just wasn’t her cup of tea. She let me know all this within earshot of folks at the laundromat parking lot, so it’s not like she was really to blame for the way everyone knew about it. I have apologized and stopped contacting her again but especially during that first season it was difficult to avoid her entirely because there was only sixty some people in camp and we were miles away from the nearest town. I thought she wanted to play hard to get and feel wanted by a persistent man, but she didn’t want me at all. Now as I remember this, I think about how this illustrates  a parallel in government- the impression of leaders who want your vote, but they don’t want your actual communications. I felt like a chump when I learned that too. I wonder how those town halls are going for maga representatives nowadays. 
+I learned a lot more about managing myself alone in the bush, trudging with bags full of trees on my hips. I was stewing with regret and withdrawal. Each 1.6 meters I was to plant a 14 inch spruce or lodgepole pine or larch sapling. It’s not truly a forest, more like a tree farm. the hard work and majestic mountain views were good for my soul, and I thought everyone should do it at least one season.  I was paid between 9 and 13.5 cents per tree. They came in little bundles, frozen and packaged at different nurseries. We kept the wrappers, to stop wildlife from choking when they think they’re eating ice, and to count how many we planted. Each species and contract had different planting requirements, so we carried metered rope and biodegradable neon blue flag tape to mark an measure trees. This is kind of like questions and answers in senatai: the questions like saplings, come from different nurseries, or question makers. The seeds come from different environments, and they’re sent to be planted in their home territory, or places that had similar species in the past. The questions we ask might be generated from the text of a particular law, but the answers might be relevant to some other laws that deal with similar topics. 
+
+As the summer wore on we had bush parties every four days. We’d mostly work four days on one day off, and we’d all go mob the laundromat and bulk food stores for snacks. I found a tiny bookshop in the town we were mostly working around, and would buy Margaret Atwood and cappuccinos, or JS mill or ansel adams coffee table books. I had an old film camera and I’d often take photos with multiple reflections and images overlaid on shop glass windows with mannequins on one side and people walking thru the reflective glare. The synthetic following and guiding and recording the humans. 
+
+ The shopkeeper let me print chord charts and sold plastic sheets to keep the pages in, so I could make a binder of songs to bring to the campfires. I’d bring out  my old djembe that I got as a graduation gift from its spot under the cot in my tent. It gave great lumbar support, and helped build the vibe around the camp. It’s tactile and simple to play, anyone who can clap in time can play it, while I strummed and sang and tried to learn requests. 
+
+
+There was a local guy who would show up with pizza boxes full of fresh pizza and other interesting party favours. He knew a bunch of musicians around town and he delivered a sound system and generator for one of the guys in camp. They hooked up their laptops and spin decks and blasted  electricity and beats through the deep forest, a light show of Aurora borealis blazing through the sky. Hula hoops and fire toys started spinning, ragtag dogs howling and running through abandoned motel satellite dishes and towering pines. through the pizza guy I got to know a touring musician whose home base was further south in Kelowna. I knew where I was headed next. 
+
+Right thing wrong reason
+More piecework to make forests grow in our footsteps
+Regenerating what capitalism has burned, even though it isn’t what is truly natural
+
+Chapter 5: The Co-op origins. 
+Kelowna- where do I start? I came for the music, left for the treeplanting, left treeplanting for heartbreak and loss, lived in Kamloops for a while and then came back to Kelowna. I went to Vernon to play with a collective called barefoot caravan, I drummed for a one man band with a least ten members called windborne, I stepped out of my prog rock and alternative metal to play bluegrass with Sunday morning string band, I tried to make a punk band called the magnificent rifles, and a doom metal band called zombie Sasquatch. I lived in an art house on the Main Street of Kelowna with Marxist max, his polyamorous friends, grungy red max and his crusty mushroom buddies , we played chess endlessly , trading banjos and yardwork. I learned a lot that led me to senatai. 
+When I first landed in Kelowna I was flush with treeplanting money, and had taken a whirlwind trip home to Minnesota to buy a black ford pickup to live in. 1300 bucks and a crazy road trip full of busk stops to refuel my gas tank let me peek at dozens of small towns along the way. Even when I was on tour with that reggae act in high school I had more of a schedule than that road trip with my new old truck. I visited my old Winnipeg crew and my relatives along the way. I got to Kelowna ready to go on tour with  my brother who played cello and windborne, but the lead guy’s personal life blew up and dashed that. I picked up day labor jobs through temp agencies to pay the insurance and gas and necessary stuff, but at least twenty days a month I’d just busk in beautiful Kelowna. My brother had set up there too, doing various jobs at a winery. I met a beautiful woman who was finishing up a bartending course, but her real passion was spinning poi- a type of fire or light toy that’s absolutely fascinating to watch. She was incredible- she could spin four poi at once when most people struggle with two, and she would sometimes climb on my shoulders and spin her lights while I shouted songs outside strip clubs for coins and cash. 
+People would stumble out of exploitative sweaty cash grabs with dubious ethics at best, and come to the sidewalk dance party that built on anyone’s good vibes, or even begrudging tolerance. 
+One of the temp jobs I landed was memorable. A missionary’s kid and a skateboarder made a video production company and long term leased an old metal fabrication shop, one of kelowna’s first buildings. It had been a barn, and a wood workshop, and a print shop, and a warehouse operations centre, and most recently a sheet metal scrap heap. They hired me to come in as much as I wanted to clean it up and work with a dubious electrician to make it into a video production studio. We tore up old walls and wires and ceilings, rebuilt rafters and subfloor foundations and beams. At the start of the job it was straightlaced, but as the months wore on and a drunk framer came onboard, things got loosey goosey. It started with Friday afternoons cutting loose and the electrician would send me two blocks over with some cash to pick up come beers. By the end of it it was Tuesday and everyday  at noon they were sending me out and drinking while firing air nailers and running three phase light looms. We technically completed most things on the contract checklist, and nothing’s burnt down yet so I suppose it’ll last until the next electrician shows up. even if we don’t get the first iterations of senatai just right, or if it’s built in a way that’s not right, we can change it. There was enough scrap and sheet metal left over that they let me build a little camper on the back of my truck on the last weekend of the job. The fire dancer and I were getting closer and making plans. We were asked to join a professional video shoot for a poet’s showcase work. It featured people from all walks of life, from lawyers to farmers, nurses and students, investors and me and Lily. We were scripted to all shake hands and use red tempura paint to create a big heart on the back alley pavement, made of handprints and brushstrokes from each of us. We knew that the sunny afternoon would end in thunderstorms and driving rain, to help clean up the paint. Lily started painting my face with bright red streaks, war paint symbolizing love. She pressed her dripping red painted hand onto my guitar as I played and people danced in the final scene. 
+Her and I planned to leave to California, so we drove to her hometown to pick up and drop off a few things. We had to drive over narrow twisting gravel roads, across mountain ranges and verdant valleys. That rusty ford pickup had endured many coat hanger exhaust fixes, but everything past the cat converter got literally rocked and separated from the exhaust system. We were in between two logging trucks fully loaded, eastbound with no turnarounds or side roads for miles. We nervously laughed as we listened to it perilously bounce, bound only by an old twisted wire and absurdity. If it bounced the wrong way it would wrap around our axel, totaling us and possibly loggers. The hazard lights were not enough to persuade the trucker behind me to back off, so for way too many snowy kilometres we played a speeding game of Russian roulette with our truck and the gravel ruts. even if the road is treacherous and my own stuff fails, we must persist. eventually we found a place to pull off to the side, where I dismantled the wreck of the exhaust. We briefly debated keeping the muffler and turning it into a stand up bass with some clothes line, but then Lily said “that thing almost killed us- throw it over the cliff! It’s a mine down there anyway, lots of scraps.” So I littered, triumphantly. we don’t need to keep things that might kill us. 
+
+
+
+
+
+
+
+
+
+
+We made it to her hometown on a glacier fed lake and I went and explored after I dropped her off at home. she Had warned me there would be drama and it was best if I stayed out of it. Within seconds there was yelling and she told me to “come back in the morning, meet me at the waterfall park”. That was the last time I saw her in the flesh, though I didn’t know it. I went and played by a bar half heartedly, smoked the days last home rolled cigarette on my tailgate porch.I slept fitfully in the damp cold spring night. I woke up to a dense foggy morning and I drove to the waterfall. I paced those trails from seven am til two in the afternoon, and sent dozens of texts. She finally responded, once, saying she had unfinished business, come back in the fall.
+So I left, confused and heartbroken, with some of her things still with me. I called the treeplanting foremen, got another job up north. I drove up, determined to be prepared for the autumn odyssey with Lily. I started planting with a fresh discipline and mission, and frosty mornings crunched beneath my boots, eager for the dimes and nickels metaphorically found at the bottom of each hole.
+
+
+
+
+
+
+ 
+
+
+
+
+But three weeks in, the camp supervisor called me into his office/ fifth wheel camper, and printed off a police report detailing a canoe accident on lily’s glacier lake. Her and three others had drowned after tipping their canoe on the way home from a midnight joy ride. The almost frozen water sapped the heat from their bones before they could orient themselves and get back in the canoe, all except Lily. She had been tangled in a rope attached to the canoe. They searched for weeks for the other bodies, only finding one after brutal expensive months of professional deep diving. 
+I was shattered. I tried one more day of treeplanting but I just couldn’t do it. I quit and started driving in a haze. For days I just drove for a while, got out and stared at the forest, ate little and refueled the truck with coins I scraped up from between the seats, under the bed in the camper. I tried to play music but I’d break down randomly and have to pack up mid song. I couldn’t make it long without community. I got as far south as Kamloops where I found a bar with a good burger special and an open mic, so I decided to lick my wounds in that town for a while. I had to seek connection to heal. Hearing people sing their hearts out for cheap laughs took my mind off my pain. Listening is key. Two songs per act, so nobody trailed off on drunk rants for too long. The burger and new acquaintances making light and easy conversation helped me make it through. The day after some food and conversation, I felt good enough to try start again. 
+I went to the hardware store, got pipe clamps and clear coat spray to preserve lily’s handprint. I secured what was left of my truck’s exhaust and my best memories of her, so I could keep going. I was busking by a beer store when a contractor noticed my height and build. He offered me a job assembling modular homes. I had nothing better to do, and I wasn’t ready to make music my job again because I knew Lily wouldn’t dance to it anymore. I don’t want to use her story to sell an app, it’s just on my mind and a big part of my life during this time. I don’t think I could give a complete accounting of where these ideas came from without mentioning her. 
+So I joined up and followed him to a dirt lot full of houses on crisscross wooden cribs. I took a contract for a set amount of cash per house to be on a crew assembling these prefab units onto foundations and jointing them. That crew wasn’t impressive and I moved on quickly, but the idea stuck with me- modular structures building a livable structure. The next job I got echoed that- a much more professional outfit that made the modules from scratch, to be shipped to oil camps and disaster sites. These weren’t just two halves of a cheap house, these were multi-unit towers that had complex hvac and plumbing and power requirements, interlocking structural components and exterior puzzle pieces that locked out extreme cold and harsh conditions. We would make hundreds of units that were basically the same, and they get stacked and configured on site for that environment’s unique demands. It’s a powerful concept; modularity. This is why our scrapers and APIs that gather laws, the question makers and the vote predictors are all multi modal many faceted hotswappable models to fit you. 
+I had a job at a music store, stocking shelves full of instruments and cables and books, but mostly helping their live events crew. We set up lights and sound systems for public events of every kind, from political rallies to concerts. I watched crowds react in real time to all kinds of inputs, and I saw how modern gizmos and dials amplified that to thousands of people at once. It scaled up my understanding of how attention can be scaled up. 
+As I think about it now, I connected some hard lessons with the system I’m trying to design. The failure of systems that lean into false advertising for whatever reason, failure of centralized power, old shells of machine shops getting new life as video studios, even with suboptimal means inspires me to think about new mechanisms within old structures of government. the joy and sustenance from spontaneous public collaboration makes me want to invite everyone whenever they can get around to it, the ability to make connections and cooperation across social strata highlights the possibilities that we hold together. The fog of poor communication in personal life and its reflection in poor communication in government is just waiting for the light of our attention. The need to improve that communication so we can make better systems to outlast us and pass on to the ones who depend on us. If we use our digital handprints to make indelible marks of our will upon the laws that govern us, we will at least know where we stand, minus the tribalism and backdoor deals. The video duo’s naivety of good Building code and trust in braggadocio made their project expensive and dangerous. I invite people to join me in this project, as I’m naive to many things building code and beyond. 
+I don’t want to fall prey to anyone’s braggadocio but I’m open to everyone’s participation.that’s why it’s a co-op! Join the app, become an owner, contribute to the trust fund, receive dividends. The app lets you answer survey questions whenever it’s convenient! If you got an old phone we can call you up old school, or you could text us for some simple yes or no type of thing if you’re bored. If you’re way out yonder in the sticks we can mail you a question a day calendar, and you can mail back each month and audit predictions on paper if that’s your speed. Nobody can lean to heavy on the scales if we can only spend two policaps per law, and everyone’s policaps are worth exactly the same amount. The predicted votes will come with confidence ratings, and the various vote prediction models will avoid one overarching bias across everyone’s predictions. There’s at least four categories of valuable data that we will produce- 1 the survey questions and answers. 2 the different vote predictors and their marketplace dynamics. As more modules are developed and released. People can compare and rate different versions. Maybe some prediction models are better at certain types of laws or answer types. It’s worth studying. 3 the predicted votes on each law and bill. 4 the actual human audited votes on bills. Even if only 5% of laws have lots of audited votes, that body of data is much more granular and validated than anything on the market. Including parliament or congress. Those people are bound by party affiliation and anything else they can’t admit, but we can imagine. Our votes are truly ours. Each law, not just what colour every few years. Open source models, shared profits from data subscription sales ,80% of which go to a trust fund that invests in our communities through Municipal bonds and media companies. We can fund bridges and local reporting, and share the interest on those assets. We’ll each get dividend checks from part of our data sales, while building a big ball of money that talks the way billionaires talk- the way that people pay attention to! As I think back to my Dad’s sermons about the poor and hungry, and the elders want of a new sound system, a thought occurred. What if the powerless got a new sound system to amplify their political agency? 
+After another brief relationship in Kamloops fell apart, I decided to go live with my brother in Kelowna again. That’s when I moved  the art house, and got Marxist max as a roommate too. I went back to temp work and busking, painting and hanging out at the beach. I got into meditation and float tanks, dmt and sacred geometry. I started writing songs and playing open mics at bars. While playing pool at an Irish pub, I met Red max with an unruly mop of red hair. He played some strange funky slap guitar and yodeled irreverent nonsense raps and then chugged jaegermeister and invited people to eat mushrooms in the back alley with him. 
+
+Needless to say, we became fast friends, and he’s one of the first to hear new iterations of this senatai idea. If I can explain it to him, through all his crazy interruptions and digressions, I can make it clear enough for anyone. He and I played hundreds of games of chess over the years. His bizarre mind helped sharpen my strategy and critical thinking skills. He still beats me seven games of ten. 
+Anyway my brother eventually moved upwards and onwards to become a data engineer freelancer. He moved out after a time, and red max moved in. We’d jam and smoke on the porch, chatting about Marx and kropotkin and Hamilton and absurdity over chess and whatever instruments we had. Harmonicas and recorders, drum machine apps and late night absinthe fueled arguments about Elon musk. Marxist max argued that musk was exploiting workers and stealing their inventions. I pointed out that there’s no politburo to stop them from leaving to other jobs, at least there wasn’t back then. I stated that he had given seed money to several engineers who wanted to do their own thing after working for him. Who knows what they’re up to now down south. Shifty lyin media and spinny echo chambers are what news we get. 
+Back then, My djembe beats on the beach attracted the attention of the barefoot caravan, a collective of musicians based in Vernon. They invited me on tour to play bars and clubs and farmers markets and town events- I had done all that before. But I was curious about their actual bread and butter jobs- they would go to schools and teach kids how to play drums and shakers from all over the world. So I joined them and went on several tours. We wrote dozens of songs with hundreds of kids across at least fifty schools. We worked with local musicians and elders and traditional dancers. We used old languages and new phrases- dance moves from a thousand years ago leading into the floss and back out of it. Kids and teachers joined in and sang songs they wrote with us. We would come up with guitar riffs on the fly, get silly with loop pedals and passing the mic to the kids. We had signal rhythms and phrases that we taught to the kids to help us direct the chaos, or just subtly hint to other band members how to change the vibe. The lead singer was our clear leader, as she had the educational degree, she wrote the grant and festival applications, she owned the camper and 100+ percussion instruments we shared with the kids, and the sound system too. She had an actual company and paid us as employees, but we all contributed by driving the camper or loading the gear or teaching the kids or filling dead space onstage at the bars. 
+The cacophony of voices took some wrangling, but we made something beautiful, again and again with people we barely knew, because we tried to learn how to listen to each other and express ourselves together. The participation and the genuine buy in was incredible, from six year olds to eighty year olds, singing and dancing together. Some songs got really deep, expressing sorrow for lost loved ones and tragedies inflicted on the land. Some songs were shallow and silly, or heavily influenced by teachers to become a sports anthem for their school teams. In some schools, First Nations elders drove the process, so we learned to serve their directions. It was an interesting creative process, trying to integrate influences from jazz and reggae and hip hop and folk and rock music with First Nations traditions. Turns out there’s an aesthetic that’s very similar to a pentatonic scale in what the elders were singing and the music theory of what I’d learned. Like a Rosetta Stone, this helped us create songs that could showcase anyone’s style. 
+
+When another roommate moved out and a banjo player down on his luck moved in, Marxist max and I and the new guy formed a bluegrass band to play at farmers markets on Saturday mornings. I was asked because I knew enough guitar to hold down a rhythm while they traded solos on mandolin and banjo. It took me a while to understand what bluegrass was all about. There’s not necessarily a leader and nobody necessarily owns the songs. Sharing the limelight and everyone leading their own solo is built into the song structures. I had turned my back on hick conservatism and their brand name drawl disco “country music” stations when I was in high school partying with hippies, so it wasn’t my jam at first, but I learned. It takes a lot of chops to make a solo sing on acoustic instruments with no amps and a single mic. It’s at least as difficult to be good at bluegrass as it is to be good at high classical or technical metal, and some of these musicians barely know how to read anything, much less a musical staff or tablature. It’s impressive in its own right, and the down home folksy nature is easy and inviting, not angry or pretentious. I want senatai to be like that at least on the surface- easy and approachable to answer a question or two, selling what you produce, deciding the terms of what and how much you sell, and having a say in where the money goes. Just like selling your chickens eggs at the Saturday market. You decide how many chickens you own, like how many questions you’ll answer. You decide which eggs to harvest and how to package and sell them, like the valuable data pools we build together. The high quality eggs enrich those who eat them, like our high quality data will enrich the decision making processes that govern us. The money partly goes to feeding the chickens, and partly to improving the farm, like our dividends will go to you answer makers, and our trust funds will reinvest in our communities. 
+In between tours with the caravan, I tried making bands of my own. There was the Magnificent rifles, a name so pretentious we had to make an impression. It was mostly original songs from me or Marxist max, with a lead guitarist from the Alberta oil fields and a high tower radio technician on drums. A little like that old Johnny cash song- the one on the right was, on the left and the one in the middle was on the right! the one on the right was in the middle and the one in the rear was an anarchist” We made decisions usually by me laying out a rough sketch of a plan and we would discuss it and execute it however was practical. Three quarters of my songs were just adolescent whining about my bad luck with girls, but I had at least one song worth writing about here. 
+
+
+(
+
+Verse)
+A5 to B5, D5 to E5
+They say you gotta spend money to make some 
+you gotta make it to spend it too 
+they said they never had a hand up no one 
+helped them out 
+but they got you under their shoes
+
+
+(Chorus) 
+ Hi G //// F# 
+One two three four walk right out the door 
+five six seven eight take the reigns and seize your fate
+
+
+(Refrain)
+G  Bm  E  D  
+I aint gonna take it no More
+life aint a list of their chores 
+I aint gonna take it no more
+save my soul from that killing floor 
+
+
+(Verse) 
+Im sick of talkin over my pipe dreams 
+im sick of bein pushed around 
+ill find a new way , dont matter what they say, 
+I dont play their games, theyre goin down in flames
+
+
+(Chorus)
+One two three four walk right out the door 
+Five six seven Eight take the reigns and seize your fate
+
+
+(refrain) 
+I aint gonna take it no more, 
+life aint a list of their chores 
+I aint gonna take it no more 
+save my soul from the killing floor 
+
+
+Bridge 
+Bm      Em 
+
+
+Solo (16 bars) 
+
+
+They try to keep us sedated 
+feed us lies, and sugar bait 
+but we see the new day comin we wont wait we wont wait we wont wait til its too late 
+
+
+(Verse) 
+NOOOOO 
+Its like we're all chained up together 
+cant get ahead cant get away 
+we turned against our brothers 
+we're fightin each other 
+but we gotta realize yeah today is the day 
+
+
+Chorus Chorus
+
+If you like it, play along and record a version. We’ll post them on the senatai website to invite more people in. 
+The zombie Sasquatch band was a doom metal joke band , with songs like” area 69”, about alien abduction gone wrong? Right? Let’s not get into that. Or “living at 7-11” about a steady diet of cheap beer, dropped cigarettes, and 7-11 food. Just an exercise in absurdity because I wanted to play double kick bass drums and hang out with weirdos. Our lead singer looked like he just came off the set of blade as a background makeup and costume showcase. He has skeleton tattoos on his arms and face, with white contacts in his eyes. Every week a more ridiculous anime hairstyle, meticulously draped over his tall gaunt figure. His clothes were spiked and black and fishnets and holes with boots to his knees full of laces and shackles. He bought a keytar, one of the best on the market, and only played it twice. Our guitarists were a schizophrenic babbler and an angry Australian butcher with dreads down past his ass. At first Marxist max was on bass, but he went weirder by forming a fermented pop band called the cosmic microwave pickle and so we got red max in on bass for a while. it was a great time! We started with a riff on an instrument and started freestyle jamming and hollering nonsense until we recorded something we could understand and write down. We never got to gigging as we could barely make it to the end of practice. 
+All this wild creativity and cooperation made me realize that we need wider perspectives representing us in lawmaking. The difference in band dynamics made me think about leadership styles and failures and successes of different organizational structures. Ironically, the one that presented and felt like a collective, barefoot caravan, was actually closer to a sole proprietorship with employees, and the one that seemed most like it would be a dictatorship, windborne, failed because of the leader’s relationship with others and his communal circumstances. 
+
+
+Chapter 6: The Tech Under the Hood
+ Blockchain for policaps, lightweight AI—why they matter, not just how they work. 
+Back in those Kelowna days,full of bands and beaches, I had a good idea about what bugged me, but I did not have a good idea about what to do about it. so I have learned to change things about where I was going in my own life and that sparked the development of the senatai idea as a way to actually do something about the problems that bug me. I refined my ideas about this project by using predictive systems, confirming my hypothesis that AI systems can in fact aid in exploring my opinions and clarifying my ideas. Maybe it can help everyone else too. 
+When I was developing these ideas, I used every LLM I could access, like Claude and llama and deepseek. I tried to make my views known, asked a predictive model like Gemini to fill in some blanks, and then edited and curated and made subtle changes to make sure it’s giving me what I wanted. For example, I asked Gemini to speculate about what Winston Churchill might think about such a system. I asked chat GPT how Ghengis Khan or Ghandi might turn the system to their advantage. I asked if Gandalf would let pippin use it. (maybe not while he’s drinking, but still a worthwhile idea). I used hundreds of thousands of words and prompts to work on this project, and it demonstrates that free tech is already expanding the set of our possibilities, without needing to rely on any one supplier or limiting us to one sort of output. I would ask chat gpt or grok  to imitate various characters from history or whatever I was reading, to simulate a variety of perspectives. I would ask them to critique it from the perspectives of the authors I’ve mentioned, the political figures I love and hate. What’s worth keeping, what’s weakest? Would you participate? Would you spread it publicly? I wanted something that would frustrate and limit the worst of them, and listen to the least of them, and even contain the best of them while still allowing them to lead and lift. 
+Long story short, (only 20000 words in? lol) I moved to Ontario cause I was tired of picking up everyone’s mess and the real estate was cheaper where I’m at now. I got a steady job in carpentry and bought a house and got married to a wonderful woman who recently became the mother of our child! I used any resources I could to get out of a situation that had gone south in ways I’d have to stretch to find relevant or avoid redundancy. The point is I went from complaining and dithering with absurdity to finding ways to fix what bugged me. Here’s an idea that might fix parts of what bugs me. 
+Political capital tokens, or policaps, are generated when you answer a question. You receive them as a tally of the effort you put into our project, and a key to check our work. Answering questions is the first big button in our app. You spend them when you audit your chosen vote predictor’s work. That’s the second big button in our app. Spend up to 2 policaps per bill to indicate whether you agree with your predicted vote or choose to override it. One policap spent is a basic yes or no, 2 spent means you really care about this bill, and spending one on yes and one on no indicates you can’t decide or don’t understand something about the bill. The peer to peer software allows the record of our votes to be distributed and authenticated across virtually anyone’s computer that wants to sign up. blockchains like bitcoin use underlying technology that’s like ledger books that record transactions, and they can be updated all together even though there’s thousands of copies. our peer to peer databases mean that No billionaires or corporations can go ripping pages out of our ledgers, not in any way that matters. This means that we won’t have a single point of failure to disrupt our data pools, and we won’t have extreme start up costs to meet server demands to move all this data. If anyone can donate some compute power from their existing hardware, we can scale up and share ownership of our data and the network it’s on. 
+The vote predictors are pieces of software that use different methods to analyze your answers. They can be any thing from simple arithmetic equations to decision trees to statistical analysis or machine learning algorithms. This is the ai part of senate+ai+i=senatai. I mean it in the sense of any automated prediction system. These vote predictor modules will be made by our core co-op professional staff as well as third party developers or individuals who want to contribute to our mostly open source projects. These modules could be rated for many different measures by many people. Average users could see what percentage of this model’s predictions do people agree with. Maybe there’s other metrics or rubrics that could be developed to help us understand why we might choose to use any particular module. 
+The market mechanisms within this predictor selection process will become an interesting category of data that currently is difficult to find at all right now. A data set which will help predict new predictors. All these predictions will be valuable in their own right, but not as valuable as your confirmation or override of those predictions. The third big button of our app is settings and more- this is where you’ll choose your languages and question makers and vote predictors. You’ll be able to use LLMs to explore different predictive models and learn about how they work and how they compare. Check its reasoning in a way that you’ll never get from current lawmakers- You can look at the evidence from your survey answers that helps your prediction model make the predictions. You can update your answers to those questions and help us track and understand how opinions change over time. And most importantly you can override those predictions. All of this helps create high fidelity vote representations of each and every person who wants to give their voice. 
+The fourth and last big button of the app will be “view the consensus” and you’ll be able to see how people are feeling about every law we can access. You can see what people actually think and what we predict they might think. We’re planning on having all kinds of graphs and analysis going on, with deep tools available to our paying subscribers. We’re thinking about first finding academic buyers who might be able to help us develop the most technical parts of the code and legal and ethical practices. A researcher at u of Waterloo has already expressed some interest in further communication about this idea. 
+
+Chapter 7: Reinventing Democracy — A Blueprint for Citizen Sovereignty
+
+---
+
+I. The Roots of Direct Democracy: Lessons from Switzerland and Canada**  
+
+Let me tell you about the time I tried to fix a leaky roof. I spent hours patching holes that were there from an insufficient design and years of shoddy add ons, only to watch the rain seep through new cracks the next storm. That’s traditional democracy for you—Switzerland and Canada showed us how to hammer in the first nails, but the roof’s still leaking.  
+
+The Swiss? They’ve been voting four times a year since the 1800s, like clockwork. Farmers, teachers, bankers—all tossing referendums on everything from pensions to alpaca subsidies. And up in Canada’s Prairie provinces, they let folks vote on land-use policies like they were picking the next barn dance song. It worked… until it didn’t. Voter fatigue set in. Lobbyists with fat wallets started whispering in ears. Democracy became a rigged carnival game.  
+
+But here’s the thing: when people *feel* their vote matters—when it’s tied to a pothole on their street or a school their kid attends—they show up. Not as spectators. As owners. That’s the spark we’re fanning.  
+
+---
+
+II. The Trust Fund: Economic Muscle for Collective Action
+
+Structure & Participation
+Imagine a union hall where dues start at a buck. No velvet ropes. No “VIP members.” You chip in $1, and suddenly you’re a shareholder in a fund that buys cities’ debt, bankrolls lawsuits against polluters, and rescues dying local newspapers. Your voice isn’t drowned out by some billionaire’s megaphone. You’re not a data cow—you’re the rancher.  
+
+Dividends? They’re not handouts. They’re your cut for staying engaged. Answer two policy questions a year—hell, do it while waiting for your coffee—and 25% of the fund’s growth lands in your pocket. No means test. No loopholes. Just cold, hard proof that participation pays.  
+
+Investments with Purpose
+This isn’t Wall Street’s playbook. We’re buying:  
+1. **Municipal Bonds** — Not to pad a portfolio, but to hold cities hostage until they fix Mrs. Kowalski’s pothole.  
+2. **Lawsuits** — Turning ambulance chasers into citizen watchdogs. Win a case against a toxic dump? The payout feeds the fund.  
+3. **Newspapers** — Resurrecting local journalism so reporters grill mayors, not just celebrities.  
+4. **Co-ops** — Building housing and solar grids owned by the folks who use them, not some hedge fund in Bermuda.  
+
+It’s class warfare with compound interest.  
+
+---
+
+III. The SenatAI App: From Potholes to Policy
+
+User Workflow
+1. **Sign-Up**: No tracking. No ads. Just a fingerprint scan so even your dog can’t impersonate you.  
+2. **Answer Questions**: Weekly prompts like, “Should we bulldoze the mayor’s parking spot for a bike lane?” No jargon. No spin.  
+3. **Vet Predictions**: The AI guesses your stance like a nosy neighbor. “You’ll vote NO on the gas tax, right?” Adjust the sliders. Prove it wrong.  
+4. **Consensus Dashboard**: Watch your neighborhood’s opinions light up like a bar fight. “72% want rent control? Damn right they do.”  
+5. **Trust Fund Portal**: Track your dividends. Propose buying a bankrupt radio station. Turn profits into power.  
+
+Example: The Pothole Revolution 
+Snap a photo of a crater on Main Street. The app pings the city: “Fix this by Friday, or we’ll vote down your next bond.” Why? Because the fund owns $10M of their debt. Suddenly, you’re not a taxpayer begging for crumbs—you’re the bank calling in a loan.  
+
+---
+
+IV. Media Strategy: Owning the Megaphone  
+
+We’re buying printing presses and radio towers not to preach, but to pry. Imagine reporters paid to investigate corruption, not clickbait. AI models trained on *real* data—not Facebook rants—to predict how school funding votes affect graduation rates. And no single entity owns more than 5% of the media. Monopolies are for board games, not democracies.  
+
+---
+
+V. Tax Implications & Legal Shields
+
+Yeah, the IRS will still come knocking. But here’s the hack: dividends under $50k get tax credits. Contributions? Write ’em off like church donations. Municipal bonds? Tax-free. It’s not loopholes—it’s leverage.  
+
+---
+
+VI. Defense: The Coalition of the Unignorable
+
+Cross this system, and you’re picking fights with:  
+- Retirees living on bond dividends.  
+- Journalists with subpoena power.  
+- Lawyers who sue for sport.  
+- Teachers who’ve memorized Robert’s Rules of Order.  
+
+Politicians who try to gut it will wake up to headlines like, “Senator Smith Hates Your Grandma’s Pension.”  
+
+---
+
+VII. Vision: Democracy as a Renewable Resource
+
+SenatAI isn’t an app. It’s a **crowbar**—prying open the black box of power. Every pothole fixed, every corporate crook sued, every local paper saved feeds the flywheel:  
+
+**You → Data → Predictions → Cash → Clout → Change.**  
+
+The endgame? Citizenship as a **collective superpower**. Not perfect. Not pristine. But *ours*.  
+
+---  
+
+“Democracy dies in darkness—but it thrives when we own the damn lightbulbs.”  
+
+.
+Let’s refine the draft of Chapter 8, “The Chautauqua and Beyond,” for your memoir, The Civic Forest: A Memoir of Senatai, to emphasize the urgency with which you’ve built Senatai, driven by your fear for your newborn daughter’s future. This reframing will highlight the stakes—both personal and societal—and position Senatai as a critical response to the systemic issues you’ve observed, like AI surveillance, opaque governance, and the loss of political agency. We’ll maintain the personal, reflective tone of the memoir, weaving in your journey as a laborer, artist, and father, while reinforcing the “Civic Forest” metaphor and Senatai’s mission. I’ll also ensure the chapter reflects your current efforts and next steps, as outlined in your previous messages.
+
+Chapter 8: The Chautauqua and Beyond
+Four weeks ago, I was reeling with fear for my newborn daughter, just two months old, her tiny hand wrapped around my finger as I sat in our small Kelowna apartment. What a world we’ve built for her—one where rising costs choke families like ours, where disconnected governments bicker over tax tweaks and housing bills, and where AI and surveillance strip away our voices, reducing us to data points in a failing democracy. I’m a carpenter laborer, used to swinging a hammer to solve problems I can touch, but this felt like a hammer wasn’t enough—not when the stakes were her future, our future. That fear wasn’t just a moment; it was a call to action, reframing the urgency with which I’ve built Senatai. I couldn’t wait for someone else to fix this broken system—not when every day we delay, another law passes without our input, another AI system tightens its grip, and another generation inherits a world where their voices don’t matter.
+So I started writing, pouring my fears and hopes onto the page, using large language models like Gemini, Grok, and Claude to test my ideas for Senatai. I’d ask them to channel thinkers like Marcus Aurelius or characters like Sam Gamgee, stress-testing my vision of a user-driven democracy against their wisdom and grit. Could an app really give citizens control over their laws, their data, their future—a future my daughter could thrive in? The answers I got fueled my resolve, and I began coding with a focus I hadn’t felt since my busking days in Winnipeg, where I’d play “Creep” by Radiohead for hours to earn enough for supper. I’m still a beginner, fumbling through Python commands and Git, but I set a schedule—45 minutes a day, six days a week—and started piecing together Senatai’s fragments: a secure sign-in system, modular scrapers for legislation data, and the beginnings of a policaps system to reward user engagement. Then I wrote what I’ve got of this book, The Civic Forest, a memoir of how Senatai grew from my life as a laborer, artist, and now a father, racing against time to build something better for her.
+Now, in April 2025, I’m standing on the edge of something real, driven by that urgency. This book is the heart of my Chautauqua—a gathering I’ve been planning to share Senatai’s story through art, music, and words. It traces my journey: from my childhood in Saskatoon and Minnesota, where I first felt the sting of disconnection from rigid systems; to the Mennonite university in Winnipeg, where I rebelled against surveillance and polling inefficiencies; to busking at The Forks, learning the power of community; to treeplanting, where the Methuselah tree inspired my “Civic Forest” metaphor; to Kelowna’s art house scene, where I painted with Lily and played with Barefoot Caravan, refining Senatai’s vision of inclusivity. The paintings I’ve shared in this book—like the 2019 tree painting with its chaotic mosaic roots and the 2020 unicorn against a fiery tree—trace that journey, even though many have sold and now live in private collections. The playlists I’ve curated for each chapter, from folk anthems like “Wagon Wheel” to hopeful tracks like “Here Comes the Sun,” bring those moments to life, and I’ve included QR codes so you can listen along.
+I’m almost a quarter of the way to my funding goal for copyright and patents, four weeks into my fundraising efforts, scraping together cash from odd jobs and the sale of my paintings. It’s a slow climb, but every dollar feels like a race against the clock—each step closer to protecting this vision that started with my frustrations as a laborer and grew through years of creating and coding, now propelled by the need to secure my daughter’s future. I’ve got a pilot website at senatai.ca, built with a simple username/password system—cryptographic and biometric authentication will come later—and I’m using modular scrapers to pull legislation data, starting with one jurisdiction to keep things manageable. The goal is to have a working iteration of all code pieces in a few months—likely by late summer 2025 if I keep tinkering at my current pace. It’s the same disciplined approach I used to balance coding, hardware setup, and testing for my microcomputer demo, which I housed in Kleenex boxes for a DIY flair.
+Funding is the next hurdle, and the urgency hasn’t let up. I’m aiming to secure copyright and patents to protect Senatai’s core concepts—like the policaps system and the user-owned trust that distributes dividends from anonymized data sales—before those ideas get swallowed by the very systems I’m trying to challenge. The plan is to use revenue from micro server sales—those Orange Pi Zero 2Ws and Odroid-C4s I’ve been tinkering with—and data sales (split 80/20 between the trust and operations) to eventually fund a public trust worth $5 million, paying out dividends to users. It’s the same financial model I’ve been refining since I first pitched it to my cousins, the lawyer and banker, who saw potential in its accountability and efficiency.
+Once the code is functional, I’ll start pitching Senatai in earnest, carrying that urgency into every conversation. I’ve got a two-sentence hook ready: “In an era of AI surveillance and opaque governance, citizens are losing their political voices—reduced to mere data points in a failing democracy. Senatai empowers you to shape laws directly, using transparent AI predictions and policaps to reclaim your sovereignty, with dividends from a user-owned trust.” I’ll expand this for events, explaining how Senatai uses blockchain for transparency and decentralized micro servers for privacy, addressing the distrust in AI that I’ve seen from professionals and community members alike. I’ll print business cards with QR codes linking to senatai.ca, where people can sign up for the pilot. Posters and pamphlets will go to my mother-in-law’s craft sales, Métis events in Ontario, my parents’ church network, and my mom’s school clients—places where I’ve seen communities come together, much like the ones that shaped me in Winnipeg and Kelowna. I’m also hoping for more engagement from the University of Waterloo, where there’s interest in tech-driven civic projects. My dad even wants me to contact our local MP, which could open doors to broader political conversations, though I’m cautious—Senatai’s design, with no central override and public exposure of bill sponsors, isn’t meant to appeal to power-hungry figures, as I’ve always intended.
+This memoir, and the Chautauqua it’s part of, is my way of inviting you into this urgent journey—a journey that started with fear for my daughter’s future and grew into a vision for a better democracy, built with a fire I can’t ignore. I’ve poured my life into Senatai—from the float tanks where I first sketched the 2019 tree painting to the late nights coding a secure sign-in system, learning as I go. The paintings in this book, like the 2020 tree triptych showing a forest growing from a single seed, reflect that growth. So do the playlists, which you can find at senatai.ca/playlists, capturing the music that carried me through—folk anthems, indie tracks, and songs of rebellion and hope.
+Senatai isn’t just my dream—it’s ours, and we can’t afford to wait. I’m inviting you to join the pilot at senatai.ca, starting with our public demos at Métis events in Ontario this summer. Plant your own seeds in this Civic Forest—answer surveys, shape laws, and help us build a democracy that listens. Together, we can grow something resilient, transparent, and truly ours—a world where my daughter, and all our children, can thrive, free from the systems that threaten to silence them.
+
+
+

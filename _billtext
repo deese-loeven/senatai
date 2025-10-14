@@ -1,0 +1,52 @@
+                                             Table "public.bills_bill"
+          Column           |         Type          | Collation | Nullable |                Default                 
+---------------------------+-----------------------+-----------+----------+----------------------------------------
+ id                        | integer               |           | not null | nextval('bills_bill_id_seq'::regclass)
+ name_en                   | text                  |           | not null | 
+ number                    | character varying(10) |           | not null | 
+ number_only               | smallint              |           | not null | 
+ sponsor_member_id         | integer               |           |          | 
+ privatemember             | boolean               |           |          | 
+ sponsor_politician_id     | integer               |           |          | 
+ law                       | boolean               |           |          | 
+ added                     | date                  |           | not null | 
+ institution               | character varying(1)  |           | not null | 
+ name_fr                   | text                  |           | not null | 
+ short_title_en            | text                  |           | not null | 
+ short_title_fr            | text                  |           | not null | 
+ status_date               | date                  |           |          | 
+ introduced                | date                  |           |          | 
+ text_docid                | integer               |           |          | 
+ status_code               | character varying(50) |           | not null | 
+ billstages_json           | text                  |           |          | 
+ legisinfo_id              | integer               |           |          | 
+ library_summary_available | boolean               |           | not null | 
+ session_id                | character varying(4)  |           | not null | 
+ latest_debate_date        | date                  |           |          | 
+Indexes:
+    "bills_bill_pkey" PRIMARY KEY, btree (id)
+    "bills_bill_added" btree (added)
+    "bills_bill_institution" btree (institution)
+    "bills_bill_institution_like" btree (institution varchar_pattern_ops)
+    "bills_bill_latest_debate_date_84fda672" btree (latest_debate_date)
+    "bills_bill_legisinfo_id_c01f6333" btree (legisinfo_id)
+    "bills_bill_number_ba50c940" btree (number)
+    "bills_bill_number_ba50c940_like" btree (number varchar_pattern_ops)
+    "bills_bill_session_id_aa62dcb6" btree (session_id)
+    "bills_bill_session_id_aa62dcb6_like" btree (session_id varchar_pattern_ops)
+    "bills_bill_sponsor_member_id" btree (sponsor_member_id)
+    "bills_bill_sponsor_politician_id" btree (sponsor_politician_id)
+Check constraints:
+    "bills_bill_legisinfo_id_check" CHECK (legisinfo_id >= 0)
+Foreign-key constraints:
+    "bills_bill_session_id_aa62dcb6_fk_core_session_id" FOREIGN KEY (session_id) REFERENCES core_session(id) DEFERRABLE INITIALLY DEFERRED
+    "sponsor_member_id_refs_id_6f3f762b" FOREIGN KEY (sponsor_member_id) REFERENCES core_electedmember(id) DEFERRABLE INITIALLY DEFERRED
+    "sponsor_politician_id_refs_id_188d955c" FOREIGN KEY (sponsor_politician_id) REFERENCES core_politician(id) DEFERRABLE INITIALLY DEFERRED
+Referenced by:
+    TABLE "bills_votequestion" CONSTRAINT "bill_id_refs_id_18a9b224" FOREIGN KEY (bill_id) REFERENCES bills_bill(id) DEFERRABLE INITIALLY DEFERRED
+    TABLE "hansards_statement_bills" CONSTRAINT "bill_id_refs_id_46176610" FOREIGN KEY (bill_id) REFERENCES bills_bill(id) DEFERRABLE INITIALLY DEFERRED
+    TABLE "bills_billtext" CONSTRAINT "bill_id_refs_id_66317eca06bd532e" FOREIGN KEY (bill_id) REFERENCES bills_bill(id) DEFERRABLE INITIALLY DEFERRED
+    TABLE "bills_bill_similar_bills" CONSTRAINT "bills_bill_similar_bills_from_bill_id_8c11160d_fk_bills_bill_id" FOREIGN KEY (from_bill_id) REFERENCES bills_bill(id) DEFERRABLE INITIALLY DEFERRED
+    TABLE "bills_bill_similar_bills" CONSTRAINT "bills_bill_similar_bills_to_bill_id_67b84825_fk_bills_bill_id" FOREIGN KEY (to_bill_id) REFERENCES bills_bill(id) DEFERRABLE INITIALLY DEFERRED
+    TABLE "hansards_statement" CONSTRAINT "hansards_statement_bill_debated_id_e9c56f18_fk_bills_bill_id" FOREIGN KEY (bill_debated_id) REFERENCES bills_bill(id) DEFERRABLE INITIALLY DEFERRED
+
