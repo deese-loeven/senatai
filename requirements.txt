@@ -3,3 +3,4 @@ spacy==3.4.4
 beautifulsoup4
 requests
 lxml
+psycopg2-binary
