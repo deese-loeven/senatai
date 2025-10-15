@@ -54,6 +54,8 @@ Thumbs.db
 # Large files
 geckodriver*
 *.tar.gz
-
+data/
+ 
 # Version mismatches
 */=*
+
