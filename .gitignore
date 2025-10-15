@@ -25,6 +25,7 @@ wheels/
 *.sqlite
 *.sqlite3
 *.sqbpro
+senatai_survey
 
 # Environment
 .env
