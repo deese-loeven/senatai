@@ -1,6 +1,7 @@
-# adaptive_survey8.py
+# adaptive_survey9.py
 import spacy
 import psycopg2
+import time # Added for timestamp
 import random
 from collections import Counter
 
@@ -85,8 +86,8 @@ class AdaptiveSurveyV8:
                 not clean_sentence.startswith(('Whereas', 'Therefore', 'Her Majesty', 'BE IT'))):
                 # Look for substantive content
                 if any(keyword in clean_sentence.lower() for keyword in 
-                      ['shall', 'must', 'prohibit', 'require', 'establish', 'amend',
-                       'provide', 'create', 'authorize', 'direct', 'enable']):
+                             ['shall', 'must', 'prohibit', 'require', 'establish', 'amend',
+                              'provide', 'create', 'authorize', 'direct', 'enable']):
                     meaningful_sentences.append(clean_sentence)
         
         if meaningful_sentences:
@@ -212,7 +213,7 @@ class AdaptiveSurveyV8:
         print(f"\n📚 Found {len(bills)} relevant laws:\n")
         
         for i, bill in enumerate(bills, 1):
-            print(f"   {i}. 📋 {bill['number']}: {bill['title']}")
+            print(f"    {i}. 📋 {bill['number']}: {bill['title']}")
             print(f"      👤 Sponsor: {bill['sponsor']}")
             print(f"      📅 Introduced: {bill['introduced_date'] or 'Unknown date'}")
             if bill['summary']:
@@ -220,13 +221,49 @@ class AdaptiveSurveyV8:
             print(f"      🔗 Full details: {bill['url']}")
             print(f"      🎯 Relevance score: {bill['relevance']:.1f}")
             print()
-    
+
+    def save_response(self, user_id, session_id, question, answer_score, bill_number, bill_keywords):
+        """Saves a single user response to the senatair_responses table."""
+        cursor = self.db_conn.cursor()
+        
+        # NOTE: answer_score is saved as TEXT, but it holds the numeric value (1-5)
+        try:
+            cursor.execute("""
+                INSERT INTO senatair_responses 
+                (senatair_id, session_id, question_text, answer_text, bill_number, question_type, matched_keywords, created_at) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
+            """, (
+                user_id,
+                session_id,
+                question['text'],
+                answer_score,  # The numeric input (1-5)
+                bill_number,
+                question['type'],
+                ", ".join(bill_keywords), # Storing the keywords that matched the bill
+                time.strftime('%Y-%m-%d %H:%M:%S')
+            ))
+            self.db_conn.commit()
+            return True
+        except psycopg2.Error as e:
+            print(f"Database error saving response: {e}")
+            self.db_conn.rollback()
+            return False
+        finally:
+            cursor.close()
+
     def run_survey(self):
         print("🚀 Starting Adaptive Survey V8")
         print("💡 Now with actual bill excerpts & proper links!")
-        print("⏸️  Type 'quit' at any time to exit\n")
+        # --- Test Environment Setup ---
+        print("--- Test Environment Settings ---")
+        TEST_USER_ID = 1 # Replace with actual auth user ID
+        TEST_SESSION_ID = int(time.time()) # Simple unique session ID
+        print(f"👤 Using Test User ID: {TEST_USER_ID} | Session: {TEST_SESSION_ID}")
+        print("---------------------------------")
+        print("⏸️ Type 'quit' at any time to exit\n")
         
         while True:
+            # This line defines 'user_input' and prevents the NameError
             user_input = input("\n🗳️  What's on your mind? We'll match it to actual legislation...\n\n> ").strip()
             
             if user_input.lower() == 'quit':
@@ -236,7 +273,16 @@ class AdaptiveSurveyV8:
                 continue
             
             print("🔍 Analyzing your concern...")
-            bills = self.find_relevant_bills(user_input)
+            
+            # --- Capture Keywords used for Bill Matching (CRITICAL for Predictor) ---
+            doc = self.nlp(user_input.lower()) 
+            keywords = [] 
+            for token in doc: 
+                if (token.pos_ in ['NOUN', 'PROPN', 'ADJ'] and not token.is_stop and len(token.text) > 3): 
+                    keywords.append(token.lemma_.lower())
+
+            # The find_relevant_bills function recalculates keywords, but this is fine for now.
+            bills = self.find_relevant_bills(user_input) 
             
             if not bills:
                 print("❌ No relevant legislation found. Try rephrasing your concern.")
@@ -263,7 +309,7 @@ class AdaptiveSurveyV8:
                 print(f"❓ {question['text']}\n")
                 
                 for j, option in enumerate(question['options'], 1):
-                    print(f"   {j}. {option}")
+                    print(f"    {j}. {option}")
                 
                 while True:
                     response = input("\nYour choice (1-5 or 'skip'): ").strip().lower()
@@ -271,14 +317,25 @@ class AdaptiveSurveyV8:
                         print("⏭️  Skipped question\n")
                         break
                     elif response in ['1', '2', '3', '4', '5']:
-                        print(f"✅ Response recorded: {question['options'][int(response)-1]}\n")
+                        print(f"✅ Response recorded: {question['options'][int(response)-1]}")
+                        
+                        # --- 🔑 SAVE TO DATABASE HERE ---
+                        self.save_response(
+                            user_id=TEST_USER_ID,
+                            session_id=TEST_SESSION_ID,
+                            question=question,
+                            answer_score=response, # The numeric score (1-5)
+                            bill_number=question['bill']['number'],
+                            bill_keywords=keywords # The keywords from the user's initial input
+                        )
+                        print("💾 Answer successfully saved to database!\n")
                         break
                     else:
                         print("❌ Please enter 1-5 or 'skip'")
             
             print("🎉 Thank you for your input! Your responses help shape democratic engagement.")
             print("💡 Remember: You can view full bill details at the OpenParliament links above.\n")
-
+            
 if __name__ == "__main__":
     survey = AdaptiveSurveyV8()
     survey.run_survey()
