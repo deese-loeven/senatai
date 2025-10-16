@@ -1,27 +1,32 @@
 # check_survey_storage.py
 def check_survey_storage():
-    with open('adaptive_survey3.py', 'r') as f:
-        content = f.read()
+    # 🎯 TARGETING THE LATEST FILE AFTER REFACTORING
+    TARGET_FILE = 'adaptive_survey11.py'
     
-    print("🔍 Analyzing adaptive_survey3.py response handling:")
+    try:
+        with open(TARGET_FILE, 'r') as f:
+            content = f.read()
+    except FileNotFoundError:
+        print(f"❌ ERROR: File not found. You must update this script to target a file that exists, like {TARGET_FILE}.")
+        return
+
+    print(f"🔍 Analyzing {TARGET_FILE} response handling:")
     
-    if 'answers' in content:
-        print("   ✅ Has 'answers' variable")
-        # Find where answers are processed
-        lines = content.split('\n')
-        answer_lines = [i for i, line in enumerate(lines) if 'answers' in line and '=' in line]
-        for line_num in answer_lines[:3]:
-            print(f"      Line {line_num}: {lines[line_num].strip()}")
-    
-    if 'save' in content and 'answer' in content:
-        print("   ✅ Has answer saving logic")
+    # Check for core components
+    if 'save_response' in content:
+        print("    ✅ Has 'save_response' function")
+        
+    if 'questions_answered_session' in content:
+        print("    ✅ Tracks 'questions_answered_session'")
+        
+    if 'db_conn.commit()' in content and 'db_conn.rollback()' in content:
+        print("    ✅ Database transaction handling is present (COMMIT/ROLLBACK)")
     else:
-        print("   ❌ No answer saving found")
+        print("    ⚠️ Missing safe database transaction handling (COMMIT/ROLLBACK)")
     
-    if 'database' in content and 'answer' in content:
-        print("   ✅ Mentions database and answers")
-    else:
-        print("   ❌ No database answer storage")
+    # Check if bill number is saved
+    if 'bill_number=question' in content:
+        print("    ✅ Saving bill_number in question data")
 
 if __name__ == "__main__":
     check_survey_storage()

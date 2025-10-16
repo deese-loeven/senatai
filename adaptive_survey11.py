@@ -1,11 +1,11 @@
-# adaptive_survey11.py
+# adaptive_survey11_stable.py
 import spacy
 import psycopg2
 import time 
 import random
 from collections import Counter
 
-# --- Icebreaker List for Post and Ghost Feature (from V10) ---
+# --- Icebreaker List for Post and Ghost Feature ---
 ICEBREAKERS = [
     "Vote booth open", "Democracy desk accepting visitors", "Your representative is listening (allegedly)", 
     "Polling station: open 24/7", "Ballot box ready for your thoughts", "Town hall in session", 
@@ -25,7 +25,7 @@ ICEBREAKERS = [
     "What’s grinding your gears?", "Tired of being ignored? Not here", "Rage room (text edition)"
 ]
 
-# --- NEW: Senatai Meta Check-in Questions ---
+# --- Senatai Meta Check-in Questions ---
 CHECK_IN_QUESTIONS = [
     {
         'text': "Do these questions feel clear and easy to answer?", 
@@ -71,56 +71,71 @@ class AdaptiveSurveyV11:
         if self.db_conn:
             self.db_conn.close()
 
-    # --- Database and NLP methods (get_bill_details, get_interest_count, find_relevant_bills) are unchanged from V10/V11 base ---
+    # 🔑 FIX: Corrected variable unpacking and added ROLLBACK
     def get_bill_details(self, bill_number):
-        """Get full bill details including text excerpts"""
-        # ... (Unchanged logic from V10/V11 base) ...
-        cursor = self.db_conn.cursor()
-        cursor.execute("""
-            SELECT b.number, b.short_title_en, bt.summary_en, bt.text_en,
-                   b.introduced, b.sponsor_politician_id
-            FROM bills_bill b
-            LEFT JOIN bills_billtext bt ON b.id = bt.bill_id
-            WHERE b.number = %s
-        """, (bill_number,))
-        result = cursor.fetchone()
-        cursor.close()
-        
-        if not result: return None
-        number, short_title, summary, full_text, sponsor_id, introduced_date = result[:6]
-
-        # Simplified sponsor/URL logic (as before)
-        sponsor = "Unknown"
-        # ... (Sponsor lookup logic) ...
-        if sponsor_id:
-            try:
-                cursor = self.db_conn.cursor()
-                cursor.execute("SELECT name_en FROM bills_bill WHERE sponsor_politician_id = %s LIMIT 1", (sponsor_id,))
-                sponsor_result = cursor.fetchone()
-                cursor.close()
-                sponsor = sponsor_result[0] if sponsor_result else "Unknown"
-            except:
-                sponsor = "Unknown"
-                
-        bill_url = f"https://openparliament.ca/bills/{number}/"
-        excerpt = summary or (full_text[:170] + "...") if full_text else "No excerpt available."
-
-        return {
-            'number': number,
-            'title': short_title or "Untitled Bill",
-            'summary': summary,
-            'excerpt': excerpt,
-            'full_text': full_text,
-            'introduced_date': introduced_date,
-            'sponsor': sponsor,
-            'url': bill_url
-        }
-    
-    def get_interest_count(self, bill_number):
-        """Fetches the total count of distinct sessions this bill has been presented to *any* user. (from V10/V11 base)"""
-        # ... (Unchanged logic from V10/V11 base) ...
-        cursor = self.db_conn.cursor()
+        """Get full bill details including text excerpts with defensive rollback."""
+        cursor = None
         try:
+            cursor = self.db_conn.cursor()
+            
+            # 1. Main bill fetch
+            cursor.execute("""
+                SELECT b.number, b.short_title_en, bt.summary_en, bt.text_en,
+                       b.introduced, b.sponsor_politician_id
+                FROM bills_bill b
+                LEFT JOIN bills_billtext bt ON b.id = bt.bill_id
+                WHERE b.number = %s
+            """, (bill_number,))
+            
+            result = cursor.fetchone()
+            
+            if not result: 
+                return None
+            
+            # CRITICAL FIX: Unpack in the same order as the SQL SELECT statement.
+            number, short_title, summary, full_text, introduced_date, sponsor_id = result[:6] 
+
+            # 2. Get sponsor name (Lookup in the correct 'politicians' table)
+            sponsor = "Unknown"
+            if sponsor_id:
+                try:
+                    # Assuming the table to find the politician's name is 'politicians_politician'
+                    cursor.execute("SELECT name_en FROM politicians_politician WHERE id = %s", (sponsor_id,))
+                    sponsor_result = cursor.fetchone()
+                    sponsor = sponsor_result[0] if sponsor_result else "Unknown"
+                except Exception:
+                    # Ignore sponsor lookup failure, but keep the transaction clear
+                    sponsor = "Unknown (Lookup Failed)"
+            
+            bill_url = f"https://openparliament.ca/bills/{number}/"
+            excerpt = summary or (full_text[:170] + "...") if full_text else "No excerpt available."
+
+            return {
+                'number': number,
+                'title': short_title or "Untitled Bill",
+                'summary': summary,
+                'excerpt': excerpt,
+                'full_text': full_text,
+                'introduced_date': introduced_date,
+                'sponsor': sponsor,
+                'url': bill_url
+            }
+        
+        except Exception as e:
+            # CRITICAL: If any database error occurs, we MUST rollback to clear the aborted transaction state
+            self.db_conn.rollback()
+            raise e # Re-raise the exception to the main thread for visibility
+        
+        finally:
+            if cursor:
+                cursor.close()
+
+    # 🔑 FIX: Added defensive ROLLBACK
+    def get_interest_count(self, bill_number):
+        """Fetches the total count of distinct sessions this bill has been presented to *any* user."""
+        cursor = None
+        try:
+            cursor = self.db_conn.cursor()
             cursor.execute("""
                 SELECT COUNT(DISTINCT senatair_id, session_id) 
                 FROM senatair_responses
@@ -129,13 +144,15 @@ class AdaptiveSurveyV11:
             count = cursor.fetchone()[0]
             return count
         except Exception:
+            self.db_conn.rollback() # ADDED: Ensure rollback on failure
             return 0
         finally:
-            cursor.close()
+            if cursor:
+                cursor.close()
 
+    # 🔑 FIX: Added defensive ROLLBACK
     def find_relevant_bills(self, user_input):
-        """Find bills relevant to user input using keyword matching (from V10/V11 base)"""
-        # ... (Unchanged logic from V10/V11 base) ...
+        """Find bills relevant to user input using keyword matching"""
         doc = self.nlp(user_input.lower())
         keywords = []
         for token in doc:
@@ -149,33 +166,44 @@ class AdaptiveSurveyV11:
         
         if not keywords: return [], []
 
-        cursor = self.db_conn.cursor()
-        query = """
-            SELECT DISTINCT bk.bill_number, COUNT(*) as match_count,
-                           SUM(bk.relevance_score) as total_relevance
-            FROM bill_keywords bk
-            WHERE bk.keyword = ANY(%s)
-            GROUP BY bk.bill_number
-            ORDER BY total_relevance DESC, match_count DESC
-            LIMIT 6
-        """
+        cursor = None
+        try:
+            cursor = self.db_conn.cursor()
+            query = """
+                SELECT DISTINCT bk.bill_number, COUNT(*) as match_count,
+                               SUM(bk.relevance_score) as total_relevance
+                FROM bill_keywords bk
+                WHERE bk.keyword = ANY(%s)
+                GROUP BY bk.bill_number
+                ORDER BY total_relevance DESC, match_count DESC
+                LIMIT 6
+            """
+            
+            cursor.execute(query, (keywords,))
+            results = cursor.fetchall()
+            
+            bills = []
+            for bill_number, match_count, relevance in results:
+                # This calls the fixed get_bill_details()
+                bill_details = self.get_bill_details(bill_number) 
+                if bill_details:
+                    bill_details['match_count'] = match_count
+                    bill_details['relevance'] = relevance
+                    bills.append(bill_details)
+            
+            return bills, keywords
         
-        cursor.execute(query, (keywords,))
-        results = cursor.fetchall()
-        cursor.close()
+        except Exception as e:
+            self.db_conn.rollback() # CRITICAL: Rollback if the main keyword search query fails
+            # We don't re-raise here so the program can continue, but the main loop catches it anyway
+            return [], []
         
-        bills = []
-        for bill_number, match_count, relevance in results:
-            bill_details = self.get_bill_details(bill_number)
-            if bill_details:
-                bill_details['match_count'] = match_count
-                bill_details['relevance'] = relevance
-                bills.append(bill_details)
-        
-        return bills, keywords
+        finally:
+            if cursor:
+                cursor.close()
 
     def display_bill_results(self, bills):
-        """Clean display of relevant bills with proper links, including Senatai Interest Count. (from V10/V11 base)"""
+        """Clean display of relevant bills with proper links, including Senatai Interest Count."""
         print(f"\n📚 Found {len(bills)} relevant laws:")
         
         for i, bill in enumerate(bills, 1):
@@ -188,11 +216,10 @@ class AdaptiveSurveyV11:
             if 'introduced_date' in bill: print(f"\t 📅 Introduced: {bill['introduced_date'] or 'Unknown date'}")
             if 'excerpt' in bill and bill['excerpt']: print(f"\t 📝 Excerpt: {bill['excerpt'][:170]}...")
             if 'url' in bill: print(f"\t 🔗 Full details: {bill['url']}")
-            print(f"\t 🎯 Relevance score: {bill['relevance']:.1f}")
+            if 'relevance' in bill: print(f"\t 🎯 Relevance score: {bill['relevance']:.1f}")
 
     def generate_engaging_questions(self, bill):
-        """Generate varied, engaging questions (from V10/V11 base)"""
-        # ... (Unchanged logic from V10/V11 base) ...
+        """Generate varied, engaging questions"""
         questions = []
         questions.append({
             'type': 'impact_assessment',
@@ -214,11 +241,10 @@ class AdaptiveSurveyV11:
         return questions[:2]
         
     def save_response(self, user_id, session_id, question, answer_score, bill_number, bill_keywords):
-        """Saves a single user response to the senatair_responses table. (from V10/V11 base)"""
+        """Saves a single user response to the senatair_responses table."""
         cursor = self.db_conn.cursor()
         
         try:
-            # We record a response for the main survey questions OR the meta check-in questions
             is_meta = question.get('is_meta', False)
             
             cursor.execute("""
@@ -230,7 +256,7 @@ class AdaptiveSurveyV11:
                 session_id,
                 question['text'],
                 question['options'][int(answer_score)-1],  # Store the text of the answer
-                bill_number if not is_meta else None, # Only link bill if it's a content question
+                bill_number if not is_meta else None, 
                 question['type'],
                 ", ".join(bill_keywords) if bill_keywords else None,
                 is_meta,
@@ -239,7 +265,7 @@ class AdaptiveSurveyV11:
             self.db_conn.commit()
             return True
         except psycopg2.Error as e:
-            self.db_conn.rollback()
+            self.db_conn.rollback() # Ensure rollback on failure
             return False
         finally:
             cursor.close()
@@ -259,11 +285,15 @@ class AdaptiveSurveyV11:
         
         while True:
             # List options for clarity
-            print(f"\nSelect a Bill Number (e.g., C-18) to focus on it, or choose one of the options below:")
+            print(f"\nSelect a **Bill Number** (e.g., C-18) to focus on it, or choose one of the options below:")
             print(f"\t [A] - Generate questions for ALL {len(bills)} matched bills.")
             print(f"\t [B] - Skip the questions and return to the main prompt.")
+            print(f"\t [quit] - Exit the application.")
             
-            selection = input("Your choice (Bill Number/A/B): ").strip().upper()
+            selection = input("Your choice (Bill Number/A/B/quit): ").strip().upper()
+            
+            if selection == 'QUIT':
+                return None # Signal a program exit
             
             if selection == 'A':
                 return bills # Proceed with all bills
@@ -274,10 +304,11 @@ class AdaptiveSurveyV11:
             if selection in bill_numbers:
                 # Find the single bill object and return it in a list
                 selected_bill = next((b for b in bills if b['number'] == selection), None)
-                print(f"✅ Focusing questions only on {selected_bill['number']}: {selected_bill['title']}")
-                return [selected_bill]
+                if selected_bill:
+                    print(f"✅ Focusing questions only on {selected_bill['number']}: {selected_bill['title']}")
+                    return [selected_bill]
                 
-            print("❌ Invalid input. Please enter a valid Bill Number (e.g., C-18), 'A', or 'B'.")
+            print("❌ Invalid input. Please enter a valid Bill Number (e.g., C-18), 'A', 'B', or 'quit'.")
 
     # --- NEW: Registration Prompt ---
     def registration_prompt(self, user_id, questions_answered):
@@ -293,7 +324,6 @@ class AdaptiveSurveyV11:
             response = input("> ").strip().lower()
             if response == 'yes':
                 print("💻 Launching registration interface... (In a real app, this would open a web browser).")
-                # In a real app, this would break the loop and redirect to a sign-up flow.
                 return True 
             else:
                 print("👍 No problem. Continue posting anonymously. We'll remind you later.")
@@ -302,12 +332,12 @@ class AdaptiveSurveyV11:
     # --- NEW: Senatai Check-in ---
     def senatai_check_in(self, user_id, session_id, current_q_count, keywords):
         """Checks in with the user every 7-10 questions."""
+        # Check every 7 to 10 questions
         if current_q_count > 0 and current_q_count % random.randint(7, 10) == 0:
             print("\n\n═══════════════════════════════════════")
             print("🧠 SENATAI CHECK-IN: How's the AI doing?")
             print("───────────────────────────────────────")
             
-            # Select a random meta-question
             meta_q = random.choice(CHECK_IN_QUESTIONS)
             meta_q['is_meta'] = True
             
@@ -316,7 +346,7 @@ class AdaptiveSurveyV11:
                 print(f"    {j}. {option.split('=')[-1].strip()}")
             
             while True:
-                response = input("\nYour choice (1-5 or 'skip'): ").strip().lower()
+                response = input("\nYour choice (1-5 or 'skip' or 'quit'): ").strip().lower()
                 
                 if response == 'quit':
                     print("\n👋 Exiting survey...")
@@ -372,8 +402,13 @@ class AdaptiveSurveyV11:
                 
             print("🔍 Analyzing your concern...")
             
-            # 1. Find bills and capture keywords (The 'Post' action)
-            bills, keywords = self.find_relevant_bills(user_input) 
+            try:
+                # 1. Find bills and capture keywords (The 'Post' action)
+                bills, keywords = self.find_relevant_bills(user_input) 
+            except Exception as e:
+                print(f"❌ An error occurred during bill search (Database might be down or locked): {e}")
+                continue # Go back to the main loop
+
             
             if not bills:
                 print("❌ No relevant legislation found. Try rephrasing your concern.")
@@ -385,6 +420,8 @@ class AdaptiveSurveyV11:
             # 2. NEW: Relevance Check Prompt
             bills_for_questions = self.relevance_check_prompt(bills)
 
+            if bills_for_questions is None: # User typed 'quit' in the Relevance Check
+                break
             if not bills_for_questions:
                 continue # User chose to skip questions
             
@@ -415,7 +452,8 @@ class AdaptiveSurveyV11:
                     print(f"    {j}. {option}")
                 
                 while True:
-                    response = input("\nYour choice (1-5 or 'skip'): ").strip().lower()
+                    # Graceful Exit FIX is inside this inner loop
+                    response = input("\nYour choice (1-5 or 'skip' or 'quit'): ").strip().lower() 
                     
                     if response == 'quit':
                         print("\n👋 Exiting survey...")
@@ -429,16 +467,18 @@ class AdaptiveSurveyV11:
                         print(f"✅ Response recorded: {question['options'][int(response)-1]}")
                         
                         # Save the content response
-                        self.save_response(
+                        if self.save_response(
                             user_id=TEST_USER_ID,
                             session_id=TEST_SESSION_ID,
                             question=question,
                             answer_score=response, 
                             bill_number=question['bill']['number'],
                             bill_keywords=keywords 
-                        )
-                        self.questions_answered_session += 1
-                        print("💾 Answer successfully saved to database!\n")
+                        ):
+                            self.questions_answered_session += 1
+                            print("💾 Answer successfully saved to database!\n")
+                        else:
+                            print("❌ Failed to save answer. The database may be locked. Continuing...\n")
                         break
                         
                     else:
@@ -452,4 +492,4 @@ if __name__ == "__main__":
     try:
         survey.run_survey()
     except Exception as e:
-        print(f"\nAn error occurred during runtime: {e}")
+        print(f"\n🔥 FATAL ERROR: {e}")
