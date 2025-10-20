@@ -81,7 +81,7 @@ def get_daily_stats(cursor, user_id, today=None):
     cursor.execute('''
         SELECT question_count, vote_count 
         FROM daily_question_count 
-        WHERE user_id = ? AND activity_date = ?
+        WHERE user_id = %s AND activity_date = %s
     ''', (user_id, today))
     
     result = cursor.fetchone()
@@ -170,7 +170,7 @@ def award_question_policap(cursor, user_id, is_postgres=False):
         cursor.execute('''
             UPDATE daily_question_count 
             SET question_count = question_count + 1
-            WHERE user_id = ? AND activity_date = ?
+            WHERE user_id = %s AND activity_date = %s
         ''', (user_id, today))
         
         # Update user balance and lifetime earnings
@@ -178,7 +178,7 @@ def award_question_policap(cursor, user_id, is_postgres=False):
             UPDATE users 
             SET policap_balance = policap_balance + ?,
                 lifetime_policap_earned = lifetime_policap_earned + ?
-            WHERE id = ?
+            WHERE id = %s
         ''', (reward, reward, user_id))
         
         # Record transaction

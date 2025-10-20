@@ -200,14 +200,14 @@ def calculate_audit_spend_limit(bill_id, user_id, cursor):
             'veto_limit': int (how many more vetos allowed),
             'total_confirms': int,
             'total_vetos': int,
-            'switched_position': bool (did they go from + to - or vice versa?)
+            'switched_position': bool (did they go from + to - or vice versa%s)
         }
     """
     # Get user's audit history for this bill
     cursor.execute('''
         SELECT spending_type, policap_spent 
         FROM policap_spending 
-        WHERE user_id = ? AND bill_id = ? 
+        WHERE user_id = %s AND bill_id = %s 
         ORDER BY timestamp ASC
     ''', (user_id, bill_id))
     

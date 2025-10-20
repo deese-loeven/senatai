@@ -640,7 +640,7 @@ def speak():
             existing = cursor.fetchone()
             
             if existing:
-                cursor.execute('UPDATE topic_interest SET interest_count = interest_count + 1, last_mentioned = ? WHERE topic_name = %s',
+                cursor.execute('UPDATE topic_interest SET interest_count = interest_count + 1, last_mentioned = %s WHERE topic_name = %s',
                               (datetime.now(), topic))
             else:
                 cursor.execute('INSERT INTO topic_interest (topic_name, category, interest_count) VALUES (%s, %s, %s)',
@@ -869,7 +869,7 @@ def trending():
     trending_topics = cursor.fetchall()
     
     cursor.execute('SELECT COUNT(*) FROM complaints')
-    total_complaints = cursor.fetchone()['topic_name']
+    total_complaints = cursor.fetchone()[0]
     
     conn.close()
     
@@ -991,7 +991,7 @@ def admin_edit_legislation(bill_id):
         
         cursor.execute('''
             UPDATE legislation 
-            SET bill_title = ?, bill_summary = ?, full_text = ?, status = ?, category = ?, source_url = ?
+            SET bill_title = %s, bill_summary = %s, full_text = %s, status = %s, category = %s, source_url = %s
             WHERE bill_id = %s
         ''', (bill_title, bill_summary, full_text, status, category, source_url, bill_id))
         conn.commit()
