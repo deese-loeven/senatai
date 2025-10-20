@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Consensus View - {{ data.bill[1] }} - Senatai{% endblock %}
+
+{% block content %}
+<div class="consensus-container">
+    <h1>Public Consensus</h1>
+    <p class="subtitle">Anonymized aggregate view of community opinions</p>
+    
+    <div class="bill-detail-card">
+        <div class="bill-header">
+            <span class="bill-id">{{ data.bill[0] }}</span>
+            <span class="bill-status status-{{ data.bill[3]|lower }}">{{ data.bill[3] }}</span>
+        </div>
+        <h2>{{ data.bill[1] }}</h2>
+        <p class="bill-summary">{{ data.bill[2] }}</p>
+    </div>
+    
+    <div class="consensus-stats">
+        <h3>Community Voting Results</h3>
+        <p class="total-votes">{{ data.total_votes }} total votes</p>
+        
+        {% if data.total_votes > 0 %}
+        <div class="vote-breakdown">
+            {% for vote_type, count in data.vote_counts.items() %}
+            <div class="vote-bar">
+                <div class="vote-label">{{ vote_type }}</div>
+                <div class="bar-container">
+                    <div class="bar-fill bar-fill-{{ vote_type|lower }}" 
+                         style="width: {{ (count / data.total_votes * 100)|round(1) }}%">
+                    </div>
+                </div>
+                <div class="vote-percentage">{{ (count / data.total_votes * 100)|round(1) }}% ({{ count }} votes)</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="no-data">No votes recorded yet. Be the first to vote!</p>
+        {% endif %}
+    </div>
+    
+    <div class="privacy-notice">
+        <p><strong>Privacy Protected:</strong> All data shown here is anonymized and aggregated. Individual voting records are never revealed.</p>
+    </div>
+    
+    <div class="action-buttons">
+        <a href="{{ url_for('vote') }}" class="btn btn-primary">Back to Voting</a>
+    </div>
+</div>
+{% endblock %}

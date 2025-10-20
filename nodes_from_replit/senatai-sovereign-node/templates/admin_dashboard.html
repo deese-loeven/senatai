@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - Senatai{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <h1>Admin Dashboard</h1>
+    <p class="subtitle">Manage legislation and view platform statistics</p>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">{{ stats.user_count }}</div>
+            <div class="stat-label">Total Users</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">{{ stats.bill_count }}</div>
+            <div class="stat-label">Bills in Database</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">{{ stats.vote_count }}</div>
+            <div class="stat-label">Total Votes Cast</div>
+        </div>
+    </div>
+    
+    <div class="admin-section">
+        <div class="section-header">
+            <h2>Legislation Management</h2>
+            <a href="{{ url_for('admin_add_legislation') }}" class="btn btn-primary">Add New Legislation</a>
+        </div>
+        
+        <div class="legislation-table-container">
+            <table class="legislation-table">
+                <thead>
+                    <tr>
+                        <th>Bill ID</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bill in bills %}
+                    <tr>
+                        <td><strong>{{ bill[1] }}</strong></td>
+                        <td>{{ bill[2] }}</td>
+                        <td>{{ bill[6] or 'Uncategorized' }}</td>
+                        <td><span class="status-badge status-{{ bill[5]|lower }}">{{ bill[5] }}</span></td>
+                        <td>{{ bill[8][:10] if bill[8] else 'N/A' }}</td>
+                        <td class="action-cell">
+                            <a href="{{ url_for('admin_edit_legislation', bill_id=bill[1]) }}" class="btn-small btn-secondary">Edit</a>
+                            <form method="POST" action="{{ url_for('admin_delete_legislation', bill_id=bill[1]) }}" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this bill?');">
+                                <button type="submit" class="btn-small btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="admin-info">
+        <h3>Quick Guide</h3>
+        <ul>
+            <li>Use "Add New Legislation" to upload bills from parliament or congress</li>
+            <li>Include full text for comprehensive analysis by question generators</li>
+            <li>Add source URLs for user reference and transparency</li>
+            <li>Categorize bills to help users find relevant legislation</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

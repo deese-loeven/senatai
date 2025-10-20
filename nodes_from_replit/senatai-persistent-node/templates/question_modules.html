@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Question Generator Modules - Senatai{% endblock %}
+
+{% block content %}
+<div class="modules-container">
+    <h1>Question Generator Modules</h1>
+    <p class="subtitle">User-rated, open-source modules that generate survey questions from legislation</p>
+    
+    <div class="info-box">
+        <h3>How Question Generators Work</h3>
+        <p>Question generator modules analyze legislative text and create survey questions to help you understand and vote on bills. Each module uses different approaches:</p>
+        <ul>
+            <li><strong>Analysis:</strong> Extracts key provisions and policy changes</li>
+            <li><strong>Question Types:</strong> Binary (Yes/No), multiple choice, or scaled responses</li>
+            <li><strong>Transparency:</strong> All modules are open-source and community-rated</li>
+        </ul>
+    </div>
+    
+    <h2>Available Modules</h2>
+    
+    {% for module in modules %}
+    <div class="module-card">
+        <div class="module-header">
+            <h3>{{ module[1] }}</h3>
+            <div class="module-rating">
+                <span class="rating-stars">★</span> {{ "%.1f"|format(module[4]) }} / 5.0
+            </div>
+        </div>
+        
+        <p class="module-description">{{ module[2] }}</p>
+        
+        <div class="module-details">
+            <div class="detail-item">
+                <strong>Version:</strong> {{ module[3] }}
+            </div>
+            <div class="detail-item">
+                <strong>Status:</strong> 
+                {% if module[5] == 1 %}
+                <span class="status-badge status-active">Active</span>
+                {% else %}
+                <span class="status-badge status-inactive">Inactive</span>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="module-info">
+            <h4>Question Types Generated:</h4>
+            <ul>
+                <li>Binary Yes/No questions based on bill summaries</li>
+                <li>Simple language optimized for accessibility</li>
+                <li>One question per bill for clarity</li>
+            </ul>
+        </div>
+        
+        <div class="module-actions">
+            <button class="btn btn-secondary" disabled>View Source Code (Coming Soon)</button>
+            <button class="btn btn-secondary" disabled>Rate This Module (Coming Soon)</button>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <div class="template-notice">
+        <h3>Future Enhancements</h3>
+        <p>Additional question generator modules will be added as they're developed. Community members can submit their own modules for review and inclusion.</p>
+    </div>
+</div>
+{% endblock %}

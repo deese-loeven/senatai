@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Find My Representative - Senatai{% endblock %}
+
+{% block content %}
+<div class="find-rep-container">
+    <h1>Find Your Representative</h1>
+    <p class="subtitle">Contact your Member of Parliament directly</p>
+    
+    <div class="privacy-notice">
+        <p><strong>Privacy First:</strong> We don't ask for your location. Browse the list below and click to email your representative directly from your device.</p>
+    </div>
+    
+    <div class="rep-table-container">
+        <table class="rep-table">
+            <thead>
+                <tr>
+                    <th>Riding</th>
+                    <th>Representative Name</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rep in representatives %}
+                <tr>
+                    <td>{{ rep.riding }}</td>
+                    <td>{{ rep.name }}</td>
+                    <td>
+                        <a href="mailto:{{ rep.email }}?subject=Constituent Feedback on Legislation&body=Dear {{ rep.name }},%0D%0A%0D%0AI am writing to share my views on recent legislation.%0D%0A%0D%0A" 
+                           class="btn btn-secondary">
+                            Email Representative
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="info-box">
+        <p><strong>How it works:</strong> Click "Email Representative" to open your default email app with a pre-composed message. All your personal information stays on your device.</p>
+    </div>
+</div>
+{% endblock %}

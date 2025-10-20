@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}Audit Predictions - Senatai{% endblock %}
+
+{% block content %}
+<div class="audit-container">
+    <div class="audit-header">
+        <h1>🔮 Audit Predictions</h1>
+        <p class="subtitle">See how we predict you'd vote on bills. Confirm or veto predictions to earn Policap.</p>
+        <div class="user-balance">
+            <span>💰 Your balance: {{ current_user.policap_balance }} Policap</span>
+        </div>
+    </div>
+
+    <div class="coming-soon-box">
+        <div class="coming-soon-icon">🚧</div>
+        <h2>Coming Soon!</h2>
+        <p>We're building the prediction audit system. Here's what's coming:</p>
+        
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>📊 Multiple Prediction Models</h3>
+                <p>Choose between different predictors: Logic Trees, Statistical Analysis, and AI-powered models</p>
+            </div>
+            
+            <div class="feature-item">
+                <h3>🎯 Value-Based Predictions</h3>
+                <p>We'll predict how YOU would vote based on your survey answers and values, not demographics</p>
+            </div>
+            
+            <div class="feature-item">
+                <h3>💰 Spend Policap to Audit</h3>
+                <p>Spend +2 Policap to affirm or -2 Policap to veto predictions. Show your enthusiasm and (dis)agreement</p>
+            </div>
+            
+            <div class="feature-item">
+                <h3>🎲 Provoke Opinions</h3>
+                <p>Like a coin toss to see how you feel about an outcome. Discover your values without overthinking</p>
+            </div>
+            
+            <div class="feature-item">
+                <h3>📈 Priority Sorting</h3>
+                <p>Bills with weakest prediction confidence shown first - help us learn where we need more data</p>
+            </div>
+        </div>
+        
+        <div class="meanwhile-actions">
+            <h3>Meanwhile, you can:</h3>
+            <a href="{{ url_for('answer_questions') }}" class="btn btn-primary">Answer Questions</a>
+            <a href="{{ url_for('vote') }}" class="btn btn-secondary">Vote on Bills</a>
+            <p class="help-text">The more questions you answer, the better our predictions will be!</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.audit-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.audit-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.audit-header h1 {
+    font-size: 2.5rem;
+    color: #2c5aa0;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.user-balance {
+    background: #f0f5fa;
+    padding: 1rem;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: 600;
+    color: #2c5aa0;
+}
+
+.coming-soon-box {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.coming-soon-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.coming-soon-box h2 {
+    color: #f39c12;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    text-align: left;
+}
+
+.feature-item {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.feature-item h3 {
+    color: #2c5aa0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.feature-item p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.meanwhile-actions {
+    background: #f0f5fa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.meanwhile-actions h3 {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.meanwhile-actions .btn {
+    margin: 0.5rem;
+}
+
+.help-text {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .audit-container {
+        padding: 1rem;
+    }
+    
+    .coming-soon-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

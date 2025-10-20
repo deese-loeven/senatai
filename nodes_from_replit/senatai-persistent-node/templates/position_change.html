@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+{% block title %}What Changed Your Mind? - Senatai{% endblock %}
+
+{% block content %}
+<div class="position-change-container">
+    <div class="position-change-box">
+        <h1>🤔 What Changed Your Mind?</h1>
+        
+        <div class="position-indicator">
+            {% if previous_position == 'confirm_prediction' %}
+            <div class="position-from">
+                <span class="icon">✅</span>
+                <span class="label">You confirmed this prediction</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="position-to">
+                <span class="icon">❌</span>
+                <span class="label">Now vetoing it</span>
+            </div>
+            {% else %}
+            <div class="position-from">
+                <span class="icon">❌</span>
+                <span class="label">You vetoed this prediction</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="position-to">
+                <span class="icon">✅</span>
+                <span class="label">Now confirming it</span>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="explanation">
+            <p>You've switched your position on this prediction! This is valuable data that helps us understand how people's views evolve.</p>
+            <p><strong>We'd love to know:</strong> What made you reconsider?</p>
+        </div>
+
+        <form method="POST" class="reason-form">
+            <input type="hidden" name="action" value="submit_position_change">
+            <input type="hidden" name="bill_id" value="{{ bill_id }}">
+            <input type="hidden" name="new_position" value="{{ new_position }}">
+            <input type="hidden" name="policap_cost" value="{{ policap_cost }}">
+            
+            <textarea name="reason" 
+                      placeholder="e.g., 'I read the full bill text and realized...', 'I discussed it with friends and...', 'I learned more about the impact on...'"
+                      rows="5"
+                      class="reason-input"
+                      required></textarea>
+            
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-primary btn-large">
+                    Submit & Spend {{ policap_cost }} Policap
+                </button>
+                <a href="{{ url_for('audit_predictions') }}" class="btn btn-secondary">
+                    Cancel
+                </a>
+            </div>
+        </form>
+
+        <div class="privacy-note">
+            <h4>📊 How this helps:</h4>
+            <ul>
+                <li>Premium clients pay to understand <em>why</em> opinions shift, not just that they do</li>
+                <li>Your anonymized reasoning helps train better prediction models</li>
+                <li>Position changes are highly valuable data - you're doing important work!</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+.position-change-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.position-change-box {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.position-change-box h1 {
+    color: #2c5aa0;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.position-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: #f0f5fa;
+    border-radius: 12px;
+}
+
+.position-from,
+.position-to {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.position-from {
+    opacity: 0.6;
+}
+
+.position-indicator .icon {
+    font-size: 3rem;
+}
+
+.position-indicator .label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.arrow {
+    font-size: 2rem;
+    color: #2c5aa0;
+}
+
+.explanation {
+    background: #fff8dc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    border-left: 4px solid #f39c12;
+}
+
+.explanation p {
+    margin: 0.75rem 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.reason-form {
+    margin: 2rem 0;
+}
+
+.reason-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 1.5rem;
+}
+
+.reason-input:focus {
+    outline: none;
+    border-color: #2c5aa0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.privacy-note {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.privacy-note h4 {
+    color: #2c5aa0;
+    margin-bottom: 1rem;
+}
+
+.privacy-note ul {
+    list-style: none;
+    padding: 0;
+}
+
+.privacy-note li {
+    padding: 0.5rem 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+.privacy-note li:before {
+    content: "✓ ";
+    color: #27ae60;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .position-change-container {
+        padding: 1rem;
+    }
+    
+    .position-change-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .position-indicator {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .arrow {
+        transform: rotate(90deg);
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}

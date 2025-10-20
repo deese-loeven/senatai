@@ -1,0 +1,296 @@
+{% extends "base.html" %}
+
+{% block title %}Consensus Forums - Senatai{% endblock %}
+
+{% block content %}
+<div class="consensus-container">
+    <div class="consensus-header">
+        <h1>💬 Consensus Forums</h1>
+        <p class="subtitle">See how Canadians are voting. Discuss bills in community forums.</p>
+    </div>
+
+    <div class="tier-info">
+        <div class="tier-badge free">Free Tier</div>
+        <p>You're viewing <strong>basic aggregate data</strong> (predicted + authenticated votes combined)</p>
+        <a href="#paid-tiers" class="upgrade-link">See paid tier options ↓</a>
+    </div>
+
+    <div class="bills-list">
+        <h2>Recent Legislation</h2>
+        {% for bill in bills %}
+        <div class="bill-card">
+            <div class="bill-header">
+                <h3>{{ bill[0] }}: {{ bill[1] }}</h3>
+                <span class="status-badge {{ bill[4].lower() }}">{{ bill[4] }}</span>
+            </div>
+            <p class="bill-summary">{{ bill[2] }}</p>
+            <div class="bill-meta">
+                <span class="category-tag">{{ bill[3] if bill[3] else 'General' }}</span>
+            </div>
+            <div class="consensus-placeholder">
+                <p>🚧 <strong>Coming Soon:</strong> Consensus data and forum discussions for this bill</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="paid-tiers-section" id="paid-tiers">
+        <h2>🔓 Unlock More Data</h2>
+        <p class="tiers-intro">Senatai competes in the same market as Gallup and Angus Reid. Support the cooperative and access progressively granular civic data.</p>
+        
+        <div class="tiers-grid">
+            <div class="tier-card">
+                <h3>$10/mo - Student</h3>
+                <ul>
+                    <li>Synthetic vs. authenticated votes breakdown</li>
+                    <li>See prediction confidence levels</li>
+                    <li>Export basic datasets</li>
+                </ul>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
+            
+            <div class="tier-card">
+                <h3>$100/mo - Journalist</h3>
+                <ul>
+                    <li>Local, provincial, national breakdowns</li>
+                    <li>Basic demographics (age, gender)</li>
+                    <li>Time-series trend analysis</li>
+                </ul>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
+            
+            <div class="tier-card">
+                <h3>$1,000/mo - Academic</h3>
+                <ul>
+                    <li>Fine-grained demographic datasets</li>
+                    <li>Cross-correlation analysis</li>
+                    <li>Custom query builder</li>
+                </ul>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
+            
+            <div class="tier-card">
+                <h3>$10,000/mo - Think Tank</h3>
+                <ul>
+                    <li>Detailed values-based segmentation</li>
+                    <li>Predictive modeling access</li>
+                    <li>API access for integrations</li>
+                </ul>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
+            
+            <div class="tier-card featured">
+                <h3>$30,000/mo - Government</h3>
+                <ul>
+                    <li>Dedicated liaison support</li>
+                    <li>Custom queries and reports</li>
+                    <li>Real-time polling capabilities</li>
+                    <li>Priority feature requests</li>
+                </ul>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.consensus-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.consensus-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.consensus-header h1 {
+    font-size: 2.5rem;
+    color: #2c5aa0;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.tier-info {
+    background: #f0f5fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tier-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.tier-badge.free {
+    background: #27ae60;
+    color: white;
+}
+
+.upgrade-link {
+    color: #2c5aa0;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.bills-list h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.bill-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.bill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.bill-header h3 {
+    color: #2c5aa0;
+    font-size: 1.2rem;
+    flex: 1;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-badge.passed {
+    background: #27ae60;
+    color: white;
+}
+
+.status-badge.debate {
+    background: #f39c12;
+    color: white;
+}
+
+.bill-summary {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.category-tag {
+    background: #e8f0fe;
+    color: #2c5aa0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.consensus-placeholder {
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.paid-tiers-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 2px solid #e0e0e0;
+}
+
+.paid-tiers-section h2 {
+    color: #2c5aa0;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.tiers-intro {
+    text-align: center;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+}
+
+.tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.tier-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+}
+
+.tier-card.featured {
+    border-color: #f39c12;
+    background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+}
+
+.tier-card h3 {
+    color: #2c5aa0;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.tier-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.tier-card li {
+    padding: 0.5rem 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.tier-card li:before {
+    content: "✓ ";
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.coming-soon {
+    display: block;
+    background: #95a5a6;
+    color: white;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .consensus-container {
+        padding: 1rem;
+    }
+    
+    .bill-header {
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}

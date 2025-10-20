@@ -1,0 +1,202 @@
+<!-- Badge Display Component - Include in profiles and forums -->
+{% macro render_production_badge(badge) %}
+<div class="badge production-badge {% if badge.get('shiny') %}shiny-badge{% endif %}" 
+     style="--badge-color: {{ badge['color'] }}" 
+     title="{{ badge['description'] }}">
+    <span class="badge-icon">{{ badge['icon'] }}</span>
+    <span class="badge-name">{{ badge['name'] }}</span>
+</div>
+{% endmacro %}
+
+{% macro render_audit_badge(badge) %}
+<div class="badge audit-badge {% if badge.get('supreme') %}supreme-badge{% endif %}" 
+     style="--badge-color: {{ badge['color'] }}" 
+     data-glow="{{ badge.get('glow', 'none') }}"
+     title="{{ badge['description'] }}">
+    <span class="badge-icon">{{ badge['icon'] }}</span>
+    <span class="badge-name">{{ badge['name'] }}</span>
+</div>
+{% endmacro %}
+
+{% macro render_badge_showcase(production_badges, audit_badges) %}
+<div class="badge-showcase">
+    {% if audit_badges %}
+    <div class="badge-section">
+        <h4>🏆 Audit Badges</h4>
+        <div class="badge-grid">
+            {% for badge in audit_badges %}
+            {{ render_audit_badge(badge) }}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if production_badges %}
+    <div class="badge-section">
+        <h4>💰 Production Badges</h4>
+        <div class="badge-grid">
+            {% for badge in production_badges %}
+            {{ render_production_badge(badge) }}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if not production_badges and not audit_badges %}
+    <p class="no-badges">No badges yet - start answering questions or auditing predictions!</p>
+    {% endif %}
+</div>
+{% endmacro %}
+
+<style>
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--badge-color);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.badge-icon {
+    font-size: 1.3rem;
+}
+
+/* Production badges - nice but standard */
+.production-badge {
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+/* Shiny 100k badge - special animation */
+.shiny-badge {
+    background: linear-gradient(135deg, #ff00ff 0%, #00ffff 50%, #ff00ff 100%);
+    background-size: 200% 200%;
+    animation: shimmer 3s ease infinite;
+    box-shadow: 0 0 20px rgba(255,0,255,0.6), 0 4px 8px rgba(0,0,0,0.3);
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Audit badges - WAY COOLER with glows */
+.audit-badge {
+    border: 2px solid rgba(255,255,255,0.5);
+    position: relative;
+}
+
+.audit-badge[data-glow="soft"] {
+    box-shadow: 0 0 10px var(--badge-color), 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.audit-badge[data-glow="medium"] {
+    box-shadow: 0 0 15px var(--badge-color), 0 0 5px var(--badge-color), 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.audit-badge[data-glow="strong"] {
+    box-shadow: 0 0 20px var(--badge-color), 0 0 10px var(--badge-color), 0 2px 4px rgba(0,0,0,0.2);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.audit-badge[data-glow="intense"] {
+    box-shadow: 0 0 25px var(--badge-color), 0 0 15px var(--badge-color), 0 0 5px var(--badge-color), 0 2px 4px rgba(0,0,0,0.2);
+    animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+.audit-badge[data-glow="rainbow"] {
+    background: linear-gradient(135deg, #ffd700 0%, #ff1493 25%, #00ffff 50%, #00ff00 75%, #ffd700 100%);
+    background-size: 300% 300%;
+    animation: rainbow-flow 4s ease infinite, pulse-glow 2s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(255,215,0,0.8), 0 0 20px rgba(255,20,147,0.6), 0 0 10px rgba(0,255,255,0.4);
+}
+
+.supreme-badge {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.25rem;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+}
+
+@keyframes rainbow-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Badge showcase layout */
+.badge-showcase {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1rem 0;
+}
+
+.badge-section {
+    margin-bottom: 1.5rem;
+}
+
+.badge-section:last-child {
+    margin-bottom: 0;
+}
+
+.badge-section h4 {
+    color: #2c5aa0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.badge-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.no-badges {
+    text-align: center;
+    color: #999;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Compact badge display for forum posts */
+.badge-mini {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 12px;
+}
+
+.badge-mini .badge-icon {
+    font-size: 1rem;
+}
+
+.badge-mini .badge-name {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .badge-icon {
+        font-size: 1.1rem;
+    }
+}
+</style>

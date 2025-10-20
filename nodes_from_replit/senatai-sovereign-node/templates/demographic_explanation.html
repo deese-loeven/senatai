@@ -1,0 +1,380 @@
+{% extends "base.html" %}
+
+{% block title %}How Your Data Creates Value - Senatai{% endblock %}
+
+{% block content %}
+<div class="explanation-container">
+    <div class="explanation-box">
+        <h1>How Your Demographic Data Creates Value</h1>
+
+        <div class="tier-section">
+            <h2>📊 Data Access Tiers</h2>
+            <p class="intro">We sell access to anonymized, aggregated survey data at different price points. Here's what each tier gets:</p>
+
+            <div class="tier-card free">
+                <h3>Free Tier (Everyone)</h3>
+                <ul>
+                    <li>Basic aggregate results: "67% support this bill"</li>
+                    <li>No demographic breakdowns</li>
+                    <li>Public consensus views</li>
+                </ul>
+                <div class="price">$0/month</div>
+            </div>
+
+            <div class="tier-card student">
+                <h3>Student/Activist Tier</h3>
+                <ul>
+                    <li>Predicted vs. authenticated vote splits</li>
+                    <li>Basic confidence levels</li>
+                    <li>Trend tracking over time</li>
+                </ul>
+                <div class="price">$10/month</div>
+            </div>
+
+            <div class="tier-card journalist">
+                <h3>Journalist Tier</h3>
+                <ul>
+                    <li>Geographic breakdowns (BC vs Ontario)</li>
+                    <li>Basic demographics (age ranges, gender)</li>
+                    <li>Quote-worthy data with attribution</li>
+                </ul>
+                <div class="price">$100/month</div>
+            </div>
+
+            <div class="tier-card academic">
+                <h3>Academic/Research Tier</h3>
+                <ul>
+                    <li>Cross-correlations ("Healthcare workers aged 35-44 in Ontario")</li>
+                    <li>Detailed demographic slices</li>
+                    <li>Export capabilities for analysis</li>
+                    <li>Historical data access</li>
+                </ul>
+                <div class="price">$1,000/month</div>
+            </div>
+
+            <div class="tier-card enterprise">
+                <h3>Think Tank & Government Tier</h3>
+                <ul>
+                    <li>Fine-grained segmentation</li>
+                    <li>Values-based groupings ("Voters who prioritize environment AND economy")</li>
+                    <li>Custom queries with dedicated liaison</li>
+                    <li>Real-time data updates</li>
+                    <li>Private reports and briefings</li>
+                </ul>
+                <div class="price">$10,000 - $30,000/month</div>
+            </div>
+        </div>
+
+        <div class="revenue-section">
+            <h2>💰 Your Share: Policap Dividends</h2>
+            <div class="revenue-card">
+                <p>Every question you answer earns you Policap, Senatai's internal currency.</p>
+                <ul class="revenue-benefits">
+                    <li><strong>50% of your Policap balance</strong> = estimated annual dividend</li>
+                    <li>The richer your data profile, the more valuable the platform</li>
+                    <li>Higher platform revenue = higher dividends for all members</li>
+                    <li>You're a co-owner in this cooperative</li>
+                </ul>
+                <div class="example">
+                    <strong>Example:</strong> If you earn 1,000 Policap from answering questions, you could receive ~500 Policap in dividends at year-end, redeemable for cash.
+                </div>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2>🔒 Your Privacy is Protected</h2>
+            <div class="privacy-grid">
+                <div class="privacy-point">
+                    <div class="icon">🎭</div>
+                    <h4>Always Anonymous</h4>
+                    <p>Your identity is never linked to your answers or demographics</p>
+                </div>
+                <div class="privacy-point">
+                    <div class="icon">📊</div>
+                    <h4>Aggregated Only</h4>
+                    <p>Clients see patterns, not individuals: "45% of healthcare workers support..."</p>
+                </div>
+                <div class="privacy-point">
+                    <div class="icon">✋</div>
+                    <h4>You Control Everything</h4>
+                    <p>Skip any question, update demographics anytime, delete your data</p>
+                </div>
+                <div class="privacy-point">
+                    <div class="icon">🏛️</div>
+                    <h4>Cooperative Ownership</h4>
+                    <p>You're part owner - we can't sell data without the model you agreed to</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2>🎯 Competing with Gallup & Angus Reid</h2>
+            <p>Traditional polling companies charge similar rates but have major limitations:</p>
+            <div class="comparison-grid">
+                <div class="comparison-card traditional">
+                    <h4>Traditional Polling</h4>
+                    <ul class="cons">
+                        <li>Small sample sizes (1,000-2,000 people)</li>
+                        <li>Limited questions per survey</li>
+                        <li>Expensive to run ($50k-$200k per poll)</li>
+                        <li>Respondents not compensated</li>
+                        <li>Slow turnaround (weeks/months)</li>
+                    </ul>
+                </div>
+                <div class="comparison-card senatai">
+                    <h4>Senatai Model</h4>
+                    <ul class="pros">
+                        <li>Massive sample sizes (thousands to millions)</li>
+                        <li>Unlimited questions, continuous data</li>
+                        <li>Low operational costs (digital-first)</li>
+                        <li>Respondents earn dividends</li>
+                        <li>Real-time insights</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="decision-section">
+            <h2>So... What Will You Do?</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="demographic_decision">
+                <div class="decision-buttons">
+                    <button type="submit" name="decision" value="answer" class="btn btn-primary btn-large">
+                        I'll provide demographic info
+                    </button>
+                    <button type="submit" name="decision" value="skip" class="btn btn-secondary">
+                        Skip demographics, just answer about laws
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="back-link">
+            <a href="{{ url_for('home') }}">← Return to homepage</a>
+        </div>
+    </div>
+</div>
+
+<style>
+.explanation-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.explanation-box {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.explanation-box h1 {
+    color: #2c5aa0;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.explanation-box h2 {
+    color: #2c5aa0;
+    font-size: 1.8rem;
+    margin: 3rem 0 1.5rem 0;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.75rem;
+}
+
+.tier-section .intro {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.tier-card {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #e0e0e0;
+}
+
+.tier-card.free { border-left-color: #95a5a6; }
+.tier-card.student { border-left-color: #3498db; }
+.tier-card.journalist { border-left-color: #9b59b6; }
+.tier-card.academic { border-left-color: #e67e22; }
+.tier-card.enterprise { border-left-color: #27ae60; }
+
+.tier-card h3 {
+    color: #2c5aa0;
+    margin-bottom: 1rem;
+}
+
+.tier-card ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.tier-card li {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.tier-card .price {
+    font-weight: bold;
+    color: #27ae60;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.revenue-card {
+    background: linear-gradient(135deg, #f0f5fa 0%, #e8f5e9 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid #27ae60;
+}
+
+.revenue-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.revenue-benefits li {
+    padding: 0.75rem 0;
+    color: #333;
+}
+
+.revenue-benefits li:before {
+    content: "💵 ";
+    margin-right: 0.5rem;
+}
+
+.example {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    color: #555;
+    border-left: 3px solid #27ae60;
+}
+
+.privacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.privacy-point {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.privacy-point .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.privacy-point h4 {
+    color: #2c5aa0;
+    margin-bottom: 0.5rem;
+}
+
+.privacy-point p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.comparison-card {
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.comparison-card.traditional {
+    background: #fff5f5;
+    border: 2px solid #e74c3c;
+}
+
+.comparison-card.senatai {
+    background: #f0fff4;
+    border: 2px solid #27ae60;
+}
+
+.comparison-card h4 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.comparison-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.comparison-card li {
+    padding: 0.5rem 0;
+    color: #555;
+}
+
+.cons li:before {
+    content: "✗ ";
+    color: #e74c3c;
+    margin-right: 0.5rem;
+}
+
+.pros li:before {
+    content: "✓ ";
+    color: #27ae60;
+    margin-right: 0.5rem;
+}
+
+.decision-section {
+    background: #f0f5fa;
+    padding: 3rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.decision-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.back-link a {
+    color: #2c5aa0;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .explanation-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .decision-buttons {
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}

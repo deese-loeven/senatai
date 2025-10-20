@@ -1,0 +1,390 @@
+{% extends "base.html" %}
+
+{% block title %}Settings & More - Senatai{% endblock %}
+
+{% block content %}
+<div class="settings-container">
+    <h1>⚙️ Settings & More</h1>
+    
+    <div class="settings-grid">
+        <div class="settings-section">
+            <h2>📝 Question Preferences</h2>
+            <p class="section-description">Customize how questions are presented to you</p>
+            
+            <div class="setting-group">
+                <label>Question Styles</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" checked> Yes/No</label>
+                    <label><input type="checkbox" checked> Multiple Choice</label>
+                    <label><input type="checkbox"> Fill in the Blank</label>
+                    <label><input type="checkbox" checked> Scale (1-10)</label>
+                </div>
+            </div>
+            
+            <div class="setting-group">
+                <label>Question Tones</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" checked> Emotional</label>
+                    <label><input type="checkbox" checked> Analytical</label>
+                    <label><input type="checkbox" checked> Trade-off Prioritization</label>
+                    <label><input type="checkbox"> Partisan Framing</label>
+                    <label><input type="checkbox" checked> Fairness & Justice</label>
+                </div>
+            </div>
+            
+            <div class="setting-group">
+                <label>Knowledge Level</label>
+                <select class="setting-select">
+                    <option>Beginner - Simple language, more context</option>
+                    <option selected>Intermediate - Balanced explanations</option>
+                    <option>Advanced - Technical details, minimal context</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-secondary" disabled>💾 Save Preferences (Coming Soon)</button>
+        </div>
+
+        <div class="settings-section">
+            <h2>🔮 Predictor Selection</h2>
+            <p class="section-description">Choose which prediction models to use</p>
+            
+            <div class="predictor-options">
+                <label class="predictor-option">
+                    <input type="radio" name="predictor" value="logic-tree" checked>
+                    <div class="predictor-info">
+                        <h4>Logic Tree Predictor</h4>
+                        <p>Simple rule-based predictions using if/then logic</p>
+                        <span class="accuracy-badge">Baseline accuracy</span>
+                    </div>
+                </label>
+                
+                <label class="predictor-option">
+                    <input type="radio" name="predictor" value="statistical">
+                    <div class="predictor-info">
+                        <h4>Statistical Analyzer</h4>
+                        <p>Weighted correlation analysis of your responses</p>
+                        <span class="accuracy-badge">Medium accuracy</span>
+                    </div>
+                </label>
+                
+                <label class="predictor-option">
+                    <input type="radio" name="predictor" value="ml">
+                    <div class="predictor-info">
+                        <h4>ML Pattern Matcher</h4>
+                        <p>Pattern recognition across all your survey answers</p>
+                        <span class="accuracy-badge">Higher accuracy</span>
+                    </div>
+                </label>
+            </div>
+            
+            <button class="btn btn-secondary" disabled>🔄 Switch Predictor (Coming Soon)</button>
+        </div>
+
+        <div class="settings-section coming-soon-section">
+            <h2>💰 Financial Options</h2>
+            <p class="section-description">Link your bank to receive trust fund dividends</p>
+            
+            <div class="coming-soon-box">
+                <div class="icon">🚧</div>
+                <h3>Coming Soon!</h3>
+                <p>Sign up to receive your share of cooperative profits through:</p>
+                <ul class="feature-list">
+                    <li>Direct deposit (Canadian banks)</li>
+                    <li>PayPal & Interac e-Transfer</li>
+                    <li>Cryptocurrency options</li>
+                    <li>Reinvest dividends into Policap</li>
+                </ul>
+                <p class="help-text">Expected annual dividend: ~50% of your Policap balance</p>
+            </div>
+        </div>
+
+        <div class="settings-section coming-soon-section">
+            <h2>🌍 Languages & Databases</h2>
+            <p class="section-description">Access legislation in multiple languages</p>
+            
+            <div class="coming-soon-box">
+                <div class="icon">🚧</div>
+                <h3>Coming Soon!</h3>
+                <p>We're expanding to support:</p>
+                
+                <div class="expansion-grid">
+                    <div>
+                        <h4>🇨🇦 Languages</h4>
+                        <ul>
+                            <li>✓ English (Available)</li>
+                            <li>🔜 French (En cours)</li>
+                            <li>🔜 Spanish</li>
+                            <li>🔜 More languages...</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>🏛️ Law Databases</h4>
+                        <ul>
+                            <li>✓ Canadian Federal (Available)</li>
+                            <li>🔜 Provincial/Territorial</li>
+                            <li>🔜 Municipal bylaws</li>
+                            <li>🔜 International legislation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if current_user.is_authenticated %}
+        <div class="settings-section">
+            <h2>👤 Account & Privacy</h2>
+            <p class="section-description">Manage your account settings</p>
+            
+            <div class="account-info">
+                <p><strong>Username:</strong> {{ current_user.username }}</p>
+                <p><strong>Policap Balance:</strong> {{ current_user.policap_balance }}</p>
+                <p><strong>Privacy Level:</strong> Maximum (no email, no location tracking)</p>
+            </div>
+            
+            <div class="quick-links">
+                <a href="{{ url_for('profile') }}" class="btn btn-link">View Full Profile</a>
+                <a href="{{ url_for('find_rep') }}" class="btn btn-link">Contact My Representative</a>
+                <a href="{{ url_for('trending') }}" class="btn btn-link">Trending Topics</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="settings-section">
+            <h2>👤 Guest Mode</h2>
+            <p class="section-description">You're browsing as a guest</p>
+            
+            <div class="guest-cta">
+                <p>Create an account to save preferences, earn Policap, and vote on legislation.</p>
+                <a href="{{ url_for('signup') }}" class="btn btn-primary">Create Account</a>
+                <a href="{{ url_for('login') }}" class="btn btn-secondary">Login</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+.settings-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.settings-container h1 {
+    font-size: 2.5rem;
+    color: #2c5aa0;
+    margin-bottom: 2rem;
+}
+
+.settings-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.settings-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.settings-section h2 {
+    color: #2c5aa0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.section-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.setting-group {
+    margin-bottom: 2rem;
+}
+
+.setting-group label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.setting-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.predictor-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.predictor-option {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.predictor-option:has(input:checked) {
+    border-color: #2c5aa0;
+    background: #f0f5fa;
+}
+
+.predictor-option input {
+    margin-right: 1rem;
+}
+
+.predictor-info h4 {
+    color: #2c5aa0;
+    margin-bottom: 0.5rem;
+}
+
+.predictor-info p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.accuracy-badge {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.coming-soon-section {
+    background: #f9f9f9;
+}
+
+.coming-soon-box {
+    text-align: center;
+    padding: 2rem;
+}
+
+.coming-soon-box .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.coming-soon-box h3 {
+    color: #f39c12;
+    margin-bottom: 1rem;
+}
+
+.coming-soon-box .feature-list {
+    text-align: left;
+    max-width: 400px;
+    margin: 1.5rem auto;
+    list-style: none;
+    padding: 0;
+}
+
+.coming-soon-box .feature-list li {
+    padding: 0.5rem 0;
+    color: #555;
+}
+
+.coming-soon-box .feature-list li:before {
+    content: "→ ";
+    color: #2c5aa0;
+    font-weight: bold;
+}
+
+.help-text {
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.expansion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.expansion-grid h4 {
+    color: #2c5aa0;
+    margin-bottom: 0.75rem;
+}
+
+.expansion-grid ul {
+    list-style: none;
+    padding: 0;
+}
+
+.expansion-grid li {
+    padding: 0.4rem 0;
+    color: #555;
+}
+
+.account-info {
+    background: #f0f5fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.account-info p {
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.guest-cta {
+    text-align: center;
+    padding: 2rem;
+    background: #f0f5fa;
+    border-radius: 8px;
+}
+
+.guest-cta p {
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.guest-cta .btn {
+    margin: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .settings-container {
+        padding: 1rem;
+    }
+    
+    .quick-links {
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}

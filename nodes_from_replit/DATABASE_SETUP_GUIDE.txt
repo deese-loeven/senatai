@@ -1,0 +1,103 @@
+PERSISTENT NODE DATABASE SETUP GUIDE
+====================================
+
+I noticed your database is at: ~/senatai/data/openparliament.public.sql
+
+This appears to be a SQL DUMP FILE (backup), not a running database server.
+
+Here's what you need to do:
+
+
+OPTION 1: Use Your SQL Dump File (Recommended for Testing)
+-----------------------------------------------------------
+
+If you want to load your existing data into PostgreSQL:
+
+1. Make sure PostgreSQL is installed and running:
+   sudo systemctl status postgresql
+   
+2. Create a new database:
+   sudo -u postgres createdb openparliament
+   
+3. Load your SQL dump into it:
+   sudo -u postgres psql openparliament < ~/senatai/data/openparliament.public.sql
+   
+4. Create the Senatai tables:
+   cd ~/senatai/nodes_from_replit/senatai-persistent-node
+   sudo -u postgres psql openparliament < init_postgres_tables.sql
+   
+5. Set your DATABASE_URL to the LOCAL database:
+   export DATABASE_URL="postgresql://postgres@localhost/openparliament"
+   
+6. Run the app:
+   python3 app.py
+
+
+OPTION 2: Fresh Database (Quickest for Testing)
+------------------------------------------------
+
+If you just want to test the Persistent Node without your data:
+
+1. Make sure PostgreSQL is installed:
+   sudo apt install postgresql postgresql-contrib
+   
+2. Start PostgreSQL:
+   sudo systemctl start postgresql
+   
+3. Create a test database:
+   sudo -u postgres createdb senatai_test
+   
+4. Initialize the Senatai tables:
+   cd ~/senatai/nodes_from_replit/senatai-persistent-node
+   sudo -u postgres psql senatai_test < init_postgres_tables.sql
+   
+5. Set DATABASE_URL:
+   export DATABASE_URL="postgresql://postgres@localhost/senatai_test"
+   
+6. Run the app:
+   python3 app.py
+
+
+OPTION 3: Remote Database (For Production)
+-------------------------------------------
+
+If you're connecting to a remote PostgreSQL server at 216.211.67.180:
+
+1. Make sure the server is running and accepting connections
+2. Make sure your firewall allows connections to port 5432
+3. Initialize the tables on the remote server:
+   cd ~/senatai/nodes_from_replit/senatai-persistent-node
+   psql postgresql://dan:senatai2025@216.211.67.180:5432/openparliament < init_postgres_tables.sql
+4. Run the app:
+   export DATABASE_URL="postgresql://dan:senatai2025@216.211.67.180:5432/openparliament"
+   python3 app.py
+
+
+TROUBLESHOOTING
+---------------
+
+If PostgreSQL isn't installed:
+  sudo apt update
+  sudo apt install postgresql postgresql-contrib
+
+If you get "peer authentication failed":
+  Use: sudo -u postgres psql
+  Or edit: /etc/postgresql/*/main/pg_hba.conf
+
+If you can't connect to remote database:
+  Check firewall, check PostgreSQL allows remote connections
+  Edit postgresql.conf: listen_addresses = '*'
+  Edit pg_hba.conf: add host line for remote connections
+
+
+QUICK STATUS CHECK
+------------------
+
+To see if PostgreSQL is running:
+  sudo systemctl status postgresql
+
+To see what databases exist:
+  sudo -u postgres psql -l
+
+To connect to a database:
+  sudo -u postgres psql database_name

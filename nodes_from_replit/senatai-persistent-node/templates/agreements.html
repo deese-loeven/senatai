@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Agreements - Senatai{% endblock %}
+
+{% block content %}
+<div class="agreements-container">
+    <h1>Welcome to Senatai Cooperative</h1>
+    <p class="subtitle">Please review and accept our agreements to continue</p>
+    
+    <form method="POST" class="agreements-form">
+        <div class="agreement-section">
+            <h2>Terms of Service & Privacy Policy</h2>
+            <div class="agreement-box">
+                <h3>Data Minimization Commitment</h3>
+                <p>Senatai is committed to protecting your privacy through data minimization. We only collect:</p>
+                <ul>
+                    <li>Your username (no email required)</li>
+                    <li>Your encrypted password</li>
+                    <li>Your voting patterns and Policap balance</li>
+                </ul>
+                
+                <h3>How Your Data Is Used</h3>
+                <p>Your anonymized voting data contributes to:</p>
+                <ul>
+                    <li>Aggregate consensus views on legislation</li>
+                    <li>Research on democratic participation</li>
+                    <li>Revenue for the cooperative data trust</li>
+                </ul>
+                
+                <h3>Your Rights</h3>
+                <ul>
+                    <li>You can delete your account at any time</li>
+                    <li>Your individual votes are never sold or shared</li>
+                    <li>Only anonymized, aggregated data is used commercially</li>
+                    <li>You receive dividends from data trust revenue</li>
+                </ul>
+            </div>
+            
+            <label class="checkbox-label">
+                <input type="checkbox" name="accept_terms" required>
+                <span>I have read and accept the Terms of Service and Privacy Policy</span>
+            </label>
+        </div>
+        
+        <div class="agreement-section">
+            <h2>Cooperative Agreement & Data Trust</h2>
+            <div class="agreement-box">
+                <h3>Cooperative Ownership Model</h3>
+                <p>By joining Senatai, you become a member-owner of the Senatai Cooperative. This means:</p>
+                <ul>
+                    <li>You own your data and control how it's used</li>
+                    <li>You participate in cooperative governance decisions</li>
+                    <li>You receive dividend payments based on your engagement</li>
+                </ul>
+                
+                <h3>Political Capital (Policap) System</h3>
+                <p>Policap is our cooperative currency that represents your civic engagement:</p>
+                <ul>
+                    <li>Earn Policap by voting on legislation (1.0 Policap per survey)</li>
+                    <li>Daily limits apply: Full rewards for first 10 votes, then diminishing returns</li>
+                    <li>Spend up to 2 Policap per bill to emphasize your position</li>
+                    <li>Your Policap balance determines your dividend share</li>
+                </ul>
+                
+                <h3>Data Trust Revenue Model</h3>
+                <p>The Senatai Data Trust generates revenue by selling anonymized, aggregated civic engagement data to:</p>
+                <ul>
+                    <li>Academic researchers studying democratic participation</li>
+                    <li>Policy institutes analyzing public opinion</li>
+                    <li>Media organizations understanding constituent views</li>
+                </ul>
+                <p><strong>All revenue is distributed to cooperative members based on their Policap balance.</strong></p>
+                
+                <h3>Disclaimers</h3>
+                <ul>
+                    <li>Senatai is NOT affiliated with any government entity</li>
+                    <li>Your votes here do NOT count as official votes in elections</li>
+                    <li>Vote predictions are estimates and may not be accurate</li>
+                    <li>Dividend amounts are estimates and not guaranteed</li>
+                    <li>This platform is for civic education and engagement only</li>
+                </ul>
+            </div>
+            
+            <label class="checkbox-label">
+                <input type="checkbox" name="accept_coop" required>
+                <span>I understand and accept the Cooperative Agreement and Data Trust terms</span>
+            </label>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-large">Accept Agreements & Join Cooperative</button>
+    </form>
+    
+    <p class="logout-link">
+        <a href="{{ url_for('logout') }}">I do not accept - Logout</a>
+    </p>
+</div>
+{% endblock %}

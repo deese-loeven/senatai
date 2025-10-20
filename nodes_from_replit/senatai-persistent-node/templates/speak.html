@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}{{ icebreaker }} - Senatai{% endblock %}
+
+{% block content %}
+<div class="speak-container">
+    <div class="speak-box">
+        <h1 class="icebreaker">{{ icebreaker }}</h1>
+        <p class="speak-subtitle">Anonymous. No signup. Just speak.</p>
+        
+        <form method="POST" class="speak-form">
+            <textarea 
+                name="complaint" 
+                id="complaint" 
+                placeholder="Type anything... landlord laws, family laws, little little little toy trucks, whatever's on your mind"
+                rows="6"
+                autofocus
+                required></textarea>
+            
+            <div class="speak-actions">
+                <button type="submit" class="btn btn-primary btn-large">Submit</button>
+                <p class="privacy-note">
+                    🔒 Fully anonymous. We don't track who you are.
+                </p>
+            </div>
+        </form>
+        
+        <div class="speak-info">
+            <h3>What happens next?</h3>
+            <ol>
+                <li>We analyze your message for topics and themes</li>
+                <li>We match it to relevant legislation</li>
+                <li>Bills get tagged with public interest data</li>
+                <li>That's it. You can close this page anytime.</li>
+            </ol>
+            
+            <p class="optional">
+                <strong>Want to do more?</strong> You can optionally <a href="{{ url_for('signup') }}">create an account</a> to vote on bills and earn Policap rewards.
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+.speak-container {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+.speak-box {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.icebreaker {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c5aa0;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.speak-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.speak-form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    resize: vertical;
+    min-height: 150px;
+    transition: border-color 0.2s;
+}
+
+.speak-form textarea:focus {
+    outline: none;
+    border-color: #2c5aa0;
+}
+
+.speak-actions {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.privacy-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.speak-info {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.speak-info h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.speak-info ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.speak-info li {
+    margin-bottom: 0.75rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.optional {
+    background: #f0f5fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.optional a {
+    color: #2c5aa0;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .speak-container {
+        padding: 1rem;
+    }
+    
+    .speak-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .icebreaker {
+        font-size: 1.8rem;
+    }
+}
+</style>
+{% endblock %}

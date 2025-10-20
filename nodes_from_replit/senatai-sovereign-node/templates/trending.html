@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}Trending Topics - Senatai{% endblock %}
+
+{% block content %}
+<div class="trending-container">
+    <h1>What Canadians Are Talking About</h1>
+    <p class="subtitle">{{ total_complaints }} anonymous voices heard so far</p>
+    
+    <div class="trending-grid">
+        {% for topic in trending_topics %}
+        <div class="trending-card">
+            <div class="trending-rank">#{{ loop.index }}</div>
+            <h3>{{ topic[0] }}</h3>
+            <div class="trending-stats">
+                <span class="stat-item">
+                    <strong>{{ topic[1] }}</strong> mentions
+                </span>
+                <span class="stat-item">
+                    Last: {{ topic[2].strftime('%b %d') if topic[2] else 'Recently' }}
+                </span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="trending-actions">
+        <a href="{{ url_for('speak') }}" class="btn btn-primary btn-large">Add Your Voice</a>
+        <a href="{{ url_for('vote') }}" class="btn btn-secondary">Vote on Legislation</a>
+    </div>
+    
+    <div class="trending-info">
+        <h3>How This Works</h3>
+        <p>Every time someone shares what's on their mind through our <a href="{{ url_for('speak') }}">anonymous complaint system</a>, we analyze the topics and match them to relevant legislation. This helps us understand what Canadians really care about, beyond polls and surveys.</p>
+        <p><strong>The data is anonymized</strong> and used to guide policy attention and funding through the Senatai cooperative.</p>
+    </div>
+</div>
+
+<style>
+.trending-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.trending-container h1 {
+    font-size: 2.5rem;
+    color: #2c5aa0;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.trending-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trending-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.trending-rank {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #f39c12;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.trending-card h3 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-right: 50px;
+}
+
+.trending-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-item {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.stat-item strong {
+    color: #2c5aa0;
+    font-size: 1.1rem;
+}
+
+.trending-actions {
+    text-align: center;
+    margin: 3rem 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.trending-info {
+    background: #f0f5fa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+}
+
+.trending-info h3 {
+    color: #2c5aa0;
+    margin-bottom: 1rem;
+}
+
+.trending-info p {
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.trending-info a {
+    color: #2c5aa0;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .trending-container {
+        padding: 1rem;
+    }
+    
+    .trending-actions {
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}

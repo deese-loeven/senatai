@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+
+{% block title %}Select Bills - Senatai{% endblock %}
+
+{% block content %}
+<div class="select-bills-container">
+    <div class="select-header">
+        <h1>Do any of these laws seem relevant?</h1>
+        <p class="subtitle">Based on what you shared, here are some bills that might relate to your concern:</p>
+        <div class="your-comment">
+            <strong>Your comment:</strong> "{{ complaint_text[:150] }}{% if complaint_text|length > 150 %}...{% endif %}"
+        </div>
+    </div>
+
+    <form method="POST" class="bills-form">
+        <div class="bills-grid">
+            {% for bill in bills %}
+            <div class="bill-option {% if bill['is_highly_relevant'] %}highly-relevant{% endif %}">
+                <label class="bill-label">
+                    <input type="checkbox" name="selected_bills" value="{{ bill['bill_id'] }}">
+                    <div class="bill-content">
+                        {% if bill['is_highly_relevant'] %}
+                        <span class="relevance-flag">🚩 Most Relevant</span>
+                        {% endif %}
+                        <h3>{{ bill['bill_id'] }}: {{ bill['bill_title'] }}</h3>
+                        <p class="bill-summary">{{ bill['bill_summary'] }}</p>
+                        <div class="bill-meta">
+                            <span class="category-tag">{{ bill['category'] if bill['category'] else 'General' }}</span>
+                            <span class="status-badge {{ bill['status'].lower() }}">{{ bill['status'] }}</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="action-buttons">
+            <button type="submit" class="btn btn-primary btn-large">Continue with Selected Bills</button>
+            <p class="help-text">Select 1-2 bills to explore through questions</p>
+        </div>
+    </form>
+
+    <div class="exit-options">
+        <p>Not finding what you're looking for?</p>
+        <a href="{{ url_for('speak') }}" class="btn btn-secondary">Try different words</a>
+        <a href="{{ url_for('consensus_forums') }}" class="btn btn-link">Browse all bills</a>
+        <a href="{{ url_for('home') }}" class="btn btn-link">Exit (type "quit" anytime)</a>
+    </div>
+</div>
+
+<style>
+.select-bills-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.select-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.select-header h1 {
+    font-size: 2.2rem;
+    color: #2c5aa0;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.your-comment {
+    background: #f0f5fa;
+    padding: 1rem;
+    border-radius: 8px;
+    font-style: italic;
+    color: #555;
+}
+
+.bills-form {
+    margin-bottom: 3rem;
+}
+
+.bills-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.bill-option {
+    background: white;
+    border: 3px solid #e0e0e0;
+    border-radius: 12px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.bill-option:hover {
+    border-color: #2c5aa0;
+    box-shadow: 0 4px 12px rgba(44, 90, 160, 0.1);
+}
+
+.bill-option.highly-relevant {
+    border-color: #27ae60;
+    background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%);
+}
+
+.bill-label {
+    display: flex;
+    padding: 1.5rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.bill-label input[type="checkbox"] {
+    margin-right: 1.5rem;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.bill-content {
+    flex: 1;
+}
+
+.relevance-flag {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.bill-content h3 {
+    color: #2c5aa0;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.bill-summary {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.bill-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.category-tag {
+    background: #e8f0fe;
+    color: #2c5aa0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-badge.passed {
+    background: #27ae60;
+    color: white;
+}
+
+.status-badge.debate {
+    background: #f39c12;
+    color: white;
+}
+
+.action-buttons {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.help-text {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.exit-options {
+    text-align: center;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+
+.exit-options p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.exit-options .btn {
+    margin: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .select-bills-container {
+        padding: 1rem;
+    }
+    
+    .select-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .bill-label {
+        flex-direction: column;
+    }
+    
+    .bill-label input[type="checkbox"] {
+        margin-bottom: 1rem;
+    }
+}
+</style>
+
+<script>
+// Limit selection to 2 bills
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('input[name="selected_bills"]');
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            const checked = document.querySelectorAll('input[name="selected_bills"]:checked');
+            if (checked.length > 2) {
+                this.checked = false;
+                alert('Please select maximum 2 bills to keep the session focused.');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

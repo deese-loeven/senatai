@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+{% block title %}Senatai - Your Voice in Democracy{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="home-header">
+        <h1>Welcome to Senatai</h1>
+        <p class="tagline">Privacy-first civic engagement. Your data, your voice, your cooperative.</p>
+        {% if current_user.is_authenticated %}
+        <div class="user-stats">
+            <span class="stat-badge">💰 {{ balance }} Policap</span>
+            <span class="stat-badge">✓ {{ vote_count }} Votes</span>
+        </div>
+        {% else %}
+        <p class="guest-welcome">👋 You're browsing as a guest. <a href="{{ url_for('signup') }}">Create an account</a> to vote and earn Policap.</p>
+        {% endif %}
+    </div>
+
+    <div class="home-grid">
+        <a href="{{ url_for('answer_questions') }}" class="home-card primary">
+            <div class="card-icon">📝</div>
+            <h2>Answer Questions</h2>
+            <p>Share your thoughts on legislation. Help us understand your values and priorities.</p>
+            <span class="card-badge">Start here</span>
+        </a>
+
+        <a href="{{ url_for('audit_predictions') }}" class="home-card">
+            <div class="card-icon">🔮</div>
+            <h2>Audit Predictions</h2>
+            <p>See how we predict you'd vote on bills. Spend Policap to confirm or veto predictions.</p>
+            {% if not current_user.is_authenticated %}
+            <span class="card-badge locked">Requires account</span>
+            {% endif %}
+        </a>
+
+        <a href="{{ url_for('consensus_forums') }}" class="home-card">
+            <div class="card-icon">💬</div>
+            <h2>View Consensus</h2>
+            <p>See how Canadians are voting. Discuss bills in community forums.</p>
+            <span class="card-badge">Public data</span>
+        </a>
+
+        <a href="{{ url_for('settings') }}" class="home-card">
+            <div class="card-icon">⚙️</div>
+            <h2>Settings & More</h2>
+            <p>Customize your experience. Choose question styles, predictors, and preferences.</p>
+        </a>
+    </div>
+
+    <div class="home-info">
+        <div class="info-card">
+            <h3>📊 Live Stats</h3>
+            <p><strong>{{ bill_count }}</strong> Canadian bills available</p>
+            <p><strong>{{ total_complaints }}</strong> anonymous voices heard</p>
+            {% if current_user.is_authenticated %}
+            <p><strong>{{ total_votes }}</strong> total votes cast</p>
+            {% endif %}
+        </div>
+
+        <div class="info-card">
+            <h3>🔒 Privacy First</h3>
+            <p>No email required. No location tracking. You own your data.</p>
+            <p>Guests remain fully anonymous. Members control their information.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>💰 Cooperative Model</h3>
+            <p>Earn Policap for participation. Share in platform value.</p>
+            <p>Your data, your dividends. Democracy as a public utility.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.home-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.home-header h1 {
+    font-size: 3rem;
+    color: #2c5aa0;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.user-stats {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.stat-badge {
+    background: #f0f5fa;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    color: #2c5aa0;
+}
+
+.guest-welcome {
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.guest-welcome a {
+    color: #2c5aa0;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.home-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.home-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.home-card.primary {
+    border-color: #2c5aa0;
+    background: linear-gradient(135deg, #f0f5fa 0%, #ffffff 100%);
+}
+
+.card-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.home-card h2 {
+    color: #2c5aa0;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.home-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.card-badge {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.card-badge.locked {
+    background: #95a5a6;
+}
+
+.home-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.info-card {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.info-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+
+.info-card strong {
+    color: #2c5aa0;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .home-container {
+        padding: 1rem;
+    }
+    
+    .home-header h1 {
+        font-size: 2rem;
+    }
+    
+    .home-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

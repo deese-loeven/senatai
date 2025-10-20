@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Answer Questions - Senatai{% endblock %}
+
+{% block content %}
+<div class="placeholder-container">
+    <h1>🎯 Question Sequence Coming Next!</h1>
+    <p class="subtitle">You've selected {{ selected_bills|length }} bill(s) to explore</p>
+    
+    <div class="selected-bills">
+        <h3>Your Selected Bills:</h3>
+        <ul>
+            {% for bill_id in selected_bills %}
+            <li>{{ bill_id }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="next-steps">
+        <h3>Here's what's coming:</h3>
+        <ol>
+            <li><strong>1 comprehension question</strong> - Do you understand what this bill does?</li>
+            <li><strong>2 emotive questions</strong> - How does this make you feel?</li>
+            <li><strong>1 comparison question</strong> - Trade-offs and priorities</li>
+            <li><strong>Sign up/guest prompt</strong> - Choose to create account or continue as guest</li>
+            <li><strong>3-4 more questions</strong> - Dive deeper into values and principles</li>
+            <li><strong>Move to next bill</strong> - Answer 3-4 questions on the second bill</li>
+            <li><strong>Check-in question</strong> - "Do these questions make sense? What do you wish we were talking about?"</li>
+        </ol>
+    </div>
+    
+    <div class="actions">
+        <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Homepage</a>
+        <p class="help-text">Question sequence will be implemented in the next phase!</p>
+    </div>
+</div>
+
+<style>
+.placeholder-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.placeholder-container h1 {
+    color: #f39c12;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.selected-bills {
+    background: #f0f5fa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.selected-bills h3 {
+    color: #2c5aa0;
+    margin-bottom: 1rem;
+}
+
+.selected-bills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.selected-bills li {
+    padding: 0.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.next-steps {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.next-steps h3 {
+    color: #2c5aa0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.next-steps ol {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+}
+
+.next-steps li {
+    padding: 0.75rem 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.actions {
+    margin-top: 2rem;
+}
+
+.help-text {
+    margin-top: 1rem;
+    color: #666;
+    font-style: italic;
+}
+</style>
+{% endblock %}

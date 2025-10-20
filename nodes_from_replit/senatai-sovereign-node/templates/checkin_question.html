@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}Quick Check-in - Senatai{% endblock %}
+
+{% block content %}
+<div class="checkin-container">
+    <div class="checkin-box">
+        <h1>Quick Check-in 💭</h1>
+        <p class="subtitle">You've answered {{ question_count }} questions! How are we doing?</p>
+
+        <form method="POST" class="checkin-form">
+            <input type="hidden" name="action" value="answer_question">
+            
+            <div class="checkin-question">
+                <h3>Do these questions make sense?</h3>
+                <div class="rating-buttons">
+                    <button type="submit" name="makes_sense" value="yes" class="rating-btn good">👍 Yes, they're clear</button>
+                    <button type="submit" name="makes_sense" value="mostly" class="rating-btn neutral">🤷 Mostly</button>
+                    <button type="submit" name="makes_sense" value="no" class="rating-btn bad">👎 No, confusing</button>
+                </div>
+            </div>
+
+            <div class="checkin-question">
+                <h3>What do you wish we were talking about?</h3>
+                <textarea name="wish_discussing" 
+                          placeholder="Any topics or angles we're missing?"
+                          rows="3"
+                          class="feedback-input"></textarea>
+            </div>
+
+            <div class="checkin-question">
+                <h3>Feel like there's bias here?</h3>
+                <div class="rating-buttons">
+                    <button type="submit" name="bias" value="no" class="rating-btn good">No bias detected</button>
+                    <button type="submit" name="bias" value="slight" class="rating-btn neutral">Slight bias</button>
+                    <button type="submit" name="bias" value="yes" class="rating-btn bad">Yes, biased questions</button>
+                </div>
+            </div>
+
+            <div class="checkin-question">
+                <h3>Do you want more context about the bills?</h3>
+                <div class="rating-buttons">
+                    <button type="submit" name="more_context" value="no" class="rating-btn">Current level is fine</button>
+                    <button type="submit" name="more_context" value="yes" class="rating-btn">Yes, more details please</button>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-primary btn-large">Submit Feedback & Continue</button>
+                <button type="submit" name="skip_checkin" value="true" class="btn btn-link">Skip check-in</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+.checkin-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.checkin-box {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.checkin-box h1 {
+    color: #2c5aa0;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.checkin-question {
+    margin: 2.5rem 0;
+}
+
+.checkin-question h3 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.rating-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.rating-btn {
+    flex: 1;
+    min-width: 150px;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.rating-btn:hover {
+    border-color: #2c5aa0;
+    background: #f0f5fa;
+}
+
+.rating-btn.good:hover {
+    border-color: #27ae60;
+    background: #f0fff4;
+}
+
+.rating-btn.bad:hover {
+    border-color: #e74c3c;
+    background: #fff5f5;
+}
+
+.rating-btn.neutral:hover {
+    border-color: #f39c12;
+    background: #fff8e1;
+}
+
+.feedback-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.feedback-input:focus {
+    outline: none;
+    border-color: #2c5aa0;
+}
+
+.action-buttons {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.action-buttons .btn-link {
+    display: block;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .checkin-container {
+        padding: 1rem;
+    }
+    
+    .checkin-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .rating-buttons {
+        flex-direction: column;
+    }
+    
+    .rating-btn {
+        min-width: 100%;
+    }
+}
+</style>
+{% endblock %}

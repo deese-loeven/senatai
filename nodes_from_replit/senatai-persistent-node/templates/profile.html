@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Profile - Senatai{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h1>Your Profile</h1>
+    <p class="subtitle">Welcome, {{ current_user.username }}</p>
+    
+    <div class="profile-card">
+        <div class="policap-display">
+            <h2>Your Political Capital</h2>
+            <div class="policap-balance">{{ "%.1f"|format(balance) }}</div>
+            <p class="policap-label">Policap</p>
+        </div>
+    </div>
+    
+    <div class="trust-card">
+        <h2>Senatai Data Trust</h2>
+        <p>You own a share of the Senatai Data Trust. As a cooperative member, you benefit from the value you create.</p>
+        
+        <div class="dividend-display">
+            <div class="dividend-label">Estimated Annual Dividend</div>
+            <div class="dividend-amount">${{ "%.2f"|format(dividend) }}</div>
+        </div>
+        
+        <p class="dividend-note">Your dividend is calculated based on your Policap balance and platform participation. Actual amounts may vary.</p>
+    </div>
+    
+    <div class="stats-info">
+        <h2>Your Engagement</h2>
+        <div class="engagement-stats">
+            <div class="stat-item">
+                <span class="stat-value">{{ total_votes }}</span>
+                <span class="stat-label">Total Votes Cast</span>
+            </div>
+        </div>
+    </div>
+    
+    {% if transactions %}
+    <div class="transactions-card">
+        <h2>Recent Policap Transactions</h2>
+        <table class="transactions-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tx in transactions %}
+                <tr>
+                    <td>{{ tx[5][:16] if tx[5] else 'N/A' }}</td>
+                    <td><span class="tx-type">{{ tx[3].replace('_', ' ').title() }}</span></td>
+                    <td class="tx-amount {% if tx[2] > 0 %}positive{% else %}negative{% endif %}">
+                        {{ '+' if tx[2] > 0 else '' }}{{ "%.2f"|format(tx[2]) }}
+                    </td>
+                    <td>{{ tx[4] or 'N/A' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+    
+    <div class="action-buttons">
+        <a href="{{ url_for('vote') }}" class="btn btn-primary">Vote on More Legislation</a>
+        <a href="{{ url_for('find_rep') }}" class="btn btn-secondary">Contact Your Representative</a>
+        <a href="{{ url_for('question_modules') }}" class="btn btn-secondary">View Question Generators</a>
+        <a href="{{ url_for('predictor_modules') }}" class="btn btn-secondary">View Vote Predictors</a>
+    </div>
+</div>
+{% endblock %}

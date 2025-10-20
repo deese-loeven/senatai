@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Legislation - Admin - Senatai{% endblock %}
+
+{% block content %}
+<div class="admin-form-container">
+    <h1>Edit Legislation: {{ bill[1] }}</h1>
+    <p class="subtitle">Update bill information and text</p>
+    
+    <form method="POST" class="admin-form">
+        <div class="form-group">
+            <label for="bill_title">Bill Title *</label>
+            <input type="text" id="bill_title" name="bill_title" value="{{ bill[2] }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="bill_summary">Bill Summary *</label>
+            <textarea id="bill_summary" name="bill_summary" rows="4" required>{{ bill[3] }}</textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="full_text">Full Bill Text</label>
+            <textarea id="full_text" name="full_text" rows="10">{{ bill[4] or '' }}</textarea>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option value="Proposed" {% if bill[5] == 'Proposed' %}selected{% endif %}>Proposed</option>
+                    <option value="Debate" {% if bill[5] == 'Debate' %}selected{% endif %}>Debate</option>
+                    <option value="Committee" {% if bill[5] == 'Committee' %}selected{% endif %}>In Committee</option>
+                    <option value="Passed" {% if bill[5] == 'Passed' %}selected{% endif %}>Passed</option>
+                    <option value="Failed" {% if bill[5] == 'Failed' %}selected{% endif %}>Failed</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                    <option value="">Select Category</option>
+                    <option value="Environment" {% if bill[6] == 'Environment' %}selected{% endif %}>Environment</option>
+                    <option value="Economy" {% if bill[6] == 'Economy' %}selected{% endif %}>Economy</option>
+                    <option value="Healthcare" {% if bill[6] == 'Healthcare' %}selected{% endif %}>Healthcare</option>
+                    <option value="Education" {% if bill[6] == 'Education' %}selected{% endif %}>Education</option>
+                    <option value="Labor" {% if bill[6] == 'Labor' %}selected{% endif %}>Labor</option>
+                    <option value="Privacy" {% if bill[6] == 'Privacy' %}selected{% endif %}>Privacy</option>
+                    <option value="Media" {% if bill[6] == 'Media' %}selected{% endif %}>Media</option>
+                    <option value="Social Services" {% if bill[6] == 'Social Services' %}selected{% endif %}>Social Services</option>
+                    <option value="Infrastructure" {% if bill[6] == 'Infrastructure' %}selected{% endif %}>Infrastructure</option>
+                    <option value="Justice" {% if bill[6] == 'Justice' %}selected{% endif %}>Justice</option>
+                    <option value="Other" {% if bill[6] == 'Other' %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="source_url">Source URL</label>
+            <input type="url" id="source_url" name="source_url" value="{{ bill[7] or '' }}">
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Update Legislation</button>
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

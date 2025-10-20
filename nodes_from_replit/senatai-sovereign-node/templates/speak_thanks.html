@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+
+{% block title %}Thank You - Senatai{% endblock %}
+
+{% block content %}
+<div class="thanks-container">
+    <div class="thanks-box">
+        <h1>✓ Your voice has been heard</h1>
+        <p class="thanks-message">Thank you for sharing. Your input matters.</p>
+        
+        {% if topics and topics|length > 0 %}
+        <div class="detected-topics">
+            <h3>We detected interest in:</h3>
+            <div class="topic-tags">
+                {% for topic in topics %}
+                {% if topic %}
+                <span class="topic-tag">{{ topic }}</span>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <p class="topic-note">This helps us understand what Canadians care about most.</p>
+        </div>
+        {% endif %}
+        
+        <div class="next-steps">
+            <h3>What happens now?</h3>
+            <div class="step-cards">
+                <div class="step-card">
+                    <div class="step-icon">📊</div>
+                    <h4>Data is logged</h4>
+                    <p>Your message is anonymously recorded and analyzed for themes</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">🏛️</div>
+                    <h4>Bills are tagged</h4>
+                    <p>Relevant legislation gets marked with public interest</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">💰</div>
+                    <h4>Value is created</h4>
+                    <p>This data helps fund solutions through the Senatai cooperative</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <a href="{{ url_for('speak') }}" class="btn btn-secondary">Say something else</a>
+            <a href="{{ url_for('trending') }}" class="btn btn-link">See what others care about</a>
+        </div>
+        
+        <div class="upgrade-box">
+            <h4>Want to do more?</h4>
+            <p>Create a free account to vote on legislation, earn Policap, and join the cooperative.</p>
+            <a href="{{ url_for('signup') }}" class="btn btn-primary">Create Account</a>
+            <p class="privacy-reminder">Still privacy-first: just username & password, no email or location.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.thanks-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+.thanks-box {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.thanks-box h1 {
+    font-size: 2.5rem;
+    color: #27ae60;
+    margin-bottom: 0.5rem;
+}
+
+.thanks-message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.detected-topics {
+    background: #f0f5fa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+}
+
+.detected-topics h3 {
+    color: #2c5aa0;
+    margin-bottom: 1rem;
+}
+
+.topic-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.topic-tag {
+    background: #2c5aa0;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.topic-note {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.next-steps {
+    margin: 3rem 0;
+}
+
+.next-steps h3 {
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.step-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.step-card {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.step-card h4 {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.step-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.upgrade-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+}
+
+.upgrade-box h4 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.upgrade-box p {
+    margin-bottom: 1.5rem;
+}
+
+.upgrade-box .btn-primary {
+    background: white;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.privacy-reminder {
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .thanks-container {
+        padding: 1rem;
+    }
+    
+    .thanks-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}

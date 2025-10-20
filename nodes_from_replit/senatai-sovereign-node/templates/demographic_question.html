@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block title %}About You - Senatai{% endblock %}
+
+{% block content %}
+<div class="demo-question-container">
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: {{ (progress / 25) * 100 }}%"></div>
+    </div>
+    <p class="progress-text">Question {{ progress }} of ~25</p>
+
+    <div class="demo-question-box">
+        <h2>{{ question['question'] }}</h2>
+        
+        <form method="POST" class="demo-form">
+            <input type="hidden" name="action" value="demographic_response">
+            <input type="hidden" name="question_id" value="{{ question['id'] }}">
+            
+            {% if question['type'] == 'multiple_choice' %}
+            <div class="options-list">
+                {% for option in question['options'] %}
+                <label class="option-label">
+                    <input type="radio" name="response" value="{{ option }}" required>
+                    <span>{{ option }}</span>
+                </label>
+                {% endfor %}
+            </div>
+            {% elif question['type'] == 'multiple_select' %}
+            <div class="options-list">
+                {% for option in question['options'] %}
+                <label class="option-label checkbox-label">
+                    <input type="checkbox" name="response" value="{{ option }}">
+                    <span>{{ option }}</span>
+                </label>
+                {% endfor %}
+            </div>
+            {% elif question['type'] == 'text' %}
+            <textarea name="response" 
+                      placeholder="{{ question.get('placeholder', 'Your answer...') }}"
+                      rows="4"
+                      class="text-response"></textarea>
+            {% endif %}
+            
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-primary">Continue</button>
+                {% if question['skippable'] %}
+                <button type="submit" name="response" value="skip" class="btn btn-secondary">Skip this question</button>
+                {% endif %}
+            </div>
+        </form>
+
+        <div class="privacy-note">
+            <p>🔒 Your responses are anonymized and only shown in aggregate to premium clients</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.demo-question-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2c5aa0 0%, #27ae60 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.demo-question-box {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.demo-question-box h2 {
+    color: #2c5aa0;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option-label:hover {
+    border-color: #2c5aa0;
+    background: #f0f5fa;
+}
+
+.option-label input[type="radio"],
+.option-label input[type="checkbox"] {
+    margin-right: 1rem;
+    width: 20px;
+    height: 20px;
+}
+
+.option-label span {
+    flex: 1;
+    color: #333;
+    font-size: 1.05rem;
+}
+
+.text-response {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    resize: vertical;
+}
+
+.text-response:focus {
+    outline: none;
+    border-color: #2c5aa0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.privacy-note {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.privacy-note p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .demo-question-container {
+        padding: 1rem;
+    }
+    
+    .demo-question-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}

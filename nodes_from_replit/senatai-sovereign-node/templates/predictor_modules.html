@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Vote Predictor Modules - Senatai{% endblock %}
+
+{% block content %}
+<div class="modules-container">
+    <h1>Vote Predictor Modules</h1>
+    <p class="subtitle">AI-powered modules that predict your vote based on your history and preferences</p>
+    
+    <div class="info-box">
+        <h3>How Vote Predictors Work</h3>
+        <p>Vote predictor modules analyze your voting patterns and use machine learning to predict how you might vote on new legislation:</p>
+        <ul>
+            <li><strong>Training Data:</strong> Your historical votes and preferences</li>
+            <li><strong>Predictions:</strong> Includes confidence score for each prediction</li>
+            <li><strong>Transparency:</strong> View the evidence used for each prediction</li>
+            <li><strong>Control:</strong> You can always override predictions</li>
+        </ul>
+    </div>
+    
+    <div class="disclaimer-box">
+        <h3>⚠️ Important Disclaimers</h3>
+        <ul>
+            <li>Predictions are estimates and may not be accurate</li>
+            <li>You should always review bills yourself before voting</li>
+            <li>These modules are experimental and under development</li>
+            <li>No AI system can perfectly represent your values</li>
+        </ul>
+        <p><strong>By using vote predictors, you acknowledge these limitations.</strong></p>
+    </div>
+    
+    <h2>Available Predictor Modules</h2>
+    
+    {% for module in modules %}
+    <div class="module-card">
+        <div class="module-header">
+            <h3>{{ module[1] }}</h3>
+            <div class="module-rating">
+                <span class="rating-stars">★</span> {{ "%.1f"|format(module[4]) }} / 5.0
+            </div>
+        </div>
+        
+        <p class="module-description">{{ module[2] }}</p>
+        
+        <div class="module-details">
+            <div class="detail-item">
+                <strong>Version:</strong> {{ module[3] }}
+            </div>
+            <div class="detail-item">
+                <strong>Status:</strong> 
+                {% if module[6] == 1 %}
+                <span class="status-badge status-active">Active</span>
+                {% else %}
+                <span class="status-badge status-inactive">Inactive</span>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="module-info">
+            <h4>Prediction Method:</h4>
+            <p>This is a template module. Future versions will use machine learning algorithms trained on your voting patterns to predict your positions on new legislation.</p>
+            
+            <h4>Accuracy History:</h4>
+            <p>{{ module[5] }}</p>
+            
+            <h4>Evidence & Transparency:</h4>
+            <ul>
+                <li>View which past votes influenced each prediction</li>
+                <li>See confidence scores for all predictions</li>
+                <li>Review the open-source prediction algorithm</li>
+                <li>Track prediction accuracy over time</li>
+            </ul>
+        </div>
+        
+        <div class="module-actions">
+            <button class="btn btn-secondary" disabled>View Source Code (Coming Soon)</button>
+            <button class="btn btn-secondary" disabled>See Development History (Coming Soon)</button>
+            <button class="btn btn-secondary" disabled>Rate This Module (Coming Soon)</button>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <div class="template-notice">
+        <h3>Future Development</h3>
+        <p>Vote predictor modules are currently in template form. When you're ready to integrate AI models, you can:</p>
+        <ul>
+            <li>Train models on user voting patterns</li>
+            <li>Implement confidence scoring algorithms</li>
+            <li>Add evidence-based explanations for predictions</li>
+            <li>Allow users to select from multiple prediction models</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

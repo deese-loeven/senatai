@@ -1,0 +1,221 @@
+<!-- Policap Reward Display Widget - Include in question pages -->
+{% if reward_info %}
+<div class="policap-reward-widget">
+    <div class="reward-header">
+        <h4>💰 Today's Progress</h4>
+        <div class="balance">
+            Balance: <strong>{{ "%.2f"|format(current_user.policap_balance) }}</strong> Policap
+        </div>
+    </div>
+    
+    <div class="reward-stats">
+        <div class="stat">
+            <div class="stat-label">Questions Today</div>
+            <div class="stat-value">{{ reward_info['questions_today'] }}</div>
+        </div>
+        <div class="stat highlight">
+            <div class="stat-label">Next Reward</div>
+            <div class="stat-value">{{ "%.3f"|format(reward_info['next_reward']) }} Policap</div>
+        </div>
+    </div>
+    
+    <div class="reward-schedule">
+        <h5>Reward Schedule</h5>
+        <div class="schedule-bar">
+            {% if reward_info['questions_today'] < 100 %}
+            <div class="schedule-segment active">
+                <span>Q1-100:</span> <strong>1.0</strong> Policap
+            </div>
+            {% else %}
+            <div class="schedule-segment completed">
+                <span>Q1-100:</span> ✓ Complete
+            </div>
+            {% endif %}
+            
+            {% if reward_info['questions_today'] >= 100 and reward_info['questions_today'] < 250 %}
+            <div class="schedule-segment active">
+                <span>Q101-250:</span> <strong>Diminishing</strong> (1.0 → 0.01)
+            </div>
+            {% elif reward_info['questions_today'] >= 250 %}
+            <div class="schedule-segment completed">
+                <span>Q101-250:</span> ✓ Complete
+            </div>
+            {% else %}
+            <div class="schedule-segment">
+                <span>Q101-250:</span> Diminishing returns
+            </div>
+            {% endif %}
+            
+            {% if reward_info['questions_today'] >= 250 %}
+            <div class="schedule-segment active">
+                <span>Q250+:</span> <strong>0.001</strong> Policap
+            </div>
+            {% else %}
+            <div class="schedule-segment">
+                <span>Q250+:</span> 0.001 Policap
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="next-rewards">
+        <span class="next-label">Next 5 rewards:</span>
+        {% for i in range(5) %}
+        <span class="reward-chip">{{ "%.3f"|format(reward_info['preview'][i]) }}</span>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+.policap-reward-widget {
+    background: linear-gradient(135deg, #f0f5fa 0%, #e8f5e9 100%);
+    border: 2px solid #27ae60;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.reward-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(39, 174, 96, 0.3);
+}
+
+.reward-header h4 {
+    margin: 0;
+    color: #27ae60;
+    font-size: 1.3rem;
+}
+
+.balance {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.balance strong {
+    color: #27ae60;
+    font-size: 1.4rem;
+}
+
+.reward-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat.highlight {
+    background: #27ae60;
+    color: white;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.stat.highlight .stat-label {
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.reward-schedule {
+    margin: 1.5rem 0;
+}
+
+.reward-schedule h5 {
+    color: #2c5aa0;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.schedule-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.schedule-segment {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.6;
+}
+
+.schedule-segment.active {
+    background: white;
+    opacity: 1;
+    border: 2px solid #27ae60;
+}
+
+.schedule-segment.completed {
+    background: rgba(39, 174, 96, 0.2);
+    opacity: 1;
+}
+
+.schedule-segment span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.schedule-segment strong {
+    color: #27ae60;
+}
+
+.next-rewards {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.next-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.reward-chip {
+    background: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #27ae60;
+    font-weight: bold;
+    border: 1px solid #27ae60;
+}
+
+@media (max-width: 768px) {
+    .reward-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .next-rewards {
+        justify-content: center;
+    }
+}
+</style>
+{% endif %}

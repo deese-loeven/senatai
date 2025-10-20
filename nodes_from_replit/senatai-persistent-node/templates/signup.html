@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up - Senatai{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h1>Join Senatai</h1>
+    <p class="subtitle">Create your account in seconds</p>
+    
+    <form method="POST" class="auth-form">
+        <div class="form-group">
+            <label for="username">Choose a Username</label>
+            <input type="text" id="username" name="username" required autofocus>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Choose a Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    
+    <p class="auth-switch">
+        Already have an account? <a href="{{ url_for('login') }}">Login</a>
+    </p>
+    
+    <div class="privacy-notice">
+        <p><strong>Privacy First:</strong> We only ask for a username and password. No email, no personal data.</p>
+    </div>
+</div>
+{% endblock %}
