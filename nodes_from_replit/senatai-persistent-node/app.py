@@ -12,6 +12,9 @@ import psycopg2.extras
 import random
 import uuid
 from datetime import datetime, date
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+import random # <--- Make sure 'random' is imported (it's used in db_utils now)
+from db_utils import get_db_connection, save_questions_for_bill, save_question_responses, get_questions_for_user_and_bill # <--- Add the new function
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -21,6 +24,7 @@ import icebreakers
 import demographics
 import policap_rewards
 import badges
+import db_utils
 # Environment-based configuration only
 
 
@@ -306,10 +310,16 @@ def home():
 
 
 @app.route('/answer_questions')
-def answer_questions():
-    """Main entry point for the Answer Questions flow - starts with Post and Ghost"""
-    return redirect(url_for('speak'))
+def answer_bill_questions():
+    if 'senatair_id' not in session:
+        flash("Please log in to answer questions.")
+        return redirect(url_for('login'))
 
+    bill_id = session.get('current_bill_id')
+    
+    if not bill_id:
+        flash("Please select a bill first.")
+        return redirect(url_for('select_bills'))
 
 @app.route('/audit_predictions')
 def audit_predictions():
@@ -361,9 +371,21 @@ def signup():
             return redirect(url_for('signup'))
         
         password_hash = generate_password_hash(password)
-        cursor.execute('INSERT INTO senatairs (username, password_hash) VALUES (%s, %s)', (username, password_hash))
-        conn.commit()
-        conn.close()
+        
+        try:
+            cursor.execute('INSERT INTO senatairs (username, password_hash) VALUES (%s, %s)', (username, password_hash))
+            conn.commit()
+            conn.close()
+        except psycopg2.IntegrityError:
+            conn.rollback()
+            conn.close()
+            flash('Username already exists. Please choose another.', 'error')
+            return redirect(url_for('signup'))
+        except Exception as e:
+            conn.rollback()
+            conn.close()
+            flash(f'Error creating account: {str(e)}', 'error')
+            return redirect(url_for('signup'))
         
         flash('Account created successfully! Please review and accept our agreements.', 'success')
         return redirect(url_for('login'))
@@ -508,7 +530,7 @@ def vote():
             'category': bill.get('category', 'General')
         }
         
-        questions = save_questions_for_bill(bill['bill_id'], bill['bill_title'], bill['bill_summary'], bill_dict['category'])
+        questions = db_utils.save_questions_for_bill(bill['bill_id'], bill['bill_title'], bill['bill_summary'], bill_dict['category'])
         bill_dict['questions'] = questions
         bills_with_questions.append(bill_dict)
     
@@ -869,7 +891,8 @@ def trending():
     trending_topics = cursor.fetchall()
     
     cursor.execute('SELECT COUNT(*) FROM complaints')
-    total_complaints = cursor.fetchone()[0]
+    result = cursor.fetchone()
+    total_complaints = result['count'] if result else 0
     
     conn.close()
     
@@ -1028,6 +1051,18 @@ def admin_delete_legislation(bill_id):
     flash(f'Legislation {bill_id} deleted successfully.', 'success')
     return redirect(url_for('admin_dashboard'))
 
+
+
+# Error handlers for development testing
+@app.errorhandler(404)
+def not_found(e):
+    flash('Page not found. This prototype feature may not be ready yet.', 'error')
+    return redirect(url_for('home'))
+
+@app.errorhandler(500)
+def internal_error(e):
+    flash('Something went wrong in the prototype. We are working on it!', 'error')
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

@@ -1,0 +1,6 @@
+# config/database.yaml
+persistent_node:
+  # Using the default password: senatai2025
+  SQLALCHEMY_DATABASE_URI: postgresql://dan:senatai2025@localhost:5432/openparliament 
+sovereign_node:
+  SQLALCHEMY_DATABASE_URI: sqlite:///local_laws.db

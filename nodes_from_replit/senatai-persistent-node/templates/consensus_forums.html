@@ -20,10 +20,10 @@
         {% for bill in bills %}
         <div class="bill-card">
             <div class="bill-header">
-                <h3>{{ bill[0] }}: {{ bill[1] }}</h3>
-                <span class="status-badge {{ bill[4].lower() }}">{{ bill[4] }}</span>
+                <h3>{{ bill['bill_id'] }}: {{ bill['bill_title'] }}</h3>
+                <span class="status-badge {{ bill['status'].lower() }}">{{ bill['status'] }}</span>
             </div>
-            <p class="bill-summary">{{ bill[2] }}</p>
+            <p class="bill-summary">{{ bill['bill_summary'] }}</p>
             <div class="bill-meta">
                 <span class="category-tag">{{ bill[3] if bill[3] else 'General' }}</span>
             </div>

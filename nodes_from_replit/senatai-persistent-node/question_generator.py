@@ -1,4 +1,82 @@
 import random
+import hashlib # Critical for the audit/receipt hash
+
+# ... (EMOTIONS, INTENSITIES, VALUES_PAIRS, etc., remain unchanged) ...
+
+# --- UTILITY FUNCTION FOR HASHING (UPDATED) ---
+def generate_question_hash(question_text, options, context_id=None):
+    """
+    Creates a unique SHA-256 hash for all questions for auditing/tracking.
+    
+    If context_id is provided (e.g., bill_id), it makes the hash specific to that context, 
+    perfect for bill-specific/non-reusable questions (the auditable receipt).
+    If context_id is None, the hash is based only on text/options, creating a globally 
+    unique ID for reusable questions (the permanent repository key).
+    """
+    # Use context_id instead of just bill_id to generalize for ALL question types
+    data = f"{question_text}|{options if options else ''}|{context_id if context_id else ''}"
+    return hashlib.sha256(data.encode('utf-8')).hexdigest()
+
+# ... (All individual question generators remain unchanged) ...
+
+# ... (PERMANENT_GENERATORS and BILL_SPECIFIC_GENERATORS lists remain unchanged) ...
+
+
+# --- MAIN GENERATOR FUNCTION (UPDATED LOGIC) ---
+def generate_questions_for_bill(bill_id, bill_title, bill_summary, category='General', num_questions=5):
+    """
+    Generates questions, applying the hash to ALL questions for Policap audit/reward, 
+    but varies the hash input based on reusability.
+    Returns two lists: (permanent_questions, bill_specific_questions)
+    """
+    
+    # Calculate 70/30 split
+    num_permanent = round(num_questions * 0.7)
+    num_bill_specific = num_questions - num_permanent
+
+    permanent_questions = []
+    bill_specific_questions = []
+
+    # 1. Generate Permanent Questions (70% - Reusable Principles)
+    p_generators = random.sample(PERMANENT_GENERATORS, min(num_permanent, len(PERMANENT_GENERATORS)))
+    
+    for generator in p_generators:
+        try:
+            question = generator(bill_title, bill_id, category) 
+            
+            # CRITICAL: HASHING FOR REUSABILITY (context_id=None)
+            q_hash = generate_question_hash(question['text'], question['options'], context_id=None)
+            question['question_hash'] = q_hash
+            
+            question['bill_id'] = bill_id
+            question['module_name'] = 'Sophisticated Question Generator v1.0 (Permanent)'
+            permanent_questions.append(question)
+        except Exception as e:
+            print(f"Error generating permanent question: {e}")
+            continue
+
+    # 2. Generate Bill-Specific Questions (30% - Auditable Receipt)
+    b_generators = random.sample(BILL_SPECIFIC_GENERATORS, min(num_bill_specific, len(BILL_SPECIFIC_GENERATORS)))
+    
+    for generator in b_generators:
+        try:
+            question = generator(bill_title, bill_id, category)
+            
+            # CRITICAL: HASHING FOR AUDIT RECEIPT (context_id=bill_id)
+            # This hash is unique to the question + the specific bill/context
+            q_hash = generate_question_hash(question['text'], question['options'], context_id=bill_id) 
+            question['question_hash'] = q_hash
+            
+            question['bill_id'] = bill_id
+            question['module_name'] = 'Sophisticated Question Generator v1.0 (Specific)'
+            bill_specific_questions.append(question)
+        except Exception as e:
+            print(f"Error generating specific question: {e}")
+            continue
+            
+    return permanent_questions, bill_specific_questions
+
+import random
 
 EMOTIONS = [
     'hopeful', 'angry', 'worried', 'skeptical', 'fearful', 'optimistic', 
@@ -21,7 +99,7 @@ VALUES_PAIRS = [
 ]
 
 PARTIES = [
-    "Trudeau's Liberals",
+    "Liberals",
     'Conservatives',
     'NDP',
     'Bloc Québécois',

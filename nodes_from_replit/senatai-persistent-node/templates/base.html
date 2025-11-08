@@ -7,6 +7,44 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- DEVELOPMENT PROTOTYPE BANNER -->
+    <div class="dev-banner">
+        <div class="dev-banner-content">
+            <span class="dev-icon">🚧</span>
+            <div class="dev-text">
+                <strong>DEVELOPMENT PROTOTYPE</strong> - Intermittently available for testing only. 
+                No real data will be monetized. Pseudonyms encouraged.
+            </div>
+        </div>
+    </div>
+    <style>
+    .dev-banner {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+        color: white;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .dev-banner-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .dev-icon { font-size: 1.5rem; }
+    .dev-text {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    @media (max-width: 768px) {
+        .dev-banner { padding: 0.5rem; }
+        .dev-text { font-size: 0.8rem; }
+    }
+    </style>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="{{ url_for('home') }}" class="logo">Senatai</a>
