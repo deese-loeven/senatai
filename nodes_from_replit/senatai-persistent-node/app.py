@@ -309,7 +309,6 @@ def home():
                          total_votes=total_votes)
 
 
-@app.route('/answer_questions')
 def answer_bill_questions():
     if 'senatair_id' not in session:
         flash("Please log in to answer questions.")
